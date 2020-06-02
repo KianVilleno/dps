@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { textControls } from "../styles/mixins"
 
 const Subtitle = styled.h3`
   color: #000000;
@@ -6,6 +7,7 @@ const Subtitle = styled.h3`
   font-weight: 300;
   letter-spacing: 0.01em;
   line-height: 1.2;
+  ${textControls}
 `
 
 const Paragraph = styled.p`
@@ -13,57 +15,66 @@ const Paragraph = styled.p`
   color: #111111;
   font-size: 22px;
   line-height: 1.4;
-  padding: ${(props => props.p) ? props => props.p : "0"};
-  margin: ${(props => props.m) ? props => props.m : "0 auto"};
-  margin-top: ${(props => props.mt) ? props => props.mt : "0"};
-  margin-bottom: ${(props => props.mb) ? props => props.mb : "0"};
-  margin-left: ${(props => props.ml) ? props => props.ml : "auto"};
-  margin-right: ${(props => props.mr) ? props => props.mr : "auto"};
-  max-width: ${(props => props.maxWidth) ? props => props.maxWidth : "auto"};
+  ${textControls}
 `
 
-const TextSm = styled.p`
-  color: #303b4c;
-  font-family: GT America Mono Trial;
+const TextSm = styled.span`
+  color: ${props => props.theme.colors.text};
+  font-family: "GT America Mono";
   font-size: 19px;
   line-height: 1.4;
+  ${textControls}
 `
 
 const TextBase = styled.p`
-  color: #303b4c;
-  font-family: GT Super Txt Trial;
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Text";
   font-size: 22px;
   line-height: 1.4;
+  ${textControls}
 `
 
 const TextLg = styled.h4`
-  color: #303b4c;
-  font-family: GT Super Txt Trial;
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Text";
   font-size: 30px;
   line-height: 1.3;
+  ${textControls}
 `
 
 const Text2Xl = styled.h3`
-  color: #303b4c;
-  font-family: GT Super Ds Trial;
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Display";
   font-size: 50px;
   line-height: 1.15;
+  ${textControls}
 
   ${props => (props.bold ? `font-weight: bold;` : null)}
 `
 
 const Text3Xl = styled.h2`
-  font-family: GT Super Ds Trial;
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Display";
   font-size: 100px;
   line-height: 1.15;
-  color: #303b4c;
+  ${textControls}
 `
 
 const Text4Xl = styled.h1`
-  color: #303b4c;
-  font-family: GT Super Ds Trial;
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Display";
   font-size: 150px;
   line-height: 115%;
+  ${textControls}
 `
 
-export { Subtitle, Paragraph, TextSm, TextBase, Text2Xl, Text3Xl, Text4Xl }
+export {
+  Subtitle,
+  Paragraph,
+  TextSm,
+  TextBase,
+  TextLg,
+  Text2Xl,
+  Text3Xl,
+  Text4Xl,
+}

@@ -1,5 +1,6 @@
 // Imports
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../../Layouts/Layout"
 import Hero from "../../components/Hero"
 import Body from "../../components/Show/Body"
@@ -25,7 +26,7 @@ export default ({ data }) => {
 
 // Query
 export const query = graphql`
-  query ShowQuery($slug: String!) {
+  query ShowQuery($slug: String) {
     datoCmsShow(slug: { eq: $slug }) {
       title
       slug

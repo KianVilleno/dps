@@ -1,18 +1,24 @@
 // Imports
 import "../styles/index.css"
-import React from "react"
+/** @jsx jsx */
+import { jsx, ThemeProvider, useThemeUI } from "theme-ui"
 import styled from "@emotion/styled"
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
 
 // Components
 const Layout = ({ children }) => {
+  const context = useThemeUI()
+  const { theme, colorMode, setColorMode } = context
+
   return (
-    <Page>
-      <Nav />
-      <Main>{children}</Main>
-      <Footer />
-    </Page>
+    <ThemeProvider theme={theme}>
+      <Page>
+        <Nav />
+        <Main>{children}</Main>
+        <Footer />
+      </Page>
+    </ThemeProvider>
   )
 }
 
