@@ -1,37 +1,32 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
-import Hero from "../components/Hero"
+import Hero from "../components/Home/Hero"
 import CTASection from "../components/CTASection"
 import SimpleSlider from "../components/SimpleSlider"
-import { useThemeUI } from "theme-ui"
-const ThemeTging = () => {
-  const context = useThemeUI()
-  const { theme, colorMode, setColorMode } = context
-  return (
-    <div>
-      <button
-        onClick={e => {
-          setColorMode(colorMode === "default" ? "dark" : "default")
-        }}
-      >
-        Toggle {colorMode === "default" ? "Dark" : "Light"}
-      </button>
-      <pre>{JSON.stringify(colorMode, null, 2)}</pre>
-
-      <pre>{JSON.stringify(theme, null, 2)}</pre>
-    </div>
-  )
-}
+import { Dodecagon } from "../components/Shapes/Dodecagon"
+import { DodecagonTwo } from "../components/Shapes/DodecagonTwo"
+import { Decagon } from "../components/Shapes/Decagon"
+import { DecagonTwo } from "../components/Shapes/DecagonTwo"
 const Home = ({ data: { home } }) => {
-  const hero = home.hero.hero[0]
+  console.log(home)
+  const hero = {
+    heroBackgroundVideo: home.heroBackgroundVideo,
+    heroBackgroundImage: home.heroBackgroundImage,
+    showHighlightsReel: home.showHighlightsReel,
+  }
+
   const ctasection = home.ctaSection.ctas
   const slideshow = home.slideshow.slides
+
   return (
     <Layout>
       <Hero sectionData={hero} />
+      <Dodecagon />
+      <DodecagonTwo />
+      <Decagon />
+      <DecagonTwo />
       <CTASection sectionData={ctasection} />
-      <ThemeTging />
       <SimpleSlider sectionData={slideshow} />
     </Layout>
   )
@@ -40,16 +35,16 @@ const Home = ({ data: { home } }) => {
 export const query = graphql`
   query HomepageQuery {
     home: datoCmsHomePage {
-      id
-      hero {
-        hero {
-          title
-          subtitle
-          buttonLink
-          buttonText
-          playHighlightsButton
+      heroBackgroundVideo {
+        video {
+          mp4Url
         }
       }
+      heroBackgroundImage {
+        url
+        alt
+      }
+      showHighlightsReel
       ctaSection {
         ctas {
           buttonLink

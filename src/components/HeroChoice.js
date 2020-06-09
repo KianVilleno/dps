@@ -10,8 +10,8 @@ const HeroChoice = props => {
       <Title>{title}</Title>
 
       <Categories>
-        {categories.map(category => (
-          <Category href={`shows/${category.slug}`}>
+        {categories.map((category, index) => (
+          <Category href={`shows/${category.slug}`} key={index}>
             {category.categoryTitle}
           </Category>
         ))}

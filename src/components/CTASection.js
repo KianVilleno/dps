@@ -12,10 +12,10 @@ const CTASection = props => {
   return (
     <Section>
       <Row>
-        {sectionData.map(CTAData => {
+        {sectionData.map((CTAData, index) => {
           const { title, content, buttonText, buttonLink } = CTAData
           return (
-            <Column>
+            <Column key={index}>
               <CTA
                 title={title}
                 content={content}

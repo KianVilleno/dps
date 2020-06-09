@@ -31,8 +31,10 @@ export const Body = props => {
           </ColumnTwo>
         </Row>
 
-        {accordions.map(accordion => (
-          <Accordion titleText={accordion.title}>{accordion.content}</Accordion>
+        {accordions.map((accordion, index) => (
+          <Accordion titleText={accordion.title} key={index}>
+            {accordion.content}
+          </Accordion>
         ))}
       </Container>
     </SECTION>

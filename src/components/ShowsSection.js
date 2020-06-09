@@ -9,12 +9,13 @@ const ShowsSection = props => {
     <Section>
       <Container>
         <Shows>
-          {showsData.map(show => (
+          {showsData.map((show, index) => (
             <Show
               titleText={show.title}
               imgSrc={show.imgSrc}
               imgAlt={show.imgAlt}
               content={show.content}
+              key={index}
             />
           ))}
         </Shows>

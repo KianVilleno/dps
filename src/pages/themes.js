@@ -51,6 +51,7 @@ const ThemesPage = () => {
       >
         Toggle Default
       </button>
+
       <ThemeProvider theme={theme}>
         <ButtonDefault href="yeah">lorem ipsum dolor sit amet</ButtonDefault>
         <ButtonAlt href="yeah">lorem ipsum dolor sit amet</ButtonAlt>
@@ -58,6 +59,7 @@ const ThemesPage = () => {
           lorem ipsum dolor sit amet
         </ButtonHighlight>
       </ThemeProvider>
+
       <ButtonFilled href="yeah">lorem ipsum dolor sit amet</ButtonFilled>
     </div>
   )

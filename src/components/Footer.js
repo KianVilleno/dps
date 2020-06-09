@@ -42,8 +42,8 @@ const Footer = props => {
           <FooterSection>
             <SliderStyled>
               <Slider {...settings}>
-                {footerGallery.map(image => (
-                  <SlideImage src={image.url} alt={image.alt} />
+                {footerGallery.map((image, index) => (
+                  <SlideImage src={image.url} alt={image.alt} key={index} />
                 ))}
               </Slider>
             </SliderStyled>

@@ -27,6 +27,7 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-modal": "^3.11.2",
+    "react-player": "^2.2.0",
     "react-scrolllock": "^5.0.1",
     "react-slick": "^0.26.1",
     "slick-carousel": "^1.8.1",

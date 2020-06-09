@@ -21,11 +21,12 @@ const SimpleSlider = props => {
       <PreText>Company</PreText>
       <SliderStyled>
         <Slider {...settings}>
-          {sectionData.map(slide => (
+          {sectionData.map((slide, index) => (
             <Slide
               titleOne={slide.titleOne}
               images={slide.slideImages}
               titleTwo={slide.titleTwo}
+              key={index}
             />
           ))}
         </Slider>
@@ -39,8 +40,8 @@ const Slide = props => {
   return (
     <SlideStyled>
       <TitleOne>{titleOne}</TitleOne>
-      {images.map(image => (
-        <SlideImage src={image.url} alt={image.alt} />
+      {images.map((image, index) => (
+        <SlideImage src={image.url} alt={image.alt} key={index} />
       ))}
       <TitleTwo>{titleTwo}</TitleTwo>
     </SlideStyled>

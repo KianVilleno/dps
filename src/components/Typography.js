@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { textControls } from "../styles/mixins"
 
 const Subtitle = styled.h3`
-  color: #000000;
+  color: ${props => props.theme.colors.text};
   font-size: 51px;
   font-weight: 300;
   letter-spacing: 0.01em;

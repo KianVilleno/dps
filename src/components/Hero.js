@@ -3,7 +3,8 @@ import React from "react"
 import styled from "@emotion/styled"
 import { respondTo } from "../styles/mixins"
 import Button from "../components/Button"
-
+import { Text4Xl } from "../components/Typography"
+import { Heading } from "theme-ui"
 // Components
 const Hero = props => {
   const { sectionData } = props
@@ -20,7 +21,9 @@ const Hero = props => {
     <SectionHeader>
       <ContentContainer>
         <SubText>{subtitle}</SubText>
-        <Title>{title}</Title>
+        <Heading as="h1" variant="text4xl">
+          {title}
+        </Heading>
         <ButtonContainer>
           {buttonText ? <Button to={buttonLink}>{buttonText}</Button> : null}
           {playHighlightsButton ? (

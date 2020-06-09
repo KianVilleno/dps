@@ -1,4 +1,7 @@
 import { colors } from "../styles/settings"
+import { baseButtonStyles, buttonColors } from "./buttonStyles"
+import { baseTextStyles } from "./textStyles"
+
 const {
   midnight,
   denim,
@@ -13,93 +16,67 @@ const {
 } = colors
 
 export default {
-  styles: {
-    someComponent: {
-      fontSize: 40,
-      fontWeight: "bold",
-    },
-  },
   colors: {
     text: denim,
     background: tan,
     button: {
-      default: {
-        text: denim,
-        background: "transparent",
-        borderColor: granola,
-      },
-      alternative: {
-        text: granola,
-        background: "transparent",
-        borderColor: cloud,
-      },
-      highlight: {
-        text: granola,
-        background: "transparent",
-        borderColor: candy,
-      },
-      filled: {
-        text: denim,
-        background: white,
-        borderColor: white,
-      },
+      ...buttonColors.default,
     },
     modes: {
       midnight: {
         text: granola,
         background: midnight,
         button: {
-          default: {
-            text: granola,
-            background: "transparent",
-            borderColor: granola,
-          },
-          alternative: {
-            text: granola,
-            background: "transparent",
-            borderColor: tan,
-          },
-          highlight: {
-            text: granola,
-            background: "transparent",
-            borderColor: candy,
-          },
-          filled: {
-            text: denim,
-            background: granola,
-            borderColor: granola,
-          },
+          ...buttonColors.midnight,
         },
       },
       cloud: {
         text: white,
         background: cloud,
         button: {
-          default: {
-            text: tan,
-            background: "transparent",
-            borderColor: tan,
-          },
-          alternative: {
-            text: white,
-            background: "transparent",
-            borderColor: butter,
-          },
-          highlight: {
-            text: white,
-            background: "transparent",
-            borderColor: denim,
-          },
-          filled: {
-            text: denim,
-            background: white,
-            borderColor: white,
-          },
+          ...buttonColors.cloud,
         },
       },
     },
   },
-
+  buttons: {
+    primary: {
+      ...baseButtonStyles,
+      color: "button.primary.text",
+      backgroundColor: "transparent",
+      borderColor: "button.primary.borderColor",
+    },
+    alternative: {
+      ...baseButtonStyles,
+      color: "button.alternative.text",
+      backgroundColor: "transparent",
+      borderColor: "button.alternative.borderColor",
+    },
+    highlight: {
+      ...baseButtonStyles,
+      color: "button.highlight.text",
+      backgroundColor: "transparent",
+      borderColor: "button.highlight.borderColor",
+    },
+    filled: {
+      ...baseButtonStyles,
+      color: "button.filled.text",
+      backgroundColor: "button.filled.borderColor",
+      borderColor: "button.filled.borderColor",
+    },
+  },
+  text: {
+    ...baseTextStyles,
+  },
+  links: {
+    link: {
+      color: "text",
+      fontFamily: "gtAmericaMono",
+      fontSize: 0,
+      lineHeight: "large",
+      textTransform: "uppercase",
+    },
+  },
   fonts: {
     gtAmericaMono: "'GT America Mono', monospace",
     gtSuperText: "'GT Super Text', serif",
@@ -115,4 +92,5 @@ export default {
     medium: 1.3,
     large: 1.4,
   },
+  styles: {},
 }
