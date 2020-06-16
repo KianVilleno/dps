@@ -7,7 +7,7 @@ import Nav from "../components/Nav"
 import Footer from "../components/Footer"
 
 // Components
-const Layout = ({ children }) => {
+const Layout = ({ children, path }) => {
   const context = useThemeUI()
   const { theme, colorMode, setColorMode } = context
 

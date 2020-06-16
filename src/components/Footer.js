@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Slider from "react-slick"
+import { Heading, Text, Input } from "theme-ui"
 import { respondTo } from "../styles/mixins"
 import Button from "./Button"
 import "slick-carousel/slick/slick.css"
@@ -50,18 +51,38 @@ const Footer = props => {
 
             <FooterInner>
               <Contact>
-                <Content>{contactText}</Content>
-                <Button to="#" mt="46px">
+                <Heading
+                  as="h4"
+                  variant="textXl"
+                  sx={{
+                    marginBottom: 30,
+                    "@media only screen and (min-width: 992px)": {
+                      maxWidth: 590,
+                    },
+                  }}
+                >
+                  {contactText}
+                </Heading>
+                <Button href="/contact" variant="primary">
                   Contact Us
                 </Button>
               </Contact>
 
               <Newsletter>
-                <NewsletterTitle>{newsletterTitle}</NewsletterTitle>
-                <NewsletterInfo>{newsletterInfo}</NewsletterInfo>
-                <Button to="#" mt="46px">
-                  Button
-                </Button>
+                <Heading
+                  as="h4"
+                  variant="textXl"
+                  sx={{
+                    color: "textOther",
+                    marginBottom: 30,
+                  }}
+                >
+                  {newsletterTitle}
+                </Heading>
+                <Text as="p" variant="textBase">
+                  {newsletterInfo}
+                </Text>
+                <Input placeholder="Email address" />
               </Newsletter>
             </FooterInner>
           </FooterSection>
@@ -116,10 +137,10 @@ const FooterInner = styled.div`
   padding: 100px;
   width: 100%;
   max-width: 1440px;
-  ${respondTo.md`
+  @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
-  `}
+  }
 `
 
 const Contact = styled.div`

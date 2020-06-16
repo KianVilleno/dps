@@ -2,17 +2,31 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../Layouts/Layout"
-import Hero from "../../components/Hero"
+import Hero from "../../components/Show/Hero"
 import Body from "../../components/Show/Body"
 
 // Component
 export default ({ data }) => {
-  const { title, bodyTitle, bodyText, accordions } = data.datoCmsShow
-  const heroData = { title, playHighlightsButton: true }
+  const {
+    title,
+    backgroundImage,
+    backgroundVideo,
+    bodyTitle,
+    bodyText,
+    sideContent,
+    accordions,
+  } = data.datoCmsShow
+  const heroData = {
+    title,
+    playHighlightsButton: true,
+    backgroundImage,
+    backgroundVideo,
+  }
   const bodyData = {
     title: bodyTitle,
     content: bodyText,
     accordions,
+    sideContent,
   }
   return (
     <Layout>
@@ -32,6 +46,21 @@ export const query = graphql`
       slug
       bodyTitle
       bodyText
+      backgroundImage {
+        url
+        alt
+      }
+      backgroundVideo {
+        video {
+          mp4Url
+        }
+      }
+      sideContent {
+        buttonLink
+        buttonText
+        showButton
+        text
+      }
       accordions {
         content
         title

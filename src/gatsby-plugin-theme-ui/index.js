@@ -18,6 +18,7 @@ const {
 export default {
   colors: {
     text: denim,
+    textOther: granola,
     background: tan,
     button: {
       ...buttonColors.default,
@@ -69,6 +70,30 @@ export default {
     ...baseTextStyles,
   },
   links: {
+    primary: {
+      ...baseButtonStyles,
+      color: "button.primary.text",
+      backgroundColor: "transparent",
+      borderColor: "button.primary.borderColor",
+    },
+    alternative: {
+      ...baseButtonStyles,
+      color: "button.alternative.text",
+      backgroundColor: "transparent",
+      borderColor: "button.alternative.borderColor",
+    },
+    highlight: {
+      ...baseButtonStyles,
+      color: "button.highlight.text",
+      backgroundColor: "transparent",
+      borderColor: "button.highlight.borderColor",
+    },
+    filled: {
+      ...baseButtonStyles,
+      color: "button.filled.text",
+      backgroundColor: "button.filled.borderColor",
+      borderColor: "button.filled.borderColor",
+    },
     link: {
       color: "text",
       fontFamily: "gtAmericaMono",

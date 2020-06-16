@@ -1,33 +1,61 @@
 // Import
 import React from "react"
 import styled from "@emotion/styled"
-import { respondTo } from "../../styles/mixins"
+import { Heading, Text, Box } from "theme-ui"
 import Section, { Container } from "../../components/Section"
 import { Row, Column } from "../../components/Grid"
 import Accordion from "../../components/Accordion"
 import Button from "../../components/Button"
 // Components
 export const Body = props => {
-  const { title, content, accordions } = props.sectionData
-
+  const { title, content, sideContent, accordions } = props.sectionData
+  console.log(sideContent)
   return (
     <SECTION>
       <Container>
-        <Title>{title}</Title>
+        <Heading
+          as="h2"
+          variant="text2Xl"
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            width: "100%",
+            maxWidth: 1045,
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: 50,
+            marginBottom: 100,
+          }}
+        >
+          {title}
+        </Heading>
         <Row>
           <ColumnOne>
-            <Content>{content}</Content>
+            <Text as="p" variant="textBase">
+              {content}
+            </Text>
           </ColumnOne>
 
           <ColumnTwo>
-            <Content>
-              Playing at QPAC, Sydney Opera House and Brisbane Festival. <br />
-              <Button to="/">Button</Button>
-            </Content>
-            <Content>
-              Available for activations and workshops from 01.06.2020 <br />
-              <Button to="/">Button</Button>
-            </Content>
+            {sideContent.map((block, index) => (
+              <Box
+                key={index}
+                sx={{
+                  ":not(:nth-of-type(1))": {
+                    marginTop: 50,
+                  },
+                }}
+              >
+                <Text as="p" variant="textBase">
+                  {block.text}
+                </Text>
+                {block.showButton ? (
+                  <Button variant="primary" href={block.buttonLink}>
+                    {block.buttonText}
+                  </Button>
+                ) : null}
+              </Box>
+            ))}
           </ColumnTwo>
         </Row>
 
@@ -54,28 +82,20 @@ const Title = styled.h2`
 `
 
 const ColumnOne = styled(Column)`
-  ${respondTo.md`
+  @media only screen and (min-width: 992px) {
     width: 60%;
-  `}
+  }
 `
 const ColumnTwo = styled(Column)`
-  ${respondTo.md`
+  @media only screen and (min-width: 992px) {
+    margin-left: auto;
     width: 40%;
     max-width: 340px;
-  `}
-
-  p:nth-of-type(2) {
-    margin: 50px auto;
   }
 
   a {
     margin-top: 10px;
   }
-`
-
-const Content = styled.p`
-  font-size: 22px;
-  line-height: 1.4;
 `
 
 export default Body

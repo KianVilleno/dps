@@ -2,32 +2,21 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
 import Hero from "../components/Home/Hero"
-import CTASection from "../components/CTASection"
-import SimpleSlider from "../components/SimpleSlider"
-import { Dodecagon } from "../components/Shapes/Dodecagon"
-import { DodecagonTwo } from "../components/Shapes/DodecagonTwo"
-import { Decagon } from "../components/Shapes/Decagon"
-import { DecagonTwo } from "../components/Shapes/DecagonTwo"
+import AboutSection from "../components/Home/About"
+import { ShapesRow } from "../components/Shapes/ShapesRow"
+
 const Home = ({ data: { home } }) => {
-  console.log(home)
   const hero = {
     heroBackgroundVideo: home.heroBackgroundVideo,
     heroBackgroundImage: home.heroBackgroundImage,
     showHighlightsReel: home.showHighlightsReel,
   }
 
-  const ctasection = home.ctaSection.ctas
-  const slideshow = home.slideshow.slides
-
   return (
     <Layout>
       <Hero sectionData={hero} />
-      <Dodecagon />
-      <DodecagonTwo />
-      <Decagon />
-      <DecagonTwo />
-      <CTASection sectionData={ctasection} />
-      <SimpleSlider sectionData={slideshow} />
+      <ShapesRow allShapes={true} />
+      <AboutSection />
     </Layout>
   )
 }
@@ -45,25 +34,6 @@ export const query = graphql`
         alt
       }
       showHighlightsReel
-      ctaSection {
-        ctas {
-          buttonLink
-          buttonText
-          content
-          title
-        }
-      }
-      slideshow {
-        slides {
-          subtitle
-          titleOne
-          titleTwo
-          slideImages {
-            url
-            alt
-          }
-        }
-      }
     }
   }
 `

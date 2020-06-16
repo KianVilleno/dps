@@ -1,7 +1,7 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
-import { Button as ThemeUIButton, useThemeUI } from "theme-ui"
+import { Link as ThemeUIButton, useThemeUI } from "theme-ui"
 // Components
 
 const polygonBorders = (color, filled) => {

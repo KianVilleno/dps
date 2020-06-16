@@ -1,21 +1,47 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
+import { Heading } from "theme-ui"
+import Button from "../components/Button"
 
 // Components
 const HeroChoice = props => {
-  const { title, categories } = props
+  const { title, categories, parent, subtitle } = props
+  const pagePath = window.location.pathname ? window.location.pathname : null
   return (
     <HeroContainer>
-      <Title>{title}</Title>
+      <Heading as="h1" variant="text3Xl">
+        {title}
+      </Heading>
 
       <Categories>
         {categories.map((category, index) => (
-          <Category href={`shows/${category.slug}`} key={index}>
+          <Button
+            variant={
+              pagePath === `/${parent}/${category.slug}` ? "filled" : "primary"
+            }
+            href={`/${parent}/${category.slug}`}
+            key={index}
+          >
             {category.categoryTitle}
-          </Category>
+          </Button>
         ))}
       </Categories>
+
+      <Heading
+        as="h3"
+        variant="textLg"
+        sx={{
+          marginTop: 30,
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "100%",
+          maxWidth: 513,
+          textAlign: "center",
+        }}
+      >
+        {subtitle}
+      </Heading>
     </HeroContainer>
   )
 }
@@ -27,33 +53,15 @@ const HeroContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
   width: 100%;
-  height: 600px;
-`
-const Title = styled.h1`
-  color: #111111;
-  font-size: 100px;
-  font-weight: 300;
-  line-height: 1.2;
-  text-align: center;
+  height: 500px;
 `
 
 const Categories = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 35px;
-`
-const Category = styled.a`
-  margin: 0 5px;
-  padding: 8px 28px;
-  background: none;
-  border: 1px solid #111;
-  border-radius: 120px;
-  font-size: 22px;
-  color: #111111;
-  line-height: 1.4;
-  text-align: center;
-  text-transform: uppercase;
 `
 
 export default HeroChoice

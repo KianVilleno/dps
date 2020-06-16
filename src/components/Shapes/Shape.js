@@ -31,6 +31,7 @@ const ShapeStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0 auto;
   padding: 30px;
   max-width: 530px;
   height: 530px;

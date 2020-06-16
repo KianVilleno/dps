@@ -1,20 +1,24 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
+import { Heading, Text } from "theme-ui"
 import Section, { Container } from "./Section"
+import Button from "./Button"
 
 // Components
 const ShowsSection = props => {
+  const { showsData } = props
   return (
-    <Section>
+    <Section pt="0">
       <Container>
         <Shows>
           {showsData.map((show, index) => (
             <Show
-              titleText={show.title}
-              imgSrc={show.imgSrc}
-              imgAlt={show.imgAlt}
-              content={show.content}
+              slug={show.node.slug}
+              titleText={show.node.title}
+              content={show.node.bodyTitle}
+              imgSrc={show.node.previewImage.url}
+              imgAlt={show.node.previewImage.alt}
               key={index}
             />
           ))}
@@ -25,12 +29,23 @@ const ShowsSection = props => {
 }
 
 const Show = props => {
-  const { titleText, imgSrc, imgAlt, content } = props
+  const { slug, titleText, imgSrc, imgAlt, content } = props
   return (
     <StyledShow>
-      <Title>{titleText}</Title>
+      <Heading
+        as="h3"
+        variant="text2Xl"
+        sx={{ marginBottom: 60, fontWeight: "bold" }}
+      >
+        {titleText}
+      </Heading>
       <ShowImage src={imgSrc} alt={imgAlt} />
-      <Content>{content}</Content>
+      <Text as="p" variant="textBase" sx={{ marginTop: 30, marginBottom: 30 }}>
+        {content}
+      </Text>
+      <Button href={`/shows/${slug}`} variant="primary">
+        View
+      </Button>
     </StyledShow>
   )
 }
@@ -43,61 +58,67 @@ const Shows = styled.div`
 `
 
 const StyledShow = styled.div`
-  width: calc(50% - 20px);
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  @media only screen and (min-width: 992px) {
+    margin-top: 40px;
+    width: calc(50% - 20px);
+    max-width: 482px;
+  }
 `
 const Title = styled.h3`
   color: #000000;
   font-size: 51px;
   font-weight: 300;
   line-height: 1.3;
-  text-align: center;
   letter-spacing: 0.01em;
 `
 const ShowImage = styled.img`
   display: block;
   margin: 0 auto;
+  width: 100%;
 `
 const Content = styled.p`
   color: #000000;
   line-height: 1.4;
   font-size: 22px;
-  text-align: center;
 `
 
 // Mock Data
-const showsData = [
-  {
-    title: "Ishmael",
-    imgSrc: "https://placekitten.com/g/200/300",
-    imgAlt:
-      "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
-    content:
-      "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
-  },
-  {
-    title: "The Riddle of Washpool Gully",
-    imgSrc: "https://placekitten.com/g/200/300",
-    imgAlt:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-    content:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-  },
-  {
-    title: "The Riddle of Washpool Gully",
-    imgSrc: "https://placekitten.com/g/200/300",
-    imgAlt:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-    content:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-  },
-  {
-    title: "The Riddle of Washpool Gully",
-    imgSrc: "https://placekitten.com/g/200/300",
-    imgAlt:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-    content:
-      "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
-  },
-]
+// const showsData = [
+//   {
+//     title: "Ishmael",
+//     imgSrc: "https://placekitten.com/g/200/300",
+//     imgAlt:
+//       "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
+//     content:
+//       "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
+//   },
+//   {
+//     title: "The Riddle of Washpool Gully",
+//     imgSrc: "https://placekitten.com/g/200/300",
+//     imgAlt:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//     content:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//   },
+//   {
+//     title: "The Riddle of Washpool Gully",
+//     imgSrc: "https://placekitten.com/g/200/300",
+//     imgAlt:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//     content:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//   },
+//   {
+//     title: "The Riddle of Washpool Gully",
+//     imgSrc: "https://placekitten.com/g/200/300",
+//     imgAlt:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//     content:
+//       "Far beyond the outskirts of the big city, near a tiny town that nearly everyone...",
+//   },
+// ]
 
 export default ShowsSection

@@ -34,14 +34,14 @@ export const baseTextStyles = {
     fontWeight: "regular",
     lineHeight: "small",
   },
-  text3xl: {
+  text3Xl: {
     color: "text",
     fontFamily: "gtSuperDisplay",
     fontSize: 5,
     fontWeight: "bold",
     lineHeight: "small",
   },
-  text4xl: {
+  text4Xl: {
     color: "text",
     fontFamily: "gtSuperDisplay",
     fontSize: 6,

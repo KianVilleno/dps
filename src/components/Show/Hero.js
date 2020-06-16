@@ -2,13 +2,15 @@
 import React, { useEffect, useState } from "react"
 import ReactPlayer from "react-player"
 import styled from "@emotion/styled"
+import { Heading } from "theme-ui"
 import { Button as StyledButton } from "../Button"
 
 // Components
 const Hero = props => {
   const {
-    heroBackgroundVideo,
-    heroBackgroundImage,
+    title,
+    backgroundVideo,
+    backgroundImage,
     showHighlightsReel,
   } = props.sectionData
 
@@ -21,7 +23,7 @@ const Hero = props => {
 
   return (
     <HeroStyled>
-      <BackgroundVideo bgImage={heroBackgroundImage.url}>
+      <BackgroundVideo bgImage={backgroundImage.url}>
         {videoPlaying ? (
           <ReactPlayer
             className="video-player"
@@ -31,22 +33,13 @@ const Hero = props => {
             width="100%"
             height="100%"
             autoPlay={videoPlaying}
-            url={heroBackgroundVideo.video.mp4Url}
+            url={backgroundVideo.video.mp4Url}
           />
         ) : null}
         <Content>
-          <svg
-            className="logo"
-            width="149"
-            height="149"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M74.5 0l37.25 9.981 27.269 27.269L149 74.5l-9.981 37.25-27.269 27.269L74.5 149l-37.25-9.981L9.981 111.75 0 74.5l9.981-37.25L37.25 9.981 74.5 0z"
-              fill="#fff"
-            />
-          </svg>
+          <Heading as="h1" variant="text4Xl">
+            {title}
+          </Heading>
           {showHighlightsReel ? (
             <Button variant="filled">
               <svg
@@ -105,6 +98,7 @@ const Content = styled.div`
 `
 
 const Button = styled(StyledButton)`
+  margin-top: 20px;
   svg {
     vertical-align: baseline;
   }

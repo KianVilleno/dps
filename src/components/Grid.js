@@ -3,11 +3,13 @@ import { respondTo } from "../styles/mixins"
 
 const Row = styled.div`
   width: 100%;
-  ${respondTo.md`
+  margin: 0 auto;
+
+  @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-  `}
+  }
 `
 
 const Column = styled.div`
