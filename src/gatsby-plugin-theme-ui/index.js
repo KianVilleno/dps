@@ -23,6 +23,7 @@ export default {
     button: {
       ...buttonColors.default,
     },
+    pallet: colors,
     modes: {
       midnight: {
         text: granola,
