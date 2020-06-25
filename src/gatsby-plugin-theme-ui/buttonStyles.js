@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { colors } from "../styles/settings"
 const {
   midnight,
@@ -13,8 +14,8 @@ const {
 } = colors
 
 export const baseButtonStyles = {
-  marginRight: "calc(17px + 0.5em)",
-  marginLeft: "calc(17px + 0.5em)",
+  marginRight: "calc(9px + 0.5em)",
+  marginLeft: "calc(9px + 0.5em)",
   borderTopStyle: "solid",
   borderTopWidth: "2px",
   borderBottomStyle: "solid",

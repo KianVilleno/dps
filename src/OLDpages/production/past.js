@@ -4,7 +4,7 @@ import "../../styles/index.css"
 import Layout from "../../layouts/Layout"
 
 import HeroChoice from "../../components/HeroChoice"
-import ShowsSection from "../../components/ShowsSection"
+import CardsSection from "../../components/CardsSection"
 
 const Past = ({ data }) => {
   return (
@@ -15,7 +15,7 @@ const Past = ({ data }) => {
         subtitle={data.hero.subtitle}
         categories={data.hero.categories}
       />
-      <ShowsSection showsData={data.shows.edges} />
+      <CardsSection cardsData={data.cards.edges} parent="production" />
     </Layout>
   )
 }
@@ -33,7 +33,7 @@ export const query = graphql`
         }
       }
     }
-    shows: allDatoCmsShow(filter: { category: { eq: "production-past" } }) {
+    cards: allDatoCmsShow(filter: { category: { eq: "production-past" } }) {
       edges {
         node {
           title

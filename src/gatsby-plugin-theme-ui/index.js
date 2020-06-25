@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { colors } from "../styles/settings"
 import { baseButtonStyles, buttonColors } from "./buttonStyles"
 import { baseTextStyles } from "./textStyles"
@@ -6,12 +7,12 @@ const {
   midnight,
   denim,
   cloud,
-  butter,
   granola,
   tan,
-  peacock,
   white,
   salmon,
+  peacock,
+  butter,
   candy,
 } = colors
 

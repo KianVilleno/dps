@@ -7,31 +7,40 @@ import Button from "./Button"
 
 // Components
 const ShowsSection = props => {
-  const { showsData } = props
+  const { cardsData, parent } = props
+
   return (
     <Section pt="0">
       <Container>
-        <Shows>
-          {showsData.map((show, index) => (
-            <Show
-              slug={show.node.slug}
-              titleText={show.node.title}
-              content={show.node.bodyTitle}
-              imgSrc={show.node.previewImage.url}
-              imgAlt={show.node.previewImage.alt}
-              key={index}
-            />
-          ))}
-        </Shows>
+        <Cards>
+          {cardsData.map((card, index) => {
+            const newPath = `${parent}/${card.node.category.replace(
+              "education-",
+              ""
+            )}/${card.node.slug}`
+
+            return (
+              <Card
+                slug={newPath}
+                titleText={card.node.title}
+                content={card.node.bodyTitle || card.node.subtitle}
+                imgSrc={card.node.previewImage.url}
+                imgAlt={card.node.previewImage.alt}
+                category={card.node.category}
+                key={index}
+              />
+            )
+          })}
+        </Cards>
       </Container>
     </Section>
   )
 }
 
-const Show = props => {
-  const { slug, titleText, imgSrc, imgAlt, content } = props
+const Card = props => {
+  const { slug, titleText, imgSrc, imgAlt, content, category } = props
   return (
-    <StyledShow>
+    <StyledCard>
       <Heading
         as="h3"
         variant="text2Xl"
@@ -39,25 +48,26 @@ const Show = props => {
       >
         {titleText}
       </Heading>
+      {category}
       <ShowImage src={imgSrc} alt={imgAlt} />
       <Text as="p" variant="textBase" sx={{ marginTop: 30, marginBottom: 30 }}>
         {content}
       </Text>
-      <Button href={`/shows/${slug}`} variant="primary">
+      <Button href={`/${slug}`} variant="primary">
         View
       </Button>
-    </StyledShow>
+    </StyledCard>
   )
 }
 
 // Styled Components
-const Shows = styled.div`
+const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `
 
-const StyledShow = styled.div`
+const StyledCard = styled.div`
   display: block;
   text-align: center;
   margin-top: 30px;

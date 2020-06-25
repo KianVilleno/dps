@@ -24,6 +24,6 @@ const Layout = ({ children, path }) => {
 
 // Styled Components
 const Page = styled.div``
-const Main = styled.div``
+const Main = styled.main``
 
 export default Layout

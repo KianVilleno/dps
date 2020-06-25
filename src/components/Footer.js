@@ -98,6 +98,9 @@ const FooterSection = styled.footer``
 const SliderStyled = styled.div`
   margin: 0 auto;
   max-width: 1440px;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
 
   .slick-slider {
     .slick-arrow:focus {

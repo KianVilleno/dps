@@ -39,34 +39,34 @@ export default ({ data }) => {
 // Styled Components
 
 // Query
-export const query = graphql`
-  query ShowQuery($slug: String) {
-    datoCmsShow(slug: { eq: $slug }) {
-      title
-      slug
-      bodyTitle
-      bodyText
-      backgroundImage {
-        url
-        alt
-      }
-      backgroundVideo {
-        video {
-          mp4Url
-        }
-      }
-      sideContent {
-        buttonLink
-        buttonText
-        showButton
-        text
-      }
-      accordions {
-        content
-        title
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ShowQuery($slug: String) {
+//     datoCmsShow(slug: { eq: $slug }) {
+//       title
+//       slug
+//       bodyTitle
+//       bodyText
+//       backgroundImage {
+//         url
+//         alt
+//       }
+//       backgroundVideo {
+//         video {
+//           mp4Url
+//         }
+//       }
+//       sideContent {
+//         buttonLink
+//         buttonText
+//         showButton
+//         text
+//       }
+//       accordions {
+//         content
+//         title
+//       }
+//     }
+//   }
+// `
 
 // Export

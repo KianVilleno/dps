@@ -18,7 +18,10 @@ const HeroChoice = props => {
         {categories.map((category, index) => (
           <Button
             variant={
-              pagePath === `/${parent}/${category.slug}` ? "filled" : "primary"
+              pagePath ===
+              (`/${parent}/${category.slug}` || `/${parent}/${category.slug}/`)
+                ? "filled"
+                : "primary"
             }
             href={`/${parent}/${category.slug}`}
             key={index}

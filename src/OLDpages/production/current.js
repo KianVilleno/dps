@@ -3,10 +3,9 @@ import { graphql } from "gatsby"
 import "../../styles/index.css"
 import Layout from "../../layouts/Layout"
 import HeroChoice from "../../components/HeroChoice"
-import ShowsSection from "../../components/ShowsSection"
+import CardsSection from "../../components/CardsSection"
 
 const Current = ({ data }) => {
-  console.log(data)
   return (
     <Layout>
       <HeroChoice
@@ -15,7 +14,7 @@ const Current = ({ data }) => {
         subtitle={data.hero.subtitle}
         categories={data.hero.categories}
       />
-      <ShowsSection showsData={data.shows.edges} />
+      <CardsSection cardsData={data.cards.edges} parent="production" />
     </Layout>
   )
 }
@@ -33,7 +32,7 @@ export const query = graphql`
         }
       }
     }
-    shows: allDatoCmsShow(filter: { category: { eq: "production-current" } }) {
+    cards: allDatoCmsShow(filter: { category: { eq: "production-current" } }) {
       edges {
         node {
           title

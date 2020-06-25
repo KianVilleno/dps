@@ -1,47 +1,60 @@
 // Imports
 import React, { useEffect, useState } from "react"
 import ReactPlayer from "react-player"
+import Modal from "react-modal"
 import styled from "@emotion/styled"
 import { Heading } from "theme-ui"
 import { Button as StyledButton } from "../Button"
 
+Modal.setAppElement("#___gatsby")
+
 // Components
-const Hero = props => {
+const HeroFullVideo = props => {
   const {
     title,
-    backgroundVideo,
     backgroundImage,
+    backgroundVideo,
+    fullVideo,
     showHighlightsReel,
-  } = props.sectionData
+  } = props
 
-  const [videoPlaying, setVideoPlaying] = useState(true)
+  const [backgroundVideoPlaying, setBackgroundVideoPlaying] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    setTimeout(setVideoPlaying(true), 200)
-    console.log("Setting video playing: ", videoPlaying)
+    setTimeout(setBackgroundVideoPlaying(true), 200)
   })
 
   return (
     <HeroStyled>
       <BackgroundVideo bgImage={backgroundImage.url}>
-        {videoPlaying ? (
+        {backgroundVideoPlaying && backgroundVideo ? (
           <ReactPlayer
             className="video-player"
             loop={true}
             controls={false}
-            playing={videoPlaying}
+            playing={backgroundVideoPlaying}
             width="100%"
             height="100%"
-            autoPlay={videoPlaying}
+            autoPlay={backgroundVideoPlaying}
             url={backgroundVideo.video.mp4Url}
           />
         ) : null}
         <Content>
-          <Heading as="h1" variant="text4Xl">
+          <Heading
+            as="h1"
+            variant="text3Xl"
+            sx={{
+              width: "100%",
+              maxWidth: 936,
+              color: "white",
+              margin: "0 auto",
+            }}
+          >
             {title}
           </Heading>
           {showHighlightsReel ? (
-            <Button variant="filled">
+            <Button variant="filled" onClick={() => setShowModal(true)}>
               <svg
                 width="14"
                 height="17"
@@ -55,9 +68,19 @@ const Hero = props => {
               </svg>{" "}
               Play showreel
             </Button>
-          ) : (
-            <Button variant="filled">Something else</Button>
-          )}
+          ) : null}
+
+          {fullVideo && showModal ? (
+            <Modal isOpen={showModal}>
+              <ReactPlayer
+                controls={true}
+                width="100%"
+                height="100%"
+                autoPlay={backgroundVideoPlaying}
+                url={fullVideo.video.mp4Url}
+              />
+            </Modal>
+          ) : null}
         </Content>
       </BackgroundVideo>
     </HeroStyled>
@@ -73,6 +96,10 @@ const HeroStyled = styled.header`
 const BackgroundVideo = styled.div`
   position: relative;
   background-image: url(${props => props.bgImage});
+  background-size: cover;
+  backgournd-position: center;
+  background-repeat: no-repeat;
+
   height: 90vh;
 
   .video-player {
@@ -105,4 +132,4 @@ const Button = styled(StyledButton)`
 `
 
 // Exports
-export default Hero
+export default HeroFullVideo
