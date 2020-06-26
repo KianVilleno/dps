@@ -9,8 +9,8 @@ import CardsSection from "../components/CardsSection"
 
 const DATA = {
   hero: {
-    title: "Production",
-    subtitle: "Current productions showing across Australia and United States.",
+    title: "Activation",
+    subtitle: "...",
     categories: [],
   },
   cards: {
@@ -18,10 +18,9 @@ const DATA = {
       {
         node: {
           category: "",
-          slug: "ishmael",
-          title: "Ishmael",
-          subtitle:
-            "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
+          slug: "megafauna",
+          title: "Megafauna",
+          subtitle: "...",
           previewImage: {
             url: "/images/test-thumb.png",
             alt: "",
