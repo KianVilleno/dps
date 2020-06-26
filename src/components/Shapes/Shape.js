@@ -8,18 +8,19 @@ import Section, { Container } from "../Section"
 // Components
 export const Shape = props => {
   const { title, description, link } = props.data
-  const { shape } = props
+  const { shape, color } = props
+
   return (
     <ShapeStyled shape={shape}>
-      <Heading as="h4" variant="text2Xl">
+      <Heading as="h4" variant="text2Xl" sx={{ color: color }}>
         {title}
       </Heading>
 
-      <Text variant="textLg" sx={{ marginTop: 33 }}>
+      <Text variant="textLg" sx={{ marginTop: 33, color: color }}>
         {description}
       </Text>
 
-      <Link href={link} variant="link" sx={{ marginTop: 33 }}>
+      <Link href={link} variant="link" sx={{ marginTop: 33, color: color }}>
         Learn more
       </Link>
     </ShapeStyled>

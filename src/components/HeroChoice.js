@@ -60,7 +60,6 @@ const HeroContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
   width: 100%;
   height: 500px;
 `
