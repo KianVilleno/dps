@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { colors } from "../styles/settings"
+import { colors, sizesArr } from "../styles/settings"
 import { baseButtonStyles, buttonColors } from "./buttonStyles"
 import { baseTextStyles } from "./textStyles"
 
@@ -17,6 +17,7 @@ const {
 } = colors
 
 export default {
+  breakpoints: sizesArr,
   colors: {
     text: denim,
     textOther: granola,

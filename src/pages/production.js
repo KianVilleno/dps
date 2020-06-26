@@ -9,8 +9,8 @@ import CardsSection from "../components/CardsSection"
 
 const DATA = {
   hero: {
-    title: "Hello",
-    subtitle: "Hello subtitle",
+    title: "Production",
+    subtitle: "Current productions showing across Australia and United States.",
     categories: [],
   },
   cards: {

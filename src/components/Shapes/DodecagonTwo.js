@@ -2,6 +2,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Shape } from "./Shape"
+import { colors } from "../../styles/settings"
 
 // Components
 export const DodecagonTwo = props => {
@@ -18,7 +19,13 @@ export const DodecagonTwo = props => {
         }
       `}
       render={data => {
-        return <Shape data={data.datoCmsDodecagonTwo} shape={shape} />
+        return (
+          <Shape
+            data={data.datoCmsDodecagonTwo}
+            shape={shape}
+            color={colors.salmon}
+          />
+        )
       }}
     />
   )

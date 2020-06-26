@@ -12,9 +12,12 @@ export const Container = styled.div`
   box-sizing: border-box;
   position: relative;
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 60px;
   width: 100%;
   max-width: 1440px;
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    padding: 0 25px;
+  }
 `
 
 export default Section

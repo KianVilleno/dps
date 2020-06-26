@@ -24,10 +24,10 @@ export const ShapesRow = ({ allShapes }) => {
         {allShapes ? (
           <Row>
             <Column>
-              <DodecagonTwo />
+              <DecagonTwo />
             </Column>
             <Column>
-              <DecagonTwo />
+              <DodecagonTwo />
             </Column>
           </Row>
         ) : null}
