@@ -1,12 +1,75 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { maxWidth } from "../styles/settings"
 import Slider from "react-slick"
-import { Heading, Text, Input } from "theme-ui"
-import { respondTo } from "../styles/mixins"
+import { Heading } from "theme-ui"
 import Button from "./Button"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+
+const SLIDES = [
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_81776944_285367269253649_4045056859983882924_n.jpg",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_102649375_3974948112622716_6265989303920364268_n.jpg",
+    url: "https://www.instagram.com/p/CBKhvg-n9M2/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_97249867_330306931267201_2840925895007275276_n.jpg",
+    url: "https://www.instagram.com/p/CACAD8iHWkZ/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_96080595_1300080133715161_7890574089719473988_n.jpg",
+    url: "https://www.instagram.com/p/B_4aKrlHBVp/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_95632154_723380445074155_3614028165750630253_n.jpg",
+    url: "https://www.instagram.com/p/B_tlU6bHf6Z/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_95037881_134334918172328_337811929804376490_n.jpg",
+    url: "https://www.instagram.com/p/B_mSlTKHTbG/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_94444756_1523464211139857_4762390259102982954_n.jpg",
+    url: "https://www.instagram.com/p/B_TIsMLniLq/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_93223155_216555029666264_6488606177338359457_n.jpg",
+    url: "https://www.instagram.com/p/B-0zi_JHvvg/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_85211035_585689168690261_3148721197193338179_n.jpg",
+    url: "https://www.instagram.com/p/B9EWLRInmNm/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_84471942_228705314960881_6896834661047837666_n.jpg",
+    url: "https://www.instagram.com/p/B8j74YDnMp7/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_84177242_119912932771763_4186290435444184837_n.jpg",
+    url: "https://www.instagram.com/p/B8dY79onYqf/",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_80460510_526853598038263_8783375829756966261_n.jpg",
+    url: "https://www.instagram.com/p/B7cV-a_HJMf/",
+  },
+]
 
 const Footer = props => {
   const settings = {
@@ -14,8 +77,8 @@ const Footer = props => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 2,
   }
   return (
     <StaticQuery
@@ -33,18 +96,21 @@ const Footer = props => {
         }
       `}
       render={data => {
-        const {
-          footerGallery,
-          contactText,
-          newsletterTitle,
-          newsletterInfo,
-        } = data.datoCmsFooter
+        const { contactText } = data.datoCmsFooter
         return (
           <FooterSection>
             <SliderStyled>
               <Slider {...settings}>
-                {footerGallery.map((image, index) => (
-                  <SlideImage src={image.url} alt={image.alt} key={index} />
+                {SLIDES.map((image, index) => (
+                  <SlideImage key={`img-${index}`}>
+                    <a href={image.url} target="_blank" rel="noreferrer">
+                      <img
+                        src={image.src}
+                        alt="Dead Puppet Society Instagram"
+                        key={index}
+                      />
+                    </a>
+                  </SlideImage>
                 ))}
               </Slider>
             </SliderStyled>
@@ -53,12 +119,10 @@ const Footer = props => {
               <Contact>
                 <Heading
                   as="h4"
-                  variant="textXl"
+                  variant="text2Xl"
                   sx={{
+                    fontWeight: "bold",
                     marginBottom: 30,
-                    "@media only screen and (min-width: 992px)": {
-                      maxWidth: 590,
-                    },
                   }}
                 >
                   {contactText}
@@ -68,7 +132,7 @@ const Footer = props => {
                 </Button>
               </Contact>
 
-              <Newsletter>
+              {/* <Newsletter>
                 <Heading
                   as="h4"
                   variant="textXl"
@@ -83,7 +147,7 @@ const Footer = props => {
                   {newsletterInfo}
                 </Text>
                 <Input placeholder="Email address" />
-              </Newsletter>
+              </Newsletter> */}
             </FooterInner>
           </FooterSection>
         )
@@ -97,14 +161,18 @@ const FooterSection = styled.footer``
 
 const SliderStyled = styled.div`
   margin: 0 auto;
-  max-width: 1440px;
+  margin-top: 40px;
   width: 100%;
   overflow: hidden;
   height: auto;
 
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
   .slick-slider {
     .slick-arrow:focus {
-      background: red;
     }
 
     .slick-arrow.slick-prev::before {
@@ -133,47 +201,61 @@ const SliderStyled = styled.div`
   }
 `
 
-const SlideImage = styled.img``
+const SlideImage = styled.div`
+  padding: 0 20px;
+  &:focus {
+    outline: none;
+  }
+  a {
+    display: block;
+    &:focus {
+      outline: none;
+    }
+  }
+  img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+`
 
 const FooterInner = styled.div`
   margin: 0 auto;
-  padding: 100px;
+  padding: 40px 20px 40px 20px;
   width: 100%;
-  max-width: 1440px;
+  max-width: ${maxWidth};
   @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 60px 100px 100px 100px;
   }
 `
 
 const Contact = styled.div`
   width: 100%;
-  max-width: 680px;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
 `
 
-const Content = styled.p`
-  color: #000000;
-  font-size: 34px;
-  font-weight: 300;
-  line-height: 1.4;
-`
+// const Newsletter = styled.div`
+//   width: 100%;
+//   max-width: 333px;
+// `
 
-const Newsletter = styled.div`
-  width: 100%;
-  max-width: 333px;
-`
-
-const NewsletterTitle = styled.h4`
-  color: #000000;
-  font-size: 38px;
-  font-weight: 300;
-  line-height: 1.2;
-`
-const NewsletterInfo = styled.p`
-  margin-top: 20px;
-  color: #000000;
-  font-size: 22px;
-  line-height: 1.4;
-`
+// const NewsletterTitle = styled.h4`
+//   color: #000000;
+//   font-size: 38px;
+//   font-weight: 300;
+//   line-height: 1.2;
+// `
+// const NewsletterInfo = styled.p`
+//   margin-top: 20px;
+//   color: #000000;
+//   font-size: 22px;
+//   line-height: 1.4;
+// `
 
 export default Footer

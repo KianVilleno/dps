@@ -23,73 +23,95 @@ const HeroFullVideo = props => {
 
   useEffect(() => {
     setTimeout(setBackgroundVideoPlaying(true), 200)
-  })
+  }, [setBackgroundVideoPlaying])
 
-  return (
-    <HeroStyled>
-      <BackgroundVideo bgImage={backgroundImage.url}>
-        {backgroundVideoPlaying && backgroundVideo ? (
-          <ReactPlayer
-            className="video-player"
-            loop={true}
-            controls={false}
-            playing={backgroundVideoPlaying}
-            width="100%"
-            height="100%"
-            autoPlay={backgroundVideoPlaying}
-            url={backgroundVideo.video.mp4Url}
-          />
-        ) : null}
-        <Content>
-          <Heading
-            as="h1"
-            variant="text3Xl"
-            sx={{
-              width: "100%",
-              maxWidth: 936,
-              color: "white",
-              margin: "0 auto",
-            }}
-          >
-            {title}
-          </Heading>
-          {showHighlightsReel ? (
-            <Button variant="filled" onClick={() => setShowModal(true)}>
-              <svg
-                width="14"
-                height="17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.727 8.5L.227.706v15.588l13.5-7.794z"
-                  fill="#B39B78"
+  if (!backgroundVideo) {
+    return (
+      <HeroStyled>
+        <BackgroundVideo bgImage={backgroundImage.url}>
+          <Content>
+            <Heading
+              as="h1"
+              variant="text3Xl"
+              sx={{
+                width: "100%",
+                maxWidth: 936,
+                color: "white",
+                margin: "0 auto",
+              }}
+            >
+              {title}
+            </Heading>
+          </Content>
+        </BackgroundVideo>
+      </HeroStyled>
+    )
+  } else {
+    return (
+      <HeroStyled>
+        <BackgroundVideo bgImage={backgroundImage.url}>
+          {backgroundVideoPlaying && backgroundVideo ? (
+            <ReactPlayer
+              className="video-player"
+              loop={true}
+              controls={false}
+              playing={backgroundVideoPlaying}
+              width="100%"
+              height="100%"
+              autoPlay={backgroundVideoPlaying}
+              url={backgroundVideo.video.mp4Url}
+            />
+          ) : null}
+          <Content>
+            <Heading
+              as="h1"
+              variant="text3Xl"
+              sx={{
+                width: "100%",
+                maxWidth: 936,
+                color: "white",
+                margin: "0 auto",
+              }}
+            >
+              {title}
+            </Heading>
+            {showHighlightsReel ? (
+              <Button variant="filled" onClick={() => setShowModal(true)}>
+                <svg
+                  width="14"
+                  height="17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.727 8.5L.227.706v15.588l13.5-7.794z"
+                    fill="#B39B78"
+                  />
+                </svg>{" "}
+                Play showreel
+              </Button>
+            ) : null}
+
+            {fullVideo && showModal ? (
+              <Modal isOpen={showModal}>
+                <ReactPlayer
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                  autoPlay={backgroundVideoPlaying}
+                  url={fullVideo.video.mp4Url}
                 />
-              </svg>{" "}
-              Play showreel
-            </Button>
-          ) : null}
-
-          {fullVideo && showModal ? (
-            <Modal isOpen={showModal}>
-              <ReactPlayer
-                controls={true}
-                width="100%"
-                height="100%"
-                autoPlay={backgroundVideoPlaying}
-                url={fullVideo.video.mp4Url}
-              />
-            </Modal>
-          ) : null}
-        </Content>
-      </BackgroundVideo>
-    </HeroStyled>
-  )
+              </Modal>
+            ) : null}
+          </Content>
+        </BackgroundVideo>
+      </HeroStyled>
+    )
+  }
 }
 
 // Styled Components
 const HeroStyled = styled.header`
-  background: red;
   height: 90vh;
 `
 
@@ -97,7 +119,7 @@ const BackgroundVideo = styled.div`
   position: relative;
   background-image: url(${props => props.bgImage});
   background-size: cover;
-  backgournd-position: center;
+  background-position: center;
   background-repeat: no-repeat;
 
   height: 90vh;

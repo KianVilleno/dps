@@ -1,16 +1,19 @@
 // Imports
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../Layouts/Layout"
+import Layout from "../layouts/Layout"
+import Seo from "../components/Seo"
 import { HeroFullVideo, HeroCenterImage, HeroText } from "../components/Heros"
 import { ShowInfo, LeftRightContent } from "../components/Content"
 
 // Page
 const Page = ({ data }) => {
-  console.log(data.datoCmsPage)
+  // console.log(data.datoCmsPage)
+
   return (
     <Layout>
-      {JSON.stringify(data.datoCmsPage.content)}
+      <Seo title={data.datoCmsPage.pageTitle} />
+      {/* {JSON.stringify(data.datoCmsPage.content)} */}
 
       {/* Hero */}
       {data.datoCmsPage.hero.map((hero, index) => {
@@ -39,6 +42,8 @@ const Page = ({ data }) => {
           return (
             <HeroText key={index} title={hero.title} subtitle={hero.subtitle} />
           )
+        } else {
+          return null
         }
       })}
 

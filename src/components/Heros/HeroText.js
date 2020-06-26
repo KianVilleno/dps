@@ -14,13 +14,13 @@ const HeroText = props => {
         sx={{
           width: "100%",
           maxWidth: 800,
-          margin: "100px auto 0 auto",
+          margin: "0 auto 0 auto",
           textAlign: "center",
+          paddingTop: [80, 0],
         }}
       >
         {title}
       </Heading>
-
       <Text
         as="h2"
         variant="textLg"
@@ -44,7 +44,6 @@ const HeroContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
   width: 100%;
 `
 

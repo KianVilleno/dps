@@ -11,6 +11,8 @@ const ShowInfo = ({ content }) => {
   let breakoutText
   let eventBody
   let infoBlocks = []
+
+  /* eslint-disable-next-line */
   content.map(contentBlock => {
     if (contentBlock.model.apiKey === "breakout_text") {
       breakoutText = contentBlock.text
@@ -35,8 +37,8 @@ const ShowInfo = ({ content }) => {
             maxWidth: 1045,
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 50,
-            marginBottom: 100,
+            marginTop: 0,
+            marginBottom: [40, 100],
           }}
         >
           {breakoutText}

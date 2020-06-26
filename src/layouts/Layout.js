@@ -9,7 +9,8 @@ import Footer from "../components/Footer"
 // Components
 const Layout = ({ children, path }) => {
   const context = useThemeUI()
-  const { theme, colorMode, setColorMode } = context
+  // const { colorMode, setColorMode } = context
+  const { theme } = context
 
   return (
     <ThemeProvider theme={theme}>

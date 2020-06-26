@@ -7,13 +7,16 @@ import Button from "../components/Button"
 // Components
 const HeroChoice = props => {
   const { title, categories, parent, subtitle } = props
-  const pagePath = window.location.pathname ? window.location.pathname : null
+
+  const pagePath =
+    typeof window !== "undefined" && window.location.pathname
+      ? window.location.pathname
+      : null
   return (
     <HeroContainer>
       <Heading as="h1" variant="text3Xl">
         {title}
       </Heading>
-
       <Categories>
         {categories.map((category, index) => (
           <Button
@@ -56,13 +59,28 @@ const HeroContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
   width: 100%;
-  height: 500px;
+  height: auto;
+  padding-top: 80px;
+  margin-bottom: 2em;
+  h3 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 0em;
+    padding-top: 0px;
+    height: 500px;
+    h3 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
 `
 
 const Categories = styled.div`
-  display: flex;
+  display: none;
+  /* display: flex; */
   justify-content: center;
   margin-top: 35px;
 `

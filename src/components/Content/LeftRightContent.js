@@ -1,14 +1,13 @@
 // Import
 import React from "react"
 import styled from "@emotion/styled"
-import { Heading, Text, Box } from "theme-ui"
+import { Text } from "theme-ui"
 import Section, { Container } from "../../components/Section"
 import { Row, Column } from "../../components/Grid"
-import Button from "../../components/Button"
 
 // Components
 const LeftRightContent = ({ content }) => {
-  console.log(content)
+  //console.log(content)
   const leftContent = content.leftContentNode.childMarkdownRemark.html
   const rightContent = content.rightContentNode.childMarkdownRemark.html
   return (
@@ -16,35 +15,39 @@ const LeftRightContent = ({ content }) => {
       <Container>
         <Row>
           <ColumnOne>
-            <Text
-              as="div"
-              variant="textBase"
-              sx={{
-                maxWidth: 554,
-                "& p": {
-                  margin: "10px 0",
-                },
-              }}
-              dangerouslySetInnerHTML={{
-                __html: leftContent,
-              }}
-            />
+            <TextWrap>
+              <Text
+                as="div"
+                variant="textBase"
+                sx={{
+                  maxWidth: 554,
+                  "& p": {
+                    margin: "10px 0",
+                  },
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: leftContent,
+                }}
+              />
+            </TextWrap>
           </ColumnOne>
 
           <ColumnTwo>
-            <Text
-              as="div"
-              variant="textBase"
-              sx={{
-                maxWidth: 554,
-                "& p": {
-                  margin: "10px 0",
-                },
-              }}
-              dangerouslySetInnerHTML={{
-                __html: rightContent,
-              }}
-            />
+            <TextWrap>
+              <Text
+                as="div"
+                variant="textBase"
+                sx={{
+                  maxWidth: 554,
+                  "& p": {
+                    margin: "10px 0",
+                  },
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: rightContent,
+                }}
+              />
+            </TextWrap>
           </ColumnTwo>
         </Row>
       </Container>
@@ -79,6 +82,12 @@ const ColumnTwo = styled(Column)`
 
   a {
     margin-top: 10px;
+  }
+`
+
+const TextWrap = styled.div`
+  a {
+    color: inherit;
   }
 `
 

@@ -8,18 +8,25 @@ import Section, { Container } from "../Section"
 // Components
 export const Shape = props => {
   const { title, description, link } = props.data
-  const { shape } = props
+  const { shape, color } = props
+
+  const isTall = shape.indexOf("dodecagon") > -1
+
   return (
-    <ShapeStyled shape={shape}>
-      <Heading as="h4" variant="text2Xl">
+    <ShapeStyled shape={shape} isTall={isTall}>
+      <Heading as="h4" variant="text2Xl" sx={{ color: color }}>
         {title}
       </Heading>
 
-      <Text variant="textLg" sx={{ marginTop: 33 }}>
+      <Text variant="textLg" sx={{ marginTop: [15, 33], color: color }}>
         {description}
       </Text>
 
-      <Link href={link} variant="link" sx={{ marginTop: 33 }}>
+      <Link
+        href={link}
+        variant="link"
+        sx={{ marginTop: [15, 33], color: color }}
+      >
         Learn more
       </Link>
     </ShapeStyled>
@@ -103,13 +110,19 @@ const ShapeStyled = styled.div`
   margin: 0 auto;
   padding: 30px;
   max-width: 530px;
-  height: 530px;
+  height: ${props => (props.isTall ? `400px` : `300px`)};
   max-height: 100%;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${props => props.shape});
   text-align: center;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    height: ${props => (props.isTall ? `450px` : `350px`)};
+  }
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    height: 530px;
+  }
 `
 
 const ShapeMinfiedStyled = styled.div`

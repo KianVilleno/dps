@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
 import Hero from "../components/Home/Hero"
+import Seo from "../components/Seo"
 import AboutSection from "../components/Home/About"
 import { ShapesRow } from "../components/Shapes/ShapesRow"
 
@@ -14,6 +15,7 @@ const Home = ({ data: { home } }) => {
 
   return (
     <Layout>
+      <Seo />
       <Hero sectionData={hero} />
       <ShapesRow allShapes={true} />
       <AboutSection />

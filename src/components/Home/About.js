@@ -7,7 +7,7 @@ import Section, { Container } from "../Section"
 import { Row, Column } from "../Grid"
 
 // Component
-const AboutSection = ({}) => {
+const AboutSection = () => {
   return (
     <StaticQuery
       query={graphql`
@@ -37,12 +37,12 @@ const AboutSection = ({}) => {
                   >
                     <Heading
                       as="h4"
-                      variant="text2Xl"
-                      sx={{ marginBottom: 30 }}
+                      variant="textXl"
+                      sx={{ fontWeight: "regular", marginBottom: 30 }}
                     >
                       {title}
                     </Heading>
-                    <Button href="/about" variant="primary">
+                    <Button href="/company" variant="primary">
                       About us
                     </Button>
                   </Box>

@@ -1,6 +1,6 @@
 // Imports
 import React from "react"
-import styled from "@emotion/styled"
+// import styled from "@emotion/styled"
 import { Link as ThemeUIButton, useThemeUI } from "theme-ui"
 // Components
 
@@ -54,23 +54,23 @@ export const Button = props => {
 //   )
 // }
 
-const StyledLink = styled.a`
-  display: inline-block;
-  padding: 14px 20px;
-  border: 1px solid #111111;
-  border-radius: 13px;
-  color: #000;
-  text-decoration: none;
-  margin: ${(props => props.m) ? props => props.m : "0"};
-  margin-top: ${(props => props.mt) ? props => props.mt : "0"};
-  margin-bottom: ${(props => props.mb) ? props => props.mb : "0"};
-  margin-left: ${(props => props.ml) ? props => props.ml : "0"};
-  margin-right: ${(props => props.mr) ? props => props.mr : "0"};
+// const StyledLink = styled.a`
+//   display: inline-block;
+//   padding: 14px 20px;
+//   border: 1px solid #111111;
+//   border-radius: 13px;
+//   color: #000;
+//   text-decoration: none;
+//   margin: ${(props => props.m) ? props => props.m : "0"};
+//   margin-top: ${(props => props.mt) ? props => props.mt : "0"};
+//   margin-bottom: ${(props => props.mb) ? props => props.mb : "0"};
+//   margin-left: ${(props => props.ml) ? props => props.ml : "0"};
+//   margin-right: ${(props => props.mr) ? props => props.mr : "0"};
 
-  svg {
-    vertical-align: middle;
-  }
-`
+//   svg {
+//     vertical-align: middle;
+//   }
+// `
 
 // const ButtonLink = styled.a`
 //   margin-right: calc(17px + 0.5em);
