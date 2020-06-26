@@ -10,7 +10,7 @@ const Page = ({ data }) => {
   console.log(data.datoCmsPage)
   return (
     <Layout>
-      {JSON.stringify(data.datoCmsPage.content)}
+      {/* {JSON.stringify(data.datoCmsPage.content)} */}
 
       {/* Hero */}
       {data.datoCmsPage.hero.map((hero, index) => {
