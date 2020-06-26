@@ -15,8 +15,6 @@ const Home = ({ data: { home } }) => {
     showHighlightsReel: home.showHighlightsReel,
   }
 
-  console.log("home", home)
-
   return (
     <Layout>
       <Seo />
