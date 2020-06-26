@@ -285,7 +285,7 @@ const NavStyled = styled.nav`
 `
 
 const NavInner = styled.div`
-  padding-top: 80px;
+  padding-top: 100px;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     padding-top: 160px;
   }

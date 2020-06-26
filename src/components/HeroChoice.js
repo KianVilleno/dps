@@ -61,7 +61,7 @@ const HeroContainer = styled.header`
   align-items: center;
   width: 100%;
   height: auto;
-  padding-top: 80px;
+  padding-top: 100px;
   margin-bottom: 2em;
   h3 {
     padding-left: 20px;

@@ -16,7 +16,9 @@ const HeroText = props => {
           maxWidth: 800,
           margin: "0 auto 0 auto",
           textAlign: "center",
-          paddingTop: [80, 0],
+          paddingTop: [100, 0],
+          paddingLeft: [20, 0],
+          paddingRight: [20, 0],
         }}
       >
         {title}
