@@ -244,6 +244,8 @@ const NavStyled = styled.nav`
   width: 100%;
   height: 100vh;
   background: #c7c7c7;
+  top: 0;
+  left: 0;
 `
 
 const NavInner = styled.div`
