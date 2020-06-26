@@ -21,53 +21,53 @@ const SLIDES = [
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_73456027_521622068626531_4797977983415736310_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_97249867_330306931267201_2840925895007275276_n.jpg",
+    url: "https://www.instagram.com/p/CACAD8iHWkZ/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_75358247_150952449508859_6132501989742779491_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_96080595_1300080133715161_7890574089719473988_n.jpg",
+    url: "https://www.instagram.com/p/B_4aKrlHBVp/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_78815167_2610979492342973_6135854558599552428_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_95632154_723380445074155_3614028165750630253_n",
+    url: "https://www.instagram.com/p/B_tlU6bHf6Z/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_80460510_526853598038263_8783375829756966261_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_95037881_134334918172328_337811929804376490_n.jpg",
+    url: "https://www.instagram.com/p/B_mSlTKHTbG/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_80871921_652509001957353_3527640021637708308_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_94444756_1523464211139857_4762390259102982954_n.jpg",
+    url: "https://www.instagram.com/p/B_TIsMLniLq/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_81776944_285367269253649_4045056859983882924_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_93223155_216555029666264_6488606177338359457_n.jpg",
+    url: "https://www.instagram.com/p/B-0zi_JHvvg/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_81779850_175128393545941_6575487550598675621_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_85211035_585689168690261_3148721197193338179_n.jpg",
+    url: "https://www.instagram.com/p/B9EWLRInmNm/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_82602988_495437921175334_5432244398227540781_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_84471942_228705314960881_6896834661047837666_n.jpg",
+    url: "https://www.instagram.com/p/B8j74YDnMp7/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_84177242_119912932771763_4186290435444184837_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+    url: "https://www.instagram.com/p/B8dY79onYqf/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_84444183_508399376535431_4437198581511695460_n.jpg",
-    url: "https://www.instagram.com/p/CBh3bDinpl6/",
+      "/images/instagram/deadpuppetsociety_80460510_526853598038263_8783375829756966261_n.jpg",
+    url: "https://www.instagram.com/p/B7cV-a_HJMf/",
   },
 ]
 
