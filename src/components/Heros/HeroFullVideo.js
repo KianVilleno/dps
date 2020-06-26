@@ -53,7 +53,7 @@ const HeroFullVideo = props => {
               margin: "0 auto",
             }}
           >
-            {title} 1234 $&!&*%&^%*&^%
+            {title}
           </Heading>
           {showHighlightsReel ? (
             <Button variant="filled" onClick={() => setShowModal(true)}>
