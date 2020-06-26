@@ -88,7 +88,9 @@ const Production = ({ data }) => {
           marginLeft: "auto",
           marginRight: "auto",
           marginTop: 0,
-          marginBottom: 100,
+          marginBottom: [40, 100],
+          paddingLeft: [20, 0],
+          paddingRight: [20, 0],
         }}
       >
         Add whimsy and wonder to your next event or engage passersby with

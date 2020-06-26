@@ -37,8 +37,8 @@ const ShowInfo = ({ content }) => {
             maxWidth: 1045,
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 50,
-            marginBottom: 100,
+            marginTop: 0,
+            marginBottom: [40, 100],
           }}
         >
           {breakoutText}

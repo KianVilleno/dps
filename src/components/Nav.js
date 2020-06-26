@@ -3,18 +3,22 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { Text } from "theme-ui"
 import styled from "@emotion/styled"
+import { useLocation } from "@reach/router"
 import ScrollLock from "react-scrolllock"
 
 // Components
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false)
 
+  const location = useLocation()
+  const showLogoMark = location.pathname !== "/"
+
   const toggleNav = () => setNavOpen(!navOpen)
   return (
     <NavWrapper open={navOpen}>
       <MenuButton toggleNav={toggleNav} open={navOpen} />
       <NavLogo />
-      <NavLogoMark />
+      <NavLogoMark show={showLogoMark} />
       <Navigation open={navOpen} />
       <ScrollLock isActive={navOpen} />
     </NavWrapper>
@@ -141,6 +145,8 @@ const NavLogo = () => {
 }
 
 const NavLogoMark = props => {
+  if (!props.show) return null
+
   return (
     <NavLogoMarkStyled>
       <Link to="/">
@@ -167,33 +173,32 @@ const Navigation = props => {
     <NavStyled open={open}>
       <NavInner>
         <NavLink to="/production">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Production
           </Text>
         </NavLink>
         <NavLink to="/education">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Education
           </Text>
         </NavLink>
         <NavLink to="/activation">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Activation
           </Text>
         </NavLink>
         <NavLink to="/collection">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Collection
           </Text>
         </NavLink>
-        <NavSpacer>&nbsp;</NavSpacer>
         <NavLink to="/company">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Company
           </Text>
         </NavLink>
         <NavLink to="/contact">
-          <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
+          <Text as="span" variant="text3Xl" sx={{ fontWeight: "bold" }}>
             Contact
           </Text>
         </NavLink>
@@ -220,8 +225,8 @@ const MenuButtonStyled = styled.button`
   cursor: pointer;
   z-index: 10;
   position: fixed;
-  top: 30px;
-  left: 40px;
+  top: 20px;
+  left: 20px;
   padding: 18px 14px;
   border-radius: 100px;
   border: none;
@@ -238,21 +243,33 @@ const MenuButtonStyled = styled.button`
     outline-width: 1px; */
     outline: none;
   }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    top: 30px;
+    left: 40px;
+  }
 `
 
 const NavLogoStyled = styled.div`
   z-index: 10;
   position: absolute;
+  display: none;
   top: 42px;
   left: 50%;
   transform: translateX(-50%);
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    display: block;
+  }
 `
 
 const NavLogoMarkStyled = styled.div`
   z-index: 10;
   position: absolute;
-  top: 32px;
-  right: 40px;
+  top: 22px;
+  right: 20px;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    top: 32px;
+    right: 40px;
+  }
 `
 
 const NavStyled = styled.nav`
@@ -268,38 +285,50 @@ const NavStyled = styled.nav`
 `
 
 const NavInner = styled.div`
-  padding-top: 160px;
+  padding-top: 80px;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding-top: 160px;
+  }
 `
 
 const NavLink = styled(Link)`
   display: block;
   color: #b39b78;
-
   font-weight: 300;
   line-height: 1.3;
   text-align: center;
   text-decoration: none;
   position: relative;
+
+  &:nth-of-type(4) {
+    margin-bottom: 2em;
+  }
+
   span {
     color: #b39b78;
-    font-size: 71px;
+    /* font-size: 71px; */
   }
   &:hover {
     text-decoration: none;
     opacity: 0.9;
     top: -1px;
   }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    &:nth-of-type(4) {
+      margin-bottom: 3em;
+    }
+  }
 `
 
-const NavSpacer = styled.div`
-  display: block;
-  color: #111111;
-  font-size: 71px;
-  font-weight: 300;
-  line-height: 1.3;
-  text-align: center;
-  text-decoration: none;
-`
+// const NavSpacer = styled.div`
+//   display: block;
+//   color: #111111;
+//   font-size: 71px;
+//   font-weight: 300;
+//   line-height: 1.3;
+//   text-align: center;
+//   text-decoration: none;
+// `
 
 const NavSocials = styled.div``
 

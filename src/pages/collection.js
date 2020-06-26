@@ -1,6 +1,5 @@
 import React from "react"
 import "../styles/index.css"
-import { Box } from "theme-ui"
 import { Heading } from "theme-ui"
 import Layout from "../layouts/Layout"
 

@@ -2,7 +2,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import { Heading, Text } from "theme-ui"
+import { Heading } from "theme-ui"
 import Section, { Container } from "./Section"
 import Button from "./Button"
 
@@ -40,7 +40,7 @@ const ShowsSection = props => {
 }
 
 const Card = props => {
-  const { slug, titleText, imgSrc, imgAlt, content } = props
+  const { slug, titleText, imgSrc, imgAlt } = props
   return (
     <StyledCard>
       <Heading
@@ -74,11 +74,11 @@ const Cards = styled.div`
 const StyledCard = styled.div`
   display: block;
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 
   h3 {
-    min-height: 2.2em;
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,6 +89,13 @@ const StyledCard = styled.div`
     color: inherit;
   }
 
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    h3 {
+      min-height: 2.2em;
+    }
+  }
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
     width: calc(50% - 20px);

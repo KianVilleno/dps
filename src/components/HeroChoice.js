@@ -60,11 +60,27 @@ const HeroContainer = styled.header`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 500px;
+  height: auto;
+  padding-top: 80px;
+  margin-bottom: 2em;
+  h3 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 0em;
+    padding-top: 0px;
+    height: 500px;
+    h3 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
 `
 
 const Categories = styled.div`
-  display: flex;
+  display: none;
+  /* display: flex; */
   justify-content: center;
   margin-top: 35px;
 `

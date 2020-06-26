@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import { maxWidth } from "../styles/settings"
 import Slider from "react-slick"
-import { Heading, Text, Input } from "theme-ui"
+import { Heading } from "theme-ui"
 import Button from "./Button"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -96,11 +96,7 @@ const Footer = props => {
         }
       `}
       render={data => {
-        const {
-          contactText,
-          newsletterTitle,
-          newsletterInfo,
-        } = data.datoCmsFooter
+        const { contactText } = data.datoCmsFooter
         return (
           <FooterSection>
             <SliderStyled>
@@ -225,13 +221,15 @@ const SlideImage = styled.div`
 
 const FooterInner = styled.div`
   margin: 0 auto;
-  padding: 100px;
-  padding-top: 60px;
+  padding: 40px 20px 40px 20px;
   width: 100%;
   max-width: ${maxWidth};
   @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 60px 100px 100px 100px;
   }
 `
 
@@ -242,10 +240,10 @@ const Contact = styled.div`
   margin: 0 auto;
 `
 
-const Newsletter = styled.div`
-  width: 100%;
-  max-width: 333px;
-`
+// const Newsletter = styled.div`
+//   width: 100%;
+//   max-width: 333px;
+// `
 
 // const NewsletterTitle = styled.h4`
 //   color: #000000;

@@ -7,7 +7,7 @@ import { Row, Column } from "../../components/Grid"
 
 // Components
 const LeftRightContent = ({ content }) => {
-  console.log(content)
+  //console.log(content)
   const leftContent = content.leftContentNode.childMarkdownRemark.html
   const rightContent = content.rightContentNode.childMarkdownRemark.html
   return (

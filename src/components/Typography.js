@@ -21,7 +21,7 @@ const Paragraph = styled.p`
 const TextSm = styled.span`
   color: ${props => props.theme.colors.text};
   font-family: "GT America Mono";
-  font-size: 19px;
+  font-size: 14px;
   line-height: 1.4;
   ${textControls}
 `

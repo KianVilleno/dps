@@ -100,7 +100,7 @@ export default {
     link: {
       color: "text",
       fontFamily: "gtAmericaMono",
-      fontSize: 0,
+      fontSize: [0, 1],
       lineHeight: "large",
       textTransform: "uppercase",
     },
@@ -110,7 +110,7 @@ export default {
     gtSuperText: "'GT Super Text', serif",
     gtSuperDisplay: "'GT Super Display', serif",
   },
-  fontSizes: [19, 22, 30, 35, 50, 100, 150],
+  fontSizes: [18, 22, 30, 35, 50, 100, 150],
   fontWeights: {
     regular: 400,
     bold: 700,

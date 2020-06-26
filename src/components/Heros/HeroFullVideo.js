@@ -119,7 +119,7 @@ const BackgroundVideo = styled.div`
   position: relative;
   background-image: url(${props => props.bgImage});
   background-size: cover;
-  backgournd-position: center;
+  background-position: center;
   background-repeat: no-repeat;
 
   height: 90vh;

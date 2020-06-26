@@ -18,8 +18,6 @@ const Page = ({ data }) => {
       {/* Hero */}
       {data.datoCmsPage.hero.map((hero, index) => {
         if (hero.model.apiKey === "hero_full_video") {
-          console.log(">>", hero)
-
           return (
             <HeroFullVideo
               key={index}
