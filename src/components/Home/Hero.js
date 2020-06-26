@@ -11,12 +11,10 @@ const Hero = props => {
     heroBackgroundImage,
     showHighlightsReel,
   } = props.sectionData
-
   const [videoPlaying, setVideoPlaying] = useState(true)
 
   useEffect(() => {
     setTimeout(setVideoPlaying(true), 200)
-    console.log("Setting video playing: ", videoPlaying)
   })
 
   return (
@@ -30,6 +28,7 @@ const Hero = props => {
             playing={videoPlaying}
             width="100%"
             height="100%"
+            muted
             autoPlay={videoPlaying}
             url={heroBackgroundVideo.video.mp4Url}
           />
