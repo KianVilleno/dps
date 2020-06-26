@@ -123,12 +123,10 @@ const Footer = props => {
               <Contact>
                 <Heading
                   as="h4"
-                  variant="textXl"
+                  variant="text2Xl"
                   sx={{
+                    fontWeight: "bold",
                     marginBottom: 30,
-                    "@media only screen and (min-width: 992px)": {
-                      maxWidth: 590,
-                    },
                   }}
                 >
                   {contactText}
@@ -138,7 +136,7 @@ const Footer = props => {
                 </Button>
               </Contact>
 
-              <Newsletter>
+              {/* <Newsletter>
                 <Heading
                   as="h4"
                   variant="textXl"
@@ -153,7 +151,7 @@ const Footer = props => {
                   {newsletterInfo}
                 </Text>
                 <Input placeholder="Email address" />
-              </Newsletter>
+              </Newsletter> */}
             </FooterInner>
           </FooterSection>
         )
@@ -239,7 +237,9 @@ const FooterInner = styled.div`
 
 const Contact = styled.div`
   width: 100%;
-  max-width: 680px;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
 `
 
 const Newsletter = styled.div`
