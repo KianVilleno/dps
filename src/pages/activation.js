@@ -10,7 +10,7 @@ import CardsSection from "../components/CardsSection"
 const DATA = {
   hero: {
     title: "Activation",
-    subtitle: "Bringing unique experiences to events and public spaces ",
+    subtitle: "Bringing unique experiences to events and public spaces.",
     categories: [],
   },
   cards: {
