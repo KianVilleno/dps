@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { maxWidth } from "../styles/settings"
 
 const Section = styled.section`
   box-sizing: border-box;
@@ -12,9 +13,10 @@ export const Container = styled.div`
   box-sizing: border-box;
   position: relative;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: ${props =>
+    props.outset ? `0px 40px` : `0px calc(-40px + ${(1 / 12) * 100}%)`};
   width: 100%;
-  max-width: 1440px;
+  max-width: ${maxWidth};
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     padding: 0 25px;
   }

@@ -1,5 +1,6 @@
 import React from "react"
 import "../styles/index.css"
+import { Box } from "theme-ui"
 import Layout from "../layouts/Layout"
 
 import Seo from "../components/Seo"
@@ -8,7 +9,7 @@ import HeroChoice from "../components/HeroChoice"
 const DATA = {
   hero: {
     title: "Collection",
-    subtitle: "...",
+    subtitle: "Coming soon.",
     categories: [],
   },
 }
@@ -23,7 +24,7 @@ const Collection = ({ data }) => {
         subtitle={DATA.hero.subtitle}
         categories={DATA.hero.categories}
       />
-      Soon.
+      <Box>&nbsp;</Box>
     </Layout>
   )
 }

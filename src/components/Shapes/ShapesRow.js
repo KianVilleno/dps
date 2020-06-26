@@ -12,7 +12,7 @@ import { DodecagonTwo } from "./DodecagonTwo"
 export const ShapesRow = ({ allShapes }) => {
   return (
     <Section>
-      <Container>
+      <Container outset={true}>
         <Row>
           <Column>
             <Dodecagon />

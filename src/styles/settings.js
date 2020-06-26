@@ -5,6 +5,8 @@ export const sizes = {
   xl: "1200px",
 }
 
+export const maxWidth = "1440px"
+
 export const sizesArr = ["480px", "768px", "992px", "1200px"]
 
 export const colors = {

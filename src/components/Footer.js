@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { maxWidth } from "../styles/settings"
 import Slider from "react-slick"
 import { Heading, Text, Input } from "theme-ui"
 import Button from "./Button"
@@ -229,7 +230,7 @@ const FooterInner = styled.div`
   padding: 100px;
   padding-top: 60px;
   width: 100%;
-  max-width: 1440px;
+  max-width: ${maxWidth};
   @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;

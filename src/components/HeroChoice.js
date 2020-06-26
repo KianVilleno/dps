@@ -17,7 +17,6 @@ const HeroChoice = props => {
       <Heading as="h1" variant="text3Xl">
         {title}
       </Heading>
-
       <Categories>
         {categories.map((category, index) => (
           <Button

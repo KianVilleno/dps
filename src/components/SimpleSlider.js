@@ -4,6 +4,7 @@ import Slider from "react-slick"
 import Section from "./Section"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { maxWidth } from "../styles/settings"
 
 const SimpleSlider = props => {
   const { sectionData } = props
@@ -58,7 +59,7 @@ const PreText = styled.h5`
 
 const SliderStyled = styled.div`
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: ${maxWidth};
 
   .slick-slider {
     .slick-arrow:focus {
