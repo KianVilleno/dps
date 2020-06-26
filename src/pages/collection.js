@@ -35,7 +35,9 @@ const Collection = ({ data }) => {
           marginLeft: "auto",
           marginRight: "auto",
           marginTop: 0,
-          marginBottom: 100,
+          marginBottom: [40, 100],
+          paddingLeft: [20, 0],
+          paddingRight: [20, 0],
         }}
       >
         Source an original sculpture from our exclusive range of handcrafted

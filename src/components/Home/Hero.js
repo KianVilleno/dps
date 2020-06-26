@@ -100,7 +100,7 @@ const BackgroundVideo = styled.div`
 `
 
 const Content = styled.div`
-  position absolute;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
