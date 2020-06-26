@@ -22,7 +22,7 @@ const DATA = {
           title: "Visual Theatre Processes",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/dps-thumb-visual-theatre-process.jpg",
             alt: "",
           },
         },
@@ -34,7 +34,7 @@ const DATA = {
           title: "Puppet Construction",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/dps-thumb-puppet-construction.jpg",
             alt: "",
           },
         },
@@ -46,7 +46,7 @@ const DATA = {
           title: "Intro to Puppetry",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/dps-thumb-intro.jpg",
             alt: "",
           },
         },
@@ -58,7 +58,7 @@ const DATA = {
           title: "Academy",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/dps-thumb-academy.jpg",
             alt: "",
           },
         },
