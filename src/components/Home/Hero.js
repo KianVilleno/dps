@@ -32,6 +32,7 @@ const Hero = props => {
             height="100%"
             muted
             autoPlay={videoPlaying}
+            playsinline
             url={[
               { src: heroBackgroundVideo, type: "video/mp4" },
               { src: heroBackgroundVideoOgg, type: "video/webm" },
