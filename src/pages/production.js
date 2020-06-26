@@ -19,10 +19,9 @@ const DATA = {
           category: "",
           slug: "ishmael",
           title: "Ishmael",
-          subtitle:
-            "Herman Melville’s classic, Moby Dick, reimagined for a new millennium.",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-ishmael.jpg",
             alt: "",
           },
         },
@@ -32,10 +31,9 @@ const DATA = {
           category: "",
           slug: "the-riddle-of-washpool-gully",
           title: "The Riddle of Washpool Gully",
-          subtitle:
-            "Far beyond the outskirts of the big city, near a tiny town that nearly everyone forgot, lay a dry creek bed of no special significance.",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-the-riddle-of-washpool-gully.jpg",
             alt: "",
           },
         },
@@ -45,10 +43,9 @@ const DATA = {
           category: "",
           slug: "the-wider-earth",
           title: "The Wider Earth",
-          subtitle:
-            "With a bevy of astonishing puppets bringing to life creatures great and small.",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-the-wider-earth.jpg",
             alt: "",
           },
         },
@@ -58,10 +55,9 @@ const DATA = {
           category: "",
           slug: "laser-beak-man",
           title: "Laser Beak Man",
-          subtitle:
-            "Presented by Dead Puppet Society, La Boite and Brisbane Festival in association with PowerArts",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-laser-beak-man.jpg",
             alt: "",
           },
         },
@@ -71,10 +67,9 @@ const DATA = {
           category: "",
           slug: "storm-boy",
           title: "Storm Boy",
-          subtitle:
-            "Presented by Melbourne Theatre Company and Queensland Theatre in association with Dead Puppet Society",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-storm-boy.jpg",
             alt: "",
           },
         },
@@ -84,10 +79,9 @@ const DATA = {
           category: "",
           slug: "argus",
           title: "Argus",
-          subtitle:
-            "Step into this whimsical wonderland where table tops grow grass and water bottles become the depths of the ocean.",
+          subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-argus.jpg",
             alt: "",
           },
         },
