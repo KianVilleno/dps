@@ -31,7 +31,7 @@ const SLIDES = [
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_95632154_723380445074155_3614028165750630253_n",
+      "/images/instagram/deadpuppetsociety_95632154_723380445074155_3614028165750630253_n.jpg",
     url: "https://www.instagram.com/p/B_tlU6bHf6Z/",
   },
   {
