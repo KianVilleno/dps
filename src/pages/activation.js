@@ -22,7 +22,7 @@ const DATA = {
           title: "Megafauna",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-megafauna.jpg",
             alt: "",
           },
         },
