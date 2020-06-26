@@ -8,6 +8,8 @@ import { Button as StyledButton } from "../Button"
 const Hero = props => {
   const {
     heroBackgroundVideo,
+    heroBackgroundVideoOgg,
+    heroBackgroundVideoWebm,
     heroBackgroundImage,
     showHighlightsReel,
   } = props.sectionData
@@ -30,7 +32,11 @@ const Hero = props => {
             height="100%"
             muted
             autoPlay={videoPlaying}
-            url={heroBackgroundVideo.video.mp4Url}
+            url={[
+              { src: heroBackgroundVideo, type: "video/mp4" },
+              { src: heroBackgroundVideoOgg, type: "video/webm" },
+              { src: heroBackgroundVideoWebm, type: "video/ogg" },
+            ]}
           />
         ) : null}
         <Content>

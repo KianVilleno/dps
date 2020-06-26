@@ -113,6 +113,7 @@ const HeroFullVideo = props => {
 // Styled Components
 const HeroStyled = styled.header`
   height: 90vh;
+  margin-bottom: 2em;
 `
 
 const BackgroundVideo = styled.div`

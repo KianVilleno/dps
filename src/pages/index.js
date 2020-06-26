@@ -8,10 +8,14 @@ import { ShapesRow } from "../components/Shapes/ShapesRow"
 
 const Home = ({ data: { home } }) => {
   const hero = {
-    heroBackgroundVideo: home.heroBackgroundVideo,
+    heroBackgroundVideo: home.heroBackgroundVideo.url,
+    heroBackgroundVideoOgg: home.heroBackgroundVideoOgg.url,
+    heroBackgroundVideoWebm: home.heroBackgroundVideoWebm.url,
     heroBackgroundImage: home.heroBackgroundImage,
     showHighlightsReel: home.showHighlightsReel,
   }
+
+  console.log("home", home)
 
   return (
     <Layout>
@@ -27,9 +31,16 @@ export const query = graphql`
   query HomepageQuery {
     home: datoCmsHomePage {
       heroBackgroundVideo {
+        url
         video {
           mp4Url
         }
+      }
+      heroBackgroundVideoOgg {
+        url
+      }
+      heroBackgroundVideoWebm {
+        url
       }
       heroBackgroundImage {
         url

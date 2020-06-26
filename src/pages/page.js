@@ -90,6 +90,7 @@ export const query = graphql`
               mp4Url
             }
           }
+
           videoFull {
             video {
               mp4Url
