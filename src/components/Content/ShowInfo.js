@@ -11,6 +11,8 @@ const ShowInfo = ({ content }) => {
   let breakoutText
   let eventBody
   let infoBlocks = []
+
+  /* eslint-disable-next-line */
   content.map(contentBlock => {
     if (contentBlock.model.apiKey === "breakout_text") {
       breakoutText = contentBlock.text

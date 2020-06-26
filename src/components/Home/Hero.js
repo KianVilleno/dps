@@ -15,7 +15,7 @@ const Hero = props => {
 
   useEffect(() => {
     setTimeout(setVideoPlaying(true), 200)
-  })
+  }, [setVideoPlaying])
 
   return (
     <HeroStyled>

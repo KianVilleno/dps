@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Slider from "react-slick"
 import { Heading, Text, Input } from "theme-ui"
-import { respondTo } from "../styles/mixins"
 import Button from "./Button"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -97,7 +96,6 @@ const Footer = props => {
       `}
       render={data => {
         const {
-          footerGallery,
           contactText,
           newsletterTitle,
           newsletterInfo,
@@ -108,7 +106,7 @@ const Footer = props => {
               <Slider {...settings}>
                 {SLIDES.map((image, index) => (
                   <SlideImage key={`img-${index}`}>
-                    <a href={image.url} target="_blank">
+                    <a href={image.url} target="_blank" rel="noreferrer">
                       <img
                         src={image.src}
                         alt="Dead Puppet Society Instagram"
@@ -243,29 +241,22 @@ const Contact = styled.div`
   max-width: 680px;
 `
 
-const Content = styled.p`
-  color: #000000;
-  font-size: 34px;
-  font-weight: 300;
-  line-height: 1.4;
-`
-
 const Newsletter = styled.div`
   width: 100%;
   max-width: 333px;
 `
 
-const NewsletterTitle = styled.h4`
-  color: #000000;
-  font-size: 38px;
-  font-weight: 300;
-  line-height: 1.2;
-`
-const NewsletterInfo = styled.p`
-  margin-top: 20px;
-  color: #000000;
-  font-size: 22px;
-  line-height: 1.4;
-`
+// const NewsletterTitle = styled.h4`
+//   color: #000000;
+//   font-size: 38px;
+//   font-weight: 300;
+//   line-height: 1.2;
+// `
+// const NewsletterInfo = styled.p`
+//   margin-top: 20px;
+//   color: #000000;
+//   font-size: 22px;
+//   line-height: 1.4;
+// `
 
 export default Footer

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import { respondTo } from "../styles/mixins"
 
 const Row = styled.div`
   width: 100%;

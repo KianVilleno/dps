@@ -7,7 +7,7 @@ import Button from "./Button"
 
 // Components
 const ShowsSection = props => {
-  const { cardsData, parent } = props
+  const { cardsData } = props
 
   return (
     <Section pt="0">
@@ -40,7 +40,7 @@ const ShowsSection = props => {
 }
 
 const Card = props => {
-  const { slug, titleText, imgSrc, imgAlt, content, category } = props
+  const { slug, titleText, imgSrc, imgAlt, content } = props
   return (
     <StyledCard>
       <Heading
@@ -79,23 +79,23 @@ const StyledCard = styled.div`
     max-width: 482px;
   }
 `
-const Title = styled.h3`
-  color: #000000;
-  font-size: 51px;
-  font-weight: 300;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
-`
+// const Title = styled.h3`
+//   color: #000000;
+//   font-size: 51px;
+//   font-weight: 300;
+//   line-height: 1.3;
+//   letter-spacing: 0.01em;
+// `
 const ShowImage = styled.img`
   display: block;
   margin: 0 auto;
   width: 100%;
 `
-const Content = styled.p`
-  color: #000000;
-  line-height: 1.4;
-  font-size: 22px;
-`
+// const Content = styled.p`
+//   color: #000000;
+//   line-height: 1.4;
+//   font-size: 22px;
+// `
 
 // Mock Data
 // const showsData = [

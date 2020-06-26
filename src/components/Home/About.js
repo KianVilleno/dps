@@ -7,7 +7,7 @@ import Section, { Container } from "../Section"
 import { Row, Column } from "../Grid"
 
 // Component
-const AboutSection = ({}) => {
+const AboutSection = () => {
   return (
     <StaticQuery
       query={graphql`

@@ -303,10 +303,4 @@ const NavSpacer = styled.div`
 
 const NavSocials = styled.div``
 
-const Links = styled.div`
-  display: block;
-`
-
-const LinkStyled = styled.a``
-
 export default Nav

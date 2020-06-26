@@ -23,7 +23,7 @@ const HeroFullVideo = props => {
 
   useEffect(() => {
     setTimeout(setBackgroundVideoPlaying(true), 200)
-  })
+  }, [setBackgroundVideoPlaying])
 
   if (!backgroundVideo.video) return null
 

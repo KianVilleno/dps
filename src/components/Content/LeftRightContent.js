@@ -1,10 +1,9 @@
 // Import
 import React from "react"
 import styled from "@emotion/styled"
-import { Heading, Text, Box } from "theme-ui"
+import { Text } from "theme-ui"
 import Section, { Container } from "../../components/Section"
 import { Row, Column } from "../../components/Grid"
-import Button from "../../components/Button"
 
 // Components
 const LeftRightContent = ({ content }) => {

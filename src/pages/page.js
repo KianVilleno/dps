@@ -41,6 +41,8 @@ const Page = ({ data }) => {
           return (
             <HeroText key={index} title={hero.title} subtitle={hero.subtitle} />
           )
+        } else {
+          return null
         }
       })}
 

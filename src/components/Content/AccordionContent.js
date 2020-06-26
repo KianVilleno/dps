@@ -1,16 +1,18 @@
 // Import
 import React from "react"
 import styled from "@emotion/styled"
-import { Heading, Text, Box } from "theme-ui"
+import { Heading, Text } from "theme-ui"
 import Section, { Container } from "../../components/Section"
 import { Row, Column } from "../../components/Grid"
-import Button from "../../components/Button"
+// import Button from "../../components/Button"
 
 // Components
 const AccordionContent = ({ content }) => {
   let breakoutText
   let eventBody
   let infoBlocks = []
+
+  /* eslint-disable-next-line */
   content.map(contentBlock => {
     if (contentBlock.model.apiKey === "breakout_text") {
       breakoutText = contentBlock.text

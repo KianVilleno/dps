@@ -1,6 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby"
-import _ from "lodash"
 import "../styles/index.css"
 import Layout from "../layouts/Layout"
 
