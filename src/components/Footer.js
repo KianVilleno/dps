@@ -11,75 +11,63 @@ import "slick-carousel/slick/slick-theme.css"
 const SLIDES = [
   {
     src:
-      "/images/instagram/deadpuppetsociety_69942689_2485671011509310_2055107151029991759_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+      "/images/instagram/deadpuppetsociety_81776944_285367269253649_4045056859983882924_n.jpg",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
-      "/images/instagram/deadpuppetsociety_71139380_163530531507460_1617971732277606146_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+      "/images/instagram/deadpuppetsociety_102649375_3974948112622716_6265989303920364268_n.jpg",
+    url: "https://www.instagram.com/p/CBKhvg-n9M2/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_73456027_521622068626531_4797977983415736310_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_75358247_150952449508859_6132501989742779491_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_78815167_2610979492342973_6135854558599552428_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_80460510_526853598038263_8783375829756966261_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_80871921_652509001957353_3527640021637708308_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_81776944_285367269253649_4045056859983882924_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_81779850_175128393545941_6575487550598675621_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_82602988_495437921175334_5432244398227540781_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_84177242_119912932771763_4186290435444184837_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
   {
     src:
       "/images/instagram/deadpuppetsociety_84444183_508399376535431_4437198581511695460_n.jpg",
-    alt: "Hello",
-    url: "http://instagram.com",
+    url: "https://www.instagram.com/p/CBh3bDinpl6/",
   },
 ]
 
@@ -121,7 +109,11 @@ const Footer = props => {
                 {SLIDES.map((image, index) => (
                   <SlideImage key={`img-${index}`}>
                     <a href={image.url} target="_blank">
-                      <img src={image.src} alt={image.alt} key={index} />
+                      <img
+                        src={image.src}
+                        alt="Dead Puppet Society Instagram"
+                        key={index}
+                      />
                     </a>
                   </SlideImage>
                 ))}
