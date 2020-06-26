@@ -34,7 +34,7 @@ const DATA = {
           title: "Pelicans",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-pelicans.jpg",
             alt: "",
           },
         },
@@ -46,7 +46,7 @@ const DATA = {
           title: "Hive Mind",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/thumb-hive-mind.jpg",
             alt: "",
           },
         },
@@ -58,7 +58,7 @@ const DATA = {
           title: "1000 Doors",
           subtitle: "...",
           previewImage: {
-            url: "/images/test-thumb.png",
+            url: "/images/dps-thumb-1000-doors.jpg",
             alt: "",
           },
         },
