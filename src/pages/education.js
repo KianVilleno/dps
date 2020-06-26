@@ -2,6 +2,7 @@ import React from "react"
 import "../styles/index.css"
 import Layout from "../layouts/Layout"
 
+import Seo from "../components/Seo"
 import HeroChoice from "../components/HeroChoice"
 import CardsSection from "../components/CardsSection"
 
@@ -68,6 +69,7 @@ const DATA = {
 const Production = ({ data }) => {
   return (
     <Layout>
+      <Seo title="Education" />
       <HeroChoice
         parent="education"
         title={DATA.hero.title}

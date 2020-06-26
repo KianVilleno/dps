@@ -2,6 +2,7 @@ import React from "react"
 import "../styles/index.css"
 import Layout from "../layouts/Layout"
 
+import Seo from "../components/Seo"
 import HeroChoice from "../components/HeroChoice"
 
 const DATA = {
@@ -15,6 +16,7 @@ const DATA = {
 const Collection = ({ data }) => {
   return (
     <Layout>
+      <Seo title="Collection" />
       <HeroChoice
         parent="education"
         title={DATA.hero.title}

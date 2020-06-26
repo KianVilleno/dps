@@ -2,14 +2,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
+import Seo from "../components/Seo"
 import { HeroFullVideo, HeroCenterImage, HeroText } from "../components/Heros"
 import { ShowInfo, LeftRightContent } from "../components/Content"
 
 // Page
 const Page = ({ data }) => {
-  console.log(data.datoCmsPage)
+  // console.log(data.datoCmsPage)
+
   return (
     <Layout>
+      <Seo title={data.datoCmsPage.pageTitle} />
       {/* {JSON.stringify(data.datoCmsPage.content)} */}
 
       {/* Hero */}
