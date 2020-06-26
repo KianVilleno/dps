@@ -42,7 +42,7 @@ const AboutSection = ({}) => {
                     >
                       {title}
                     </Heading>
-                    <Button href="/about" variant="primary">
+                    <Button href="/company" variant="primary">
                       About us
                     </Button>
                   </Box>
