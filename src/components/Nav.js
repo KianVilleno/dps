@@ -213,10 +213,11 @@ const MenuButtonStyled = styled.button`
   &:active,
   &:focus,
   &:hover {
-    outline: -webkit-focus-ring-color auto 1px;
+    /* outline: -webkit-focus-ring-color auto 1px;
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
-    outline-width: 1px;
+    outline-width: 1px; */
+    outline: none;
   }
 `
 
