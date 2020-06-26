@@ -1,7 +1,7 @@
 // Imports
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../Layouts/Layout"
+import Layout from "../layouts/Layout"
 import { HeroFullVideo, HeroCenterImage, HeroText } from "../components/Heros"
 import { ShowInfo, LeftRightContent } from "../components/Content"
 
@@ -15,6 +15,8 @@ const Page = ({ data }) => {
       {/* Hero */}
       {data.datoCmsPage.hero.map((hero, index) => {
         if (hero.model.apiKey === "hero_full_video") {
+          console.log(">>", hero)
+
           return (
             <HeroFullVideo
               key={index}

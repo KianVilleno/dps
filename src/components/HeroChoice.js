@@ -7,7 +7,11 @@ import Button from "../components/Button"
 // Components
 const HeroChoice = props => {
   const { title, categories, parent, subtitle } = props
-  const pagePath = window.location.pathname ? window.location.pathname : null
+
+  const pagePath =
+    typeof window !== "undefined" && window.location.pathname
+      ? window.location.pathname
+      : null
   return (
     <HeroContainer>
       <Heading as="h1" variant="text3Xl">

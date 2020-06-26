@@ -25,7 +25,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     result.data.pages.edges.map(({ node }) => {
       const { pageType, slug } = node
-      const newPath = `${pageType}/${slug}`
+      const newPath = `${slug}`
+
+      console.log("ⓘ Create page", newPath)
+
       createPage({
         path: `/${newPath}`,
         component: pageTemplate,

@@ -14,10 +14,12 @@ const ShowsSection = props => {
       <Container>
         <Cards>
           {cardsData.map((card, index) => {
-            const newPath = `${parent}/${card.node.category.replace(
-              "education-",
-              ""
-            )}/${card.node.slug}`
+            // const newPath = `${parent}/${card.node.category.replace(
+            //   "education-",
+            //   ""
+            // )}/${card.node.slug}`
+
+            const newPath = card.node.slug
 
             return (
               <Card
@@ -48,7 +50,7 @@ const Card = props => {
       >
         {titleText}
       </Heading>
-      {category}
+      {/* {category} */}
       <ShowImage src={imgSrc} alt={imgAlt} />
       <Text as="p" variant="textBase" sx={{ marginTop: 30, marginBottom: 30 }}>
         {content}

@@ -25,6 +25,8 @@ const HeroFullVideo = props => {
     setTimeout(setBackgroundVideoPlaying(true), 200)
   })
 
+  if (!backgroundVideo.video) return null
+
   return (
     <HeroStyled>
       <BackgroundVideo bgImage={backgroundImage.url}>
@@ -51,7 +53,7 @@ const HeroFullVideo = props => {
               margin: "0 auto",
             }}
           >
-            {title}
+            {title} 1234 $&!&*%&^%*&^%
           </Heading>
           {showHighlightsReel ? (
             <Button variant="filled" onClick={() => setShowModal(true)}>
