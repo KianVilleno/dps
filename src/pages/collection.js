@@ -10,7 +10,7 @@ import HeroChoice from "../components/HeroChoice"
 const DATA = {
   hero: {
     title: "Collection",
-    subtitle: "Creating custom curiosities and fan favourites for collectors.",
+    subtitle: "Creating custom curiosities and fan favourites for collectors",
     categories: [],
   },
 }

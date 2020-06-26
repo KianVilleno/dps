@@ -9,7 +9,7 @@ import CardsSection from "../components/CardsSection"
 const DATA = {
   hero: {
     title: "Production",
-    subtitle: "Current productions showing across Australia and United States.",
+    subtitle: "Original visual-theatre works wrought with spectacle and wonder",
     categories: [],
   },
   cards: {
