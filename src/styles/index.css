@@ -1,52 +1,51 @@
 @font-face {
-  font-family: 'GT America Mono';
+  font-family: "GT America Mono";
   font-weight: 400;
   font-style: normal;
   src: url(/fonts/GT-America-Mono-Regular.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Text';
+  font-family: "GT Super Text";
   font-weight: 400;
   font-style: normal;
   src: url(/fonts/GT-Super-Text-Regular.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Text';
+  font-family: "GT Super Text";
   font-weight: 400;
   font-style: italic;
   src: url(/fonts/GT-Super-Text-Regular-Italic.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Display';
+  font-family: "GT Super Display";
   font-weight: 400;
   font-style: normal;
   src: url(/fonts/GT-Super-Display-Regular.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Display';
+  font-family: "GT Super Display";
   font-weight: 400;
   font-style: italic;
   src: url(/fonts/GT-Super-Display-Regular-Italic.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Display';
+  font-family: "GT Super Display";
   font-weight: 700;
   font-style: normal;
   src: url(/fonts/GT-Super-Display-Bold.woff2);
 }
 
 @font-face {
-  font-family: 'GT Super Display';
+  font-family: "GT Super Display";
   font-weight: 700;
   font-style: italic;
   src: url(/fonts/GT-Super-Display-Bold-Italic.woff2);
 }
-
 
 *,
 *::before,
@@ -56,6 +55,12 @@
   padding: 0;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

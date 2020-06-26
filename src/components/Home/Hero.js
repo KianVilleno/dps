@@ -73,7 +73,6 @@ const Hero = props => {
 
 // Styled Components
 const HeroStyled = styled.header`
-  background: red;
   height: 90vh;
 `
 

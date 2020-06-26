@@ -104,7 +104,6 @@ const SliderStyled = styled.div`
 
   .slick-slider {
     .slick-arrow:focus {
-      background: red;
     }
 
     .slick-arrow.slick-prev::before {
