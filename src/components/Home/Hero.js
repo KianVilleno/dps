@@ -64,9 +64,7 @@ const Hero = props => {
               </svg>{" "}
               Play showreel
             </Button>
-          ) : (
-            <Button variant="filled">Something else</Button>
-          )}
+          ) : null}
         </Content>
       </BackgroundVideo>
     </HeroStyled>
