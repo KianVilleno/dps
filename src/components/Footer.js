@@ -8,14 +8,89 @@ import Button from "./Button"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
+const SLIDES = [
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_69942689_2485671011509310_2055107151029991759_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_71139380_163530531507460_1617971732277606146_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_73456027_521622068626531_4797977983415736310_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_75358247_150952449508859_6132501989742779491_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_78815167_2610979492342973_6135854558599552428_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_80460510_526853598038263_8783375829756966261_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_80871921_652509001957353_3527640021637708308_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_81776944_285367269253649_4045056859983882924_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_81779850_175128393545941_6575487550598675621_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_82602988_495437921175334_5432244398227540781_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_84177242_119912932771763_4186290435444184837_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+  {
+    src:
+      "/images/instagram/deadpuppetsociety_84444183_508399376535431_4437198581511695460_n.jpg",
+    alt: "Hello",
+    url: "http://instagram.com",
+  },
+]
+
 const Footer = props => {
   const settings = {
     arrows: true,
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 2,
   }
   return (
     <StaticQuery
@@ -43,8 +118,12 @@ const Footer = props => {
           <FooterSection>
             <SliderStyled>
               <Slider {...settings}>
-                {footerGallery.map((image, index) => (
-                  <SlideImage src={image.url} alt={image.alt} key={index} />
+                {SLIDES.map((image, index) => (
+                  <SlideImage key={`img-${index}`}>
+                    <a href={image.url} target="_blank">
+                      <img src={image.src} alt={image.alt} key={index} />
+                    </a>
+                  </SlideImage>
                 ))}
               </Slider>
             </SliderStyled>
@@ -97,10 +176,15 @@ const FooterSection = styled.footer``
 
 const SliderStyled = styled.div`
   margin: 0 auto;
-  max-width: 1440px;
+  margin-top: 40px;
   width: 100%;
   overflow: hidden;
   height: auto;
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
 
   .slick-slider {
     .slick-arrow:focus {
@@ -132,11 +216,28 @@ const SliderStyled = styled.div`
   }
 `
 
-const SlideImage = styled.img``
+const SlideImage = styled.div`
+  padding: 0 20px;
+  &:focus {
+    outline: none;
+  }
+  a {
+    display: block;
+    &:focus {
+      outline: none;
+    }
+  }
+  img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+`
 
 const FooterInner = styled.div`
   margin: 0 auto;
   padding: 100px;
+  padding-top: 60px;
   width: 100%;
   max-width: 1440px;
   @media only screen and (min-width: 992px) {
