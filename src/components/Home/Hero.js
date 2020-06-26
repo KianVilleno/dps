@@ -86,6 +86,9 @@ const BackgroundVideo = styled.div`
   position: relative;
   background-image: url(${props => props.bgImage});
   height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .video-player {
     height: 90vh;
