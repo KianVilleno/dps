@@ -1,6 +1,7 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 import { Heading, Text } from "theme-ui"
 import Section, { Container } from "./Section"
 import Button from "./Button"
@@ -47,10 +48,12 @@ const Card = props => {
         variant="text2Xl"
         sx={{ marginBottom: [20, 40], fontWeight: "bold" }}
       >
-        {titleText}
+        <Link to={`/${slug}`}>{titleText}</Link>
       </Heading>
       {/* {category} */}
-      <ShowImage src={imgSrc} alt={imgAlt} />
+      <Link to={`/${slug}`}>
+        <ShowImage src={imgSrc} alt={imgAlt} />
+      </Link>
       {/* <Text as="p" variant="textBase" sx={{ marginTop: 30, marginBottom: 30 }}>
         {content}
       </Text> */}
@@ -73,6 +76,18 @@ const StyledCard = styled.div`
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
+
+  h3 {
+    min-height: 2.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
