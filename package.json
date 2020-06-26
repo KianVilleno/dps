@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default-theme-ui",
+  "name": "deadpuppetsociety-gatsby",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby & Theme UI",
+  "description": "",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Standing By <hello@standingby.co>",
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@mdx-js/react": "^1.5.1",
