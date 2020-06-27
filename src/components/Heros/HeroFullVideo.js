@@ -58,6 +58,7 @@ const HeroFullVideo = props => {
               playing={backgroundVideoPlaying}
               width="100%"
               height="100%"
+              playsinline
               autoPlay={backgroundVideoPlaying}
               url={backgroundVideo.video.mp4Url}
             />
