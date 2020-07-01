@@ -87,6 +87,9 @@ const Collection = ({ data }) => {
           <Row>
             <TmpPageGallery images={IMAGES} />
           </Row>
+          <p style={{ marginTop: "1em" }}>
+            Photography by Christian Tiger from Compadre Picture Co.
+          </p>
         </Container>
       </Section>
     </Layout>

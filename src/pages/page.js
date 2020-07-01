@@ -108,6 +108,9 @@ const Page = ({ data, location }) => {
             <Row>
               <TmpPageGallery images={HIVE_MIND_IMAGES} />
             </Row>
+            <p style={{ marginTop: "1em" }}>
+              Photography by Christian Tiger from Compadre Picture Co.
+            </p>
           </Container>
         </Section>
       ) : null}
