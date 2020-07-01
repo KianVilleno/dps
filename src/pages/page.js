@@ -6,9 +6,42 @@ import Seo from "../components/Seo"
 import { HeroFullVideo, HeroCenterImage, HeroText } from "../components/Heros"
 import { ShowInfo, LeftRightContent } from "../components/Content"
 
+import Section, { Container } from "../components/Section"
+import { Row, Column } from "../components/Grid"
+import TmpPageGallery from "../components/Content/TmpPageGallery"
+
+const HIVE_MIND_IMAGES = [
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-5139.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-5140.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-5142.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-5158.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-7755.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/hive-mind/deadpuppetsociety-post-activation-7757.jpg",
+    width: 0.5,
+  },
+]
+
 // Page
-const Page = ({ data }) => {
+const Page = ({ data, location }) => {
   // console.log(data.datoCmsPage)
+
+  const isHiveMind = location.pathname === "/hive-mind"
 
   return (
     <Layout>
@@ -63,6 +96,21 @@ const Page = ({ data }) => {
             return null
         }
       })}
+
+      {isHiveMind ? (
+        <Section>
+          <p>
+            &nbsp;
+            <br />
+            <br />
+          </p>
+          <Container>
+            <Row>
+              <TmpPageGallery images={HIVE_MIND_IMAGES} />
+            </Row>
+          </Container>
+        </Section>
+      ) : null}
     </Layout>
   )
 }

@@ -6,6 +6,7 @@ import { Heading, Image } from "theme-ui"
 // Component
 const HeroCenterImage = props => {
   const { title, image } = props
+
   return (
     <HeroContainer>
       <Heading

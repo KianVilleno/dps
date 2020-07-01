@@ -2,6 +2,10 @@ import React from "react"
 import "../styles/index.css"
 import { Heading } from "theme-ui"
 import Layout from "../layouts/Layout"
+import { HeroCenterImage, HeroFullVideo } from "../components/Heros"
+import Section, { Container } from "../components/Section"
+import { Row, Column } from "../components/Grid"
+import TmpPageGallery from "../components/Content/TmpPageGallery"
 
 import Seo from "../components/Seo"
 import HeroChoice from "../components/HeroChoice"
@@ -14,16 +18,44 @@ const DATA = {
   },
 }
 
+const heroImage = {
+  url: "/images/collection/deadpuppetsociety-hero-activation-7707.jpg",
+  alt: "",
+}
+const heroTitle = "Collection"
+
+const IMAGES = [
+  {
+    src: "/images/collection/deadpuppetsociety-post-activation-7726.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/collection/deadpuppetsociety-post-activation-7730.jpg",
+    width: 0.5,
+  },
+  {
+    src: "/images/collection/deadpuppetsociety-post-activation-7733.jpg",
+    width: 1,
+  },
+]
+
 const Collection = ({ data }) => {
   return (
     <Layout>
       <Seo title="Collection" />
-      <HeroChoice
+      <HeroFullVideo
+        title={heroTitle}
+        backgroundImage={heroImage}
+        backgroundVideo={null}
+        fullVideo={null}
+        showHighlightsReel={null}
+      />
+      {/* <HeroChoice
         parent="education"
         title={DATA.hero.title}
         subtitle={DATA.hero.subtitle}
         categories={DATA.hero.categories}
-      />
+      /> */}
       <Heading
         as="h2"
         variant="textXl"
@@ -49,8 +81,14 @@ const Collection = ({ data }) => {
         talk to us for a custom commission piece.
         <br />
         <br />
-        More coming soon.
       </Heading>
+      <Section>
+        <Container>
+          <Row>
+            <TmpPageGallery images={IMAGES} />
+          </Row>
+        </Container>
+      </Section>
     </Layout>
   )
 }
