@@ -5,7 +5,7 @@ const TmpPageGallery = ({ images }) => {
   const imageContent = images.map((image, key) => {
     return (
       <StyledImage key={key} width={image.width}>
-        <img src={image.src} />
+        <img src={image.src} alt="something" />
       </StyledImage>
     )
   })

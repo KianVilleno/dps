@@ -5,15 +5,29 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   // const showsTemplate = path.resolve(`./src/pages/show/show.js`)
   // const educationTemplate = path.resolve(`./src/pages/education/show.js`)
-  const pageTemplate = path.resolve(`./src/pages/page.js`)
+
+  const pageDefaultTemplate = path.resolve(`./src/templates/page-default.js`)
+  const pageIndexTemplate = path.resolve(`./src/templates/page-index.js`)
 
   const pages = graphql(`
     {
-      pages: allDatoCmsPage {
+      pageDefault: allContentfulPage {
         edges {
           node {
-            pageType
+            title
             slug
+          }
+        }
+      }
+      pageIndex: allContentfulIndexPage {
+        edges {
+          node {
+            title
+            slug
+            sections {
+              title
+              slug
+            }
           }
         }
       }
@@ -23,79 +37,54 @@ exports.createPages = ({ graphql, actions }) => {
       Promise.reject(result.errors)
     }
 
-    result.data.pages.edges.map(({ node }) => {
-      const { pageType, slug } = node
-      const newPath = `${slug}`
+    if (result.data.pageDefault) {
+      result.data.pageDefault.edges.forEach((edge, index) => {
+        const { title, slug } = edge.node
 
-      console.log("ⓘ Create page", newPath)
+        const pagePath = slug === "home" ? "/" : `/${slug}/`
 
-      createPage({
-        path: `/${newPath}`,
-        component: pageTemplate,
-        context: {
-          slug: node.slug,
-        },
+        console.log("ⓘ Make Page >>>>>>>>>>>", title, pagePath)
+        createPage({
+          path: pagePath,
+          component: pageDefaultTemplate,
+          context: {
+            slug,
+          },
+        })
       })
-    })
+    }
+
+    if (result.data.pageIndex) {
+      result.data.pageIndex.edges.forEach((edge, index) => {
+        const { title, slug, sections } = edge.node
+        console.log("ⓘ Make Index Page >>>>>>>>>>>", title, `/${slug}/`)
+        createPage({
+          path: `/${slug}/`,
+          component: pageIndexTemplate,
+          context: {
+            parentSlug: slug,
+            slug,
+          },
+        })
+
+        sections.forEach((section, index) => {
+          console.log(
+            "ⓘ Make Index Sub Page >>>>>>>>>>>",
+            section.title,
+            `/${slug}/${section.slug}/`
+          )
+          createPage({
+            path: `/${slug}/${section.slug}/`,
+            component: pageIndexTemplate,
+            context: {
+              parentSlug: slug,
+              slug: section.slug,
+            },
+          })
+        })
+      })
+    }
   })
-  // const shows = graphql(`
-  //   {
-  //     shows: allDatoCmsShow {
-  //       edges {
-  //         node {
-  //           slug
-  //           category
-  //         }
-  //       }
-  //     }
-  //   }
-  // `).then(result => {
-  //   if (result.errors) {
-  //     Promise.reject(result.errors)
-  //   }
-
-  //   result.data.shows.edges.map(({ node }) => {
-  //     const { category, slug } = node
-  //     const newPath = `${category.replace("production-", "")}/${slug}`
-  //     createPage({
-  //       path: `shows/${newPath}`,
-  //       component: path.resolve(`./src/pages/show/show.js`),
-  //       context: {
-  //         slug: node.slug,
-  //       },
-  //     })
-  //   })
-  // })
-
-  // const educationPages = graphql(`
-  //   {
-  //     education: allDatoCmsEducationPage {
-  //       edges {
-  //         node {
-  //           slug
-  //           category
-  //         }
-  //       }
-  //     }
-  //   }
-  // `).then(result => {
-  //   if (result.errors) {
-  //     Promise.reject(result.errors)
-  //   }
-
-  //   result.data.education.edges.map(({ node }) => {
-  //     const { category, slug } = node
-  //     const newPath = `${category.replace("education-", "")}/${slug}`
-  //     createPage({
-  //       path: `education/${newPath}`,
-  //       component: path.resolve(`./src/pages/education/[slug].js`),
-  //       context: {
-  //         slug: slug,
-  //       },
-  //     })
-  //   })
-  // })
-  // return Promise.all([shows, educationPages])
 
   return Promise.all([pages])
 }

@@ -1,3 +1,11 @@
+const dotenv = require("dotenv")
+
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({
+    path: `.env.development`,
+  })
+}
+
 module.exports = {
   siteMetadata: {
     title: `Dead Puppet Society`,
@@ -28,6 +36,13 @@ module.exports = {
         gfm: true,
         // Plugins configs
         plugins: [],
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `uye5dx1tklpb`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     "gatsby-plugin-theme-ui",

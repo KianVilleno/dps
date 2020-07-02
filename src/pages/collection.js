@@ -2,21 +2,12 @@ import React from "react"
 import "../styles/index.css"
 import { Heading } from "theme-ui"
 import Layout from "../layouts/Layout"
-import { HeroCenterImage, HeroFullVideo } from "../components/Heros"
+import { HeroFullVideo } from "../components/Heros"
 import Section, { Container } from "../components/Section"
-import { Row, Column } from "../components/Grid"
+import { Row } from "../components/Grid"
 import TmpPageGallery from "../components/Content/TmpPageGallery"
 
 import Seo from "../components/Seo"
-import HeroChoice from "../components/HeroChoice"
-
-const DATA = {
-  hero: {
-    title: "Collection",
-    subtitle: "Creating custom curiosities and fan favourites for collectors",
-    categories: [],
-  },
-}
 
 const heroImage = {
   url: "/images/collection/deadpuppetsociety-hero-activation-7707.jpg",
