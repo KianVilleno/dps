@@ -27,6 +27,13 @@ export default {
     },
     pallet: colors,
     modes: {
+      default: {
+        text: denim,
+        background: tan,
+        button: {
+          ...buttonColors.default,
+        },
+      },
       midnight: {
         text: granola,
         background: midnight,

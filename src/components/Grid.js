@@ -3,7 +3,6 @@ import styled from "@emotion/styled"
 const Row = styled.div`
   width: 100%;
   margin: 0 auto;
-
   @media only screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;

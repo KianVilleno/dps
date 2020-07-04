@@ -48,7 +48,6 @@ const Text2Xl = styled.h3`
   font-size: 50px;
   line-height: 1.15;
   ${textControls}
-
   ${props => (props.bold ? `font-weight: bold;` : null)}
 `
 
@@ -68,6 +67,14 @@ const Text4Xl = styled.h1`
   ${textControls}
 `
 
+const TextNav = styled.span`
+  color: ${props => props.theme.colors.text};
+  font-family: "GT Super Display";
+  font-size: 100px;
+  line-height: 1.15;
+  ${textControls}
+`
+
 export {
   Subtitle,
   Paragraph,
@@ -77,4 +84,5 @@ export {
   Text2Xl,
   Text3Xl,
   Text4Xl,
+  TextNav,
 }

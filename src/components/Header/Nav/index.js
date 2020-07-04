@@ -2,6 +2,8 @@ import React from "react"
 // import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import Button from "../../Button"
+import { Link } from "gatsby"
+import TagLink from "../../TagLink"
 
 const HeaderHav = ({ sections, parentSlug, currSlug }) => {
   const items = sections.map((section, index) => {
@@ -23,9 +25,7 @@ const Item = ({ section, parentSlug, isFirst, isActive }) => {
   const href = isFirst ? `/${parentSlug}` : `/${parentSlug}/${slug}`
   return (
     <ItemEl isActive={isActive}>
-      <Button href={href} variant="primary">
-        {title}
-      </Button>
+      <TagLink to={href}>{title}</TagLink>
     </ItemEl>
   )
 }
@@ -35,11 +35,9 @@ export default HeaderHav
 const Nav = styled.div`
   display: flex;
   justify-content: center;
+  margin: 1em 0;
 `
 
 const ItemEl = styled.div`
   padding: 0 0.4em;
-  a {
-    background: ${props => (props.isActive ? `#fff` : `transparent`)};
-  }
 `

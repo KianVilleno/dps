@@ -48,4 +48,11 @@ export const baseTextStyles = {
     fontWeight: "bold",
     lineHeight: "small",
   },
+  textNav: {
+    color: "text",
+    fontFamily: "gtSuperDisplay",
+
+    fontWeight: "bold",
+    lineHeight: "small",
+  },
 }

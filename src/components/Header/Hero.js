@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import ReactPlayer from "react-player"
 import { Heading } from "theme-ui"
 import LogoMark from "../Svg/LogoMark"
+import { colors } from "../../styles/settings"
 
 const Hero = ({ title, media }) => {
   const location = useLocation()
@@ -29,19 +30,22 @@ const Hero = ({ title, media }) => {
           <HeroVideo urls={videos} isPlaying={true} />
         ) : null}
         <Content>
-          {location && location.pathname === "/" ? <LogoMark /> : null}
-          <Heading
-            as="h1"
-            variant="text3Xl"
-            sx={{
-              width: "100%",
-              maxWidth: 936,
-              color: "white",
-              margin: "0 auto",
-            }}
-          >
-            {title}
-          </Heading>
+          {location && location.pathname === "/" ? (
+            <LogoMark color={colors.granola} />
+          ) : (
+            <Heading
+              as="h1"
+              variant="text3Xl"
+              sx={{
+                width: "100%",
+                maxWidth: 936,
+                color: "white",
+                margin: "0 auto",
+              }}
+            >
+              {title}
+            </Heading>
+          )}
         </Content>
       </Bg>
     </Wrap>
@@ -78,6 +82,7 @@ const Bg = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100%;
   .video-player {
     width: 100%;
     video {

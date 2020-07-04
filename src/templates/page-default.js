@@ -48,6 +48,7 @@ export const query = graphql`
       rows {
         ... on ContentfulRowAccordionText {
           title
+          openByDefault
           contentLeft {
             json
           }
@@ -63,11 +64,33 @@ export const query = graphql`
         }
         ... on ContentfulRowAccordionGallery {
           title
+          openByDefault
           images {
             id
             description
             fluid {
               ...GatsbyContentfulFluid
+            }
+          }
+        }
+        ... on ContentfulRowText {
+          title
+          contentLeft {
+            json
+          }
+          contentRight {
+            json
+          }
+        }
+        ... on ContentfulRowShapes {
+          shapes {
+            ... on ContentfulShapeLink {
+              heading
+              description
+              theme
+              type
+              linkText
+              linkUrl
             }
           }
         }

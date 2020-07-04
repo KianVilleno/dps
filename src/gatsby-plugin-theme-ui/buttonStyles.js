@@ -43,6 +43,7 @@ export const buttonColors = {
     primary: {
       text: denim,
       background: "transparent",
+      backgroundHover: white,
       borderColor: granola,
     },
     alternative: {

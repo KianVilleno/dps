@@ -1,6 +1,9 @@
 // Imports
 import React from "react"
-// import styled from "@emotion/styled"
+import styled from "@emotion/styled"
+
+import { Link } from "gatsby"
+
 import { Link as ThemeUIButton, useThemeUI } from "theme-ui"
 // Components
 
@@ -36,6 +39,12 @@ export const Button = props => {
   const filled = props.variant === "filled" ? true : false
   return <ThemeUIButton sx={polygonBorders(color, filled)} {...props} />
 }
+
+const TagLink = styled(Link)`
+  display: block;
+  height: 100px;
+`
+
 // export const NewButton = ({ variant = 'primary' }) => {
 //   const { theme, colorMode } = useThemeUI()
 //   const color = theme.colors.modes[colorMode]

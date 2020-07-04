@@ -101,12 +101,12 @@ const StyledCard = styled.div`
   }
 `
 
-const ShowImage = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  margin-bottom: 20px;
-  @media (min-width: ${props => props.theme.breakpoints[2]}) {
-    margin-bottom: 40px;
-  }
-`
+// const ShowImage = styled.img`
+//   display: block;
+//   margin: 0 auto;
+//   width: 100%;
+//   margin-bottom: 20px;
+//   @media (min-width: ${props => props.theme.breakpoints[2]}) {
+//     margin-bottom: 40px;
+//   }
+// `

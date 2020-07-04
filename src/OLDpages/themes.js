@@ -7,6 +7,7 @@ import {
   Text2Xl,
   Text3Xl,
   Text4Xl,
+  TextNav,
 } from "../components/Typography.js"
 
 import { useThemeUI } from "theme-ui"
@@ -30,6 +31,7 @@ const ThemesPage = () => {
       <Text2Xl>Text SM</Text2Xl>
       <Text3Xl>Text SM</Text3Xl>
       <Text4Xl>Text SM</Text4Xl>
+      <TextNav>Text SM</TextNav>
       <button
         onClick={e => {
           setColorMode("default")

@@ -6,7 +6,7 @@ import { Heading, Text } from "theme-ui"
 const HeaderText = props => {
   const { title, subtitle } = props
   return (
-    <HeroContainer>
+    <Wrap>
       <Heading
         as="h1"
         variant="text3Xl"
@@ -15,14 +15,14 @@ const HeaderText = props => {
           maxWidth: 800,
           margin: "0 auto 0 auto",
           textAlign: "center",
-          paddingTop: [100, 0],
+          paddingTop: [100, 110],
           paddingLeft: [20, 0],
           paddingRight: [20, 0],
         }}
       >
         {title}
       </Heading>
-      <Text
+      {/* <Text
         as="h2"
         variant="textLg"
         sx={{
@@ -33,12 +33,12 @@ const HeaderText = props => {
         }}
       >
         {subtitle}
-      </Text>
-    </HeroContainer>
+      </Text> */}
+    </Wrap>
   )
 }
 
-const HeroContainer = styled.header`
+const Wrap = styled.header`
   position: relative;
   display: flex;
   flex-direction: column;

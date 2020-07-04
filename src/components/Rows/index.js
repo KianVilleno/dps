@@ -1,6 +1,9 @@
 import React from "react"
+import Missing from "./Missing"
 import Accordion from "./Accordion"
 import Breakout from "./Breakout"
+import Text from "./Text"
+import Shapes from "./Shapes"
 
 const Rows = ({ data }) =>
   data.map((row, i) => {
@@ -11,6 +14,7 @@ const Rows = ({ data }) =>
             key={i}
             title={row.title}
             content={{ left: row.contentLeft, right: row.contentRight }}
+            defaultOpen={row.openByDefault}
             format={"text"}
           />
         )
@@ -21,7 +25,19 @@ const Rows = ({ data }) =>
             key={i}
             title={row.title}
             content={row.images}
+            defaultOpen={row.openByDefault}
             format="gallery"
+          />
+        )
+
+      case "ContentfulRowShapes":
+        return <Shapes key={i} content={row.shapes} />
+
+      case "ContentfulRowText":
+        return (
+          <Text
+            key={i}
+            content={{ left: row.contentLeft, right: row.contentRight }}
           />
         )
 
@@ -29,7 +45,7 @@ const Rows = ({ data }) =>
         return <Breakout key={i} content={row.breakout} />
 
       default:
-        return <div key={i}>UNKNOWN ROW TYPE :(</div>
+        return <Missing key={i} rowType={row.__typename} />
     }
   })
 

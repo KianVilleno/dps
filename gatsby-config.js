@@ -74,6 +74,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `12599812`,
+        access_token:
+          "IGQVJVZAU1aM1dlWWQ0ZAGZAoTjI5SDNHaURtOC03Y1FGaHpBMGNiSlVndmVMN1ZAlNVZA6SlJMM3VZASzJOeHFIWkJrY2ZAYVWdJWlI2Smxwc2p5RkpmY3Y5bk4xRFJaVUhWZADhwQ0ZAHOF9YMUU3cmh1WlJqUQZDZD",
+        paginate: 100,
+        maxPosts: 1000,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `dead-puppet-society`,
