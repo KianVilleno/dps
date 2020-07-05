@@ -35,8 +35,6 @@ const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
 }
 
 const Head = ({ children, setIsOpen, isOpen, isStack }) => {
-  console.log("???", isStack && !isOpen)
-
   return (
     <HeadEl onClick={() => setIsOpen(!isOpen)} isStack={isStack && !isOpen}>
       <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
@@ -95,7 +93,7 @@ export default Accordion
 const HeadEl = styled.button`
   display: block;
   position: relative;
-  padding: 25px 25px;
+  padding: 25px 20px;
   border: none;
   border-bottom: ${props =>
     props.isStack ? `none` : `1px solid ${colors.cloud}`};
@@ -128,7 +126,7 @@ const HeadIconEl = styled.span`
   z-index: 10;
   position: absolute;
   top: 0px;
-  right: 40px;
+  right: 20px;
   border: none;
   outline: none;
   width: 51px;
@@ -136,6 +134,7 @@ const HeadIconEl = styled.span`
   background: transparent;
 
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    right: 40px;
   }
 `
 

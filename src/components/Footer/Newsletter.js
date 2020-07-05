@@ -58,7 +58,9 @@ const Button = () => {
 export default Newsletter
 
 const Wrap = styled.div`
-  padding-right: 20%;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding-right: 20%;
+  }
 `
 
 const InputWrap = styled.div`

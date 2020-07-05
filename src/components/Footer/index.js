@@ -45,7 +45,7 @@ const Footer = () => {
         return (
           <FooterSection>
             <Instagram />
-            <Flex>
+            <Flex sx={{ flexWrap: "wrap" }}>
               <Box
                 p={3}
                 sx={{
@@ -72,7 +72,7 @@ const Footer = () => {
                 </Contact>
               </Box>
               <Box
-                p={2}
+                p={[3, 2]}
                 sx={{
                   width: ["100%", `${(3 / 12) * 100}%`],
                   marginRight: [0, `${(1 / 12) * 100}%`],

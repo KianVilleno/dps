@@ -24,21 +24,25 @@ const ShapeMini = ({
 
   return (
     <ShapeWrap>
-      <Shape>{shapeComponent}</Shape>
+      <Shape shape={shape}>{shapeComponent}</Shape>
       <Heading
         as="h4"
         variant="text2Xl"
-        sx={{ marginTop: 30, fontWeight: "bold", color: themeColor }}
+        sx={{ marginTop: ["4vw", 30], fontWeight: "bold", color: themeColor }}
       >
         {heading}
       </Heading>
-      <Text as="p" variant="textBase" sx={{ marginTop: 30, color: themeColor }}>
+      <Text
+        as="p"
+        variant="textBase"
+        sx={{ marginTop: ["4vw", 30], color: themeColor }}
+      >
         {description}
       </Text>
       <Link
         href={linkUrl}
         variant="link"
-        sx={{ marginTop: 33, color: themeColor }}
+        sx={{ marginTop: ["5vw", 33], color: themeColor }}
       >
         {linkText}
       </Link>
@@ -48,7 +52,14 @@ const ShapeMini = ({
 
 export default ShapeMini
 
-const Shape = styled.div``
+const Shape = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    svg {
+      width: ${props => (props.shape === "decagon" ? `50px` : `70px`)};
+      height: auto;
+    }
+  }
+`
 
 const ShapeWrap = styled.div`
   display: flex;
@@ -56,7 +67,10 @@ const ShapeWrap = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
   max-width: 492px;
   text-align: center;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    width: 50%;
+  }
 `

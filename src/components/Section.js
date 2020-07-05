@@ -17,8 +17,8 @@ export const Section = ({ children, isMt, isMb, isFirst }) => {
     threshold: threshold,
   })
 
-  const marginTop = isMt ? ["1em", "5vw"] : [0]
-  const marginBottom = isMb ? ["1em", "6vw"] : [0]
+  const marginTop = isMt ? ["10vw", "5vw"] : [0]
+  const marginBottom = isMb ? ["11vw", "6vw"] : [0]
 
   const variants = {
     visible: {

@@ -9,14 +9,14 @@ export const baseTextStyles = {
   textBase: {
     color: "text",
     fontFamily: "gtSuperText",
-    fontSize: 1,
+    fontSize: [0, 1],
     fontWeight: "regular",
     lineHeight: "large",
   },
   textLg: {
     color: "text",
     fontFamily: "gtSuperText",
-    fontSize: [1, 2],
+    fontSize: [0, 1, 2],
     fontWeight: "regular",
     lineHeight: "medium",
   },
@@ -30,7 +30,7 @@ export const baseTextStyles = {
   text2Xl: {
     color: "text",
     fontFamily: "gtSuperDisplay",
-    fontSize: [2, 3, 4],
+    fontSize: [1, 3, 4],
     fontWeight: "regular",
     lineHeight: "small",
   },

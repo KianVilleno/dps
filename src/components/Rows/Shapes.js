@@ -19,7 +19,7 @@ export const Shapes = ({ content }) => {
         <ShapeLarge {...shapeProps} />
       </Item>
     ) : (
-      <Item pb={[0, "5vw"]} key={`shape-${index}`}>
+      <Item pb={["10vw", "5vw"]} key={`shape-${index}`}>
         <ShapeMini {...shapeProps} />
       </Item>
     )
@@ -36,7 +36,10 @@ export default Shapes
 
 const Items = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const Item = styled(Box)``
