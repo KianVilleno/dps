@@ -2,34 +2,30 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { Heading, Text } from "theme-ui"
-import Section, { Container } from "../Section"
+import { Container } from "../Section"
 import Button from "../Button"
 import Img from "gatsby-image"
 
 const Cards = ({ content }) => {
-  console.log("content", content)
-
   return (
-    <Section pt="0">
-      <Container>
-        <CardsEl>
-          {content.map((card, index) => {
-            const { title, description, thumbnail, link } = card
-            return (
-              <Card
-                key={index}
-                slug={link.slug}
-                title={title}
-                description={description.childMarkdownRemark.html}
-                image={thumbnail}
-                imageAlt={thumbnail.description || title}
-                category={null}
-              />
-            )
-          })}
-        </CardsEl>
-      </Container>
-    </Section>
+    <Container>
+      <CardsEl>
+        {content.map((card, index) => {
+          const { title, description, thumbnail, link } = card
+          return (
+            <Card
+              key={index}
+              slug={link.slug}
+              title={title}
+              description={description.childMarkdownRemark.html}
+              image={thumbnail}
+              imageAlt={thumbnail.description || title}
+              category={null}
+            />
+          )
+        })}
+      </CardsEl>
+    </Container>
   )
 }
 

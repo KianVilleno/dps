@@ -15,7 +15,7 @@ const Nav = () => {
   const location = useLocation()
   const showLogoMark = location.pathname !== "/"
 
-  const toggleNav = () => setNavOpen(!navOpen)
+  // const toggleNav = () => setNavOpen(!navOpen)
   return (
     <NavWrapper open={navOpen}>
       <Toggle open={navOpen} setOpen={setNavOpen} />
@@ -155,7 +155,5 @@ const NavLink = styled(Link)`
     }
   }
 `
-
-const NavSocials = styled.div``
 
 export default Nav

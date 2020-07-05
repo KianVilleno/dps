@@ -1,67 +1,86 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { maxWidth } from "../styles/settings"
-import { Heading } from "theme-ui"
-import Button from "./Button"
-import Instagram from "./Footer/Instagram"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { maxWidth } from "../../styles/settings"
+import { Heading, Flex, Box } from "theme-ui"
+import Instagram from "./Instagram"
+import Newsletter from "./Newsletter"
+import TagLink from "../TagLink"
 
-const Footer = props => {
+const Footer = () => {
+  // const { theme, colorMode } = useThemeUI()
+
   return (
     <StaticQuery
       query={graphql`
-        query FooterQuery {
-          datoCmsFooter {
-            footerGallery {
-              alt
-              url
+        {
+          allContentfulGlobal {
+            edges {
+              node {
+                newsletterHeading
+                newsletterText
+                footerText {
+                  json
+                }
+                footerLink
+                footerLinkText
+              }
             }
-            contactText
-            newsletterInfo
-            newsletterTitle
           }
         }
       `}
       render={data => {
-        const { contactText } = data.datoCmsFooter
+        if (!data.allContentfulGlobal || !data.allContentfulGlobal.edges[0])
+          return null
+
+        const { node } = data.allContentfulGlobal.edges[0]
+        const {
+          newsletterHeading,
+          newsletterText,
+          footerText,
+          footerLink,
+          footerLinkText,
+        } = node
         return (
           <FooterSection>
             <Instagram />
-
-            <FooterInner>
-              <Contact>
-                <Heading
-                  as="h4"
-                  variant="text2Xl"
-                  sx={{
-                    fontWeight: "bold",
-                    marginBottom: 30,
-                  }}
-                >
-                  {contactText}
-                </Heading>
-                <Button href="/contact" variant="primary">
-                  Contact Us
-                </Button>
-              </Contact>
-
-              {/* <Newsletter>
-                <Heading
-                  as="h4"
-                  variant="textXl"
-                  sx={{
-                    color: "textOther",
-                    marginBottom: 30,
-                  }}
-                >
-                  {newsletterTitle}
-                </Heading>
-                <Text as="p" variant="textBase">
-                  {newsletterInfo}
-                </Text>
-                <Input placeholder="Email address" />
-              </Newsletter> */}
-            </FooterInner>
+            <Flex>
+              <Box
+                p={3}
+                sx={{
+                  width: ["100%", `${(6 / 12) * 100}%`],
+                  marginLeft: [0, `${(1 / 12) * 100}%`],
+                  marginRight: [0, `${(1 / 12) * 100}%`],
+                }}
+              >
+                <Contact>
+                  <Heading
+                    as="h4"
+                    variant="textXl"
+                    sx={{
+                      fontWeight: "bold",
+                      marginBottom: 30,
+                      paddingRight: "10%",
+                    }}
+                  >
+                    {documentToReactComponents(footerText.json, {})}
+                  </Heading>
+                  <TagLink to={footerLink} variant="primary">
+                    {footerLinkText}
+                  </TagLink>
+                </Contact>
+              </Box>
+              <Box
+                p={2}
+                sx={{
+                  width: ["100%", `${(3 / 12) * 100}%`],
+                  marginRight: [0, `${(1 / 12) * 100}%`],
+                }}
+              >
+                <Newsletter heading={newsletterHeading} text={newsletterText} />
+              </Box>
+            </Flex>
           </FooterSection>
         )
       }}
@@ -69,46 +88,25 @@ const Footer = props => {
   )
 }
 
-// Styled Components
-const FooterSection = styled.footer``
-
-const FooterInner = styled.div`
-  margin: 0 auto;
-  padding: 40px 20px 40px 20px;
-  width: 100%;
-  max-width: ${maxWidth};
-  @media only screen and (min-width: 992px) {
-    display: flex;
-    justify-content: space-between;
-  }
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    padding: 60px 100px 100px 100px;
-  }
+const FooterSection = styled.footer`
+  margin-top: 1em;
+  margin-bottom: 4em;
 `
 
-const Contact = styled.div`
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-  margin: 0 auto;
-`
-
-// const Newsletter = styled.div`
+// const FooterInner = styled.div`
+//   margin: 0 auto;
+//   padding: 40px 20px 40px 20px;
 //   width: 100%;
-//   max-width: 333px;
+//   max-width: ${maxWidth};
+//   @media only screen and (min-width: 992px) {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+//   @media (min-width: ${props => props.theme.breakpoints[1]}) {
+//     padding: 60px 100px 100px 100px;
+//   }
 // `
 
-// const NewsletterTitle = styled.h4`
-//   color: #000000;
-//   font-size: 38px;
-//   font-weight: 300;
-//   line-height: 1.2;
-// `
-// const NewsletterInfo = styled.p`
-//   margin-top: 20px;
-//   color: #000000;
-//   font-size: 22px;
-//   line-height: 1.4;
-// `
+const Contact = styled.div``
 
 export default Footer

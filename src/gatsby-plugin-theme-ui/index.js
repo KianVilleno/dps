@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { colors, sizesArr } from "../styles/settings"
+import { colors, sizesArr, space } from "../styles/settings"
 import { baseButtonStyles, buttonColors } from "./buttonStyles"
 import { baseTextStyles } from "./textStyles"
 
@@ -18,6 +18,7 @@ const {
 
 export default {
   breakpoints: sizesArr,
+  space: space,
   colors: {
     text: denim,
     textOther: granola,
@@ -29,6 +30,7 @@ export default {
     modes: {
       default: {
         text: denim,
+        textOther: granola,
         background: tan,
         button: {
           ...buttonColors.default,
@@ -127,5 +129,21 @@ export default {
     medium: 1.3,
     large: 1.4,
   },
+  forms: {
+    input: {
+      fontFamily: "'GT America Mono', monospace",
+      borderRadius: "0px",
+      borderTop: "none",
+      borderLeft: "none",
+      borderRight: "none",
+      borderWidth: "2px",
+      borderColor: "text",
+      "&:focus": {
+        outline: "none",
+        borderColor: "textOther",
+      },
+    },
+  },
+
   styles: {},
 }

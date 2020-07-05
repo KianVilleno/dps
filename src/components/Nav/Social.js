@@ -9,16 +9,16 @@ import { colors } from "../../styles/settings"
 const Social = () => {
   return (
     <Wrap>
-      <a href="https://www.pinterest.com.au/" target="_blank">
+      <a href="https://www.pinterest.com.au/" target="_blank" rel="noreferrer">
         <IconPinterest color={colors.salmon} />
       </a>
-      <a href="https://www.youtube.com/" target="_blank">
+      <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
         <IconYoutube color={colors.salmon} />
       </a>
-      <a href="https://www.facebook.com/" target="_blank">
+      <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
         <IconFacebook color={colors.salmon} />
       </a>
-      <a href="https://instagram.com/" target="_blank">
+      <a href="https://instagram.com/" target="_blank" rel="noreferrer">
         <IconInstagram color={colors.salmon} />
       </a>
     </Wrap>

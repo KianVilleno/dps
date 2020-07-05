@@ -1,10 +1,10 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
-import { Heading, Text } from "theme-ui"
+import { Heading } from "theme-ui"
 
 const HeaderText = props => {
-  const { title, subtitle } = props
+  const { title } = props
   return (
     <Wrap>
       <Heading

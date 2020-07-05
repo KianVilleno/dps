@@ -1,11 +1,11 @@
 // Imports
 import React from "react"
 import styled from "@emotion/styled"
-import Section, { Container } from "../Section"
-import { Row, Column } from "../Grid"
-import { colors } from "../../styles/settings"
+import { Container } from "../Section"
+// import { colors } from "../../styles/settings"
 import ShapeLarge from "./ShapeLarge"
 import ShapeMini from "./ShapeMini"
+import { Box } from "theme-ui"
 
 export const Shapes = ({ content }) => {
   const shapesContent = content.map((shape, index) => {
@@ -14,21 +14,21 @@ export const Shapes = ({ content }) => {
       shape: shapeType,
       ...shape,
     }
-    const shapeComponent =
-      shapeSize === "large" ? (
+    return shapeSize === "large" ? (
+      <Item pb={[0, "0vw"]} key={`shape-${index}`}>
         <ShapeLarge {...shapeProps} />
-      ) : (
+      </Item>
+    ) : (
+      <Item pb={[0, "5vw"]} key={`shape-${index}`}>
         <ShapeMini {...shapeProps} />
-      )
-    return <Column key={`shape-${index}`}>{shapeComponent}</Column>
+      </Item>
+    )
   })
 
   return (
-    <Section>
-      <Container outset={true}>
-        <Items>{shapesContent}</Items>
-      </Container>
-    </Section>
+    <Container outset={true}>
+      <Items>{shapesContent}</Items>
+    </Container>
   )
 }
 
@@ -38,3 +38,5 @@ const Items = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
+
+const Item = styled(Box)``

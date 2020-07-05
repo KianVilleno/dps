@@ -1,12 +1,11 @@
 import React, { useState } from "react"
-import Section from "../Section"
 import { Text } from "theme-ui"
 import AccordionText from "./AccordionText"
 import AccordionGallery from "./AccordionGallery"
 import styled from "@emotion/styled"
 import { colors } from "../../styles/settings"
 
-const Accordion = ({ title, content, format, defaultOpen }) => {
+const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen)
   if (!content) return null
 
@@ -26,18 +25,20 @@ const Accordion = ({ title, content, format, defaultOpen }) => {
   const bodyContent = getBody(format)
 
   return (
-    <Section>
-      <Head isOpen={isOpen} setIsOpen={setIsOpen}>
+    <>
+      <Head isOpen={isOpen} setIsOpen={setIsOpen} isStack={isStack}>
         {title}
       </Head>
-      {isOpen ? <Body>{bodyContent}</Body> : null}
-    </Section>
+      {isOpen ? <Body isStack={isStack}>{bodyContent}</Body> : null}
+    </>
   )
 }
 
-const Head = ({ children, setIsOpen, isOpen }) => {
+const Head = ({ children, setIsOpen, isOpen, isStack }) => {
+  console.log("???", isStack && !isOpen)
+
   return (
-    <HeadEl onClick={() => setIsOpen(!isOpen)}>
+    <HeadEl onClick={() => setIsOpen(!isOpen)} isStack={isStack && !isOpen}>
       <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
         {children}
       </Text>
@@ -85,8 +86,8 @@ const HeadIcon = ({ isOpen }) => {
   )
 }
 
-const Body = ({ children }) => {
-  return <BodyEl>{children}</BodyEl>
+const Body = ({ children, isStack }) => {
+  return <BodyEl isStack={isStack}>{children}</BodyEl>
 }
 
 export default Accordion
@@ -96,7 +97,8 @@ const HeadEl = styled.button`
   position: relative;
   padding: 40px 40px;
   border: none;
-  border-bottom: 1px solid ${colors.cloud};
+  border-bottom: ${props =>
+    props.isStack ? `none` : `1px solid ${colors.cloud}`};
   border-top: 1px solid ${colors.cloud};
   width: 100%;
   background: transparent;
@@ -128,4 +130,7 @@ const HeadIconEl = styled.span`
   }
 `
 
-const BodyEl = styled.div``
+const BodyEl = styled.div`
+  border-bottom: ${props =>
+    props.isStack ? `none` : `1px solid ${colors.cloud}`};
+`

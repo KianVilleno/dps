@@ -1,7 +1,16 @@
+import React from "react"
 import styled from "@emotion/styled"
 import { maxWidth } from "../styles/settings"
+import { Box } from "theme-ui"
 
-const Section = styled.section`
+export const Section = ({ children, isMt, isMb }) => {
+  const marginBottom = isMb ? ["1em", "6vw"] : [0]
+  const marginTop = isMt ? ["1em", "6vw"] : [0]
+
+  return <StyledBox sx={{ marginBottom, marginTop }}>{children}</StyledBox>
+}
+
+const StyledBox = styled(Box)`
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -18,6 +27,7 @@ const Section = styled.section`
     padding-bottom: ${(props => props.pb) ? props => props.pb : "80px"};
   }
 `
+
 export const Container = styled.div`
   box-sizing: border-box;
   position: relative;

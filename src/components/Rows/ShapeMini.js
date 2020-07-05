@@ -13,7 +13,6 @@ const ShapeMini = ({
   linkUrl,
   theme,
 }) => {
-  console.log(">>>", shape, heading, description, linkText, linkUrl, theme)
   const themeColor = colors[theme.toLowerCase()] || colors["midnight"]
 
   let shapeComponent = null

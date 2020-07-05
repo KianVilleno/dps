@@ -45,14 +45,36 @@ export default AccordionGallery
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding: 20px 20px 30px 20px;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 20px 30px 30px 30px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    padding: 30px 35px 40px 35px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[3]}) {
+    padding: 30px 35px 40px 35px;
+  }
 `
 
 const Item = styled.div`
-  padding: 40px;
-  width: 20%;
+  padding: 20px;
+  width: 50%;
   position: relative;
   &:hover {
     top: -1px;
     cursor: pointer;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    width: 33.3333%;
+    padding: 30px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    width: 20%;
+    padding: 30px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[3]}) {
+    width: 20%;
+    padding: 2.5vw;
   }
 `

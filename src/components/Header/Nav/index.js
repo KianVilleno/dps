@@ -1,8 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import Button from "../../Button"
-import { Link } from "gatsby"
 import TagLink from "../../TagLink"
 
 const HeaderHav = ({ sections, parentSlug, currSlug }) => {
