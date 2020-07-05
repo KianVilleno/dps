@@ -9,17 +9,11 @@ import styled from "@emotion/styled"
 import TagLink from "../TagLink"
 
 const TextFeature = ({ content }) => {
-  console.log(">>>", content)
   const copy = content.content
   const { image, linkText, linkUrl, layout } = content
 
-  console.log("layout", layout)
-
   const flexDirection =
     layout === "Image Left, Text Right" ? "row-reverse" : "row"
-
-  // ;("Text Left, Image Right")
-  // ;("Image Left, Text Right")
 
   let copyComponent
   if (copy) {
@@ -40,6 +34,8 @@ const TextFeature = ({ content }) => {
       </TextWrap>
     )
   }
+
+  console.log("WUT 2...")
 
   let linkComponent
   if (linkText && linkUrl) {

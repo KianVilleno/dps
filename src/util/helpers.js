@@ -2,7 +2,13 @@ import _ from "lodash"
 
 export const getCurrSlugSection = (location, sections) => {
   const subSlugs = sections.map(s => s.slug)
-  const pathnameParts = location.pathname.replace(/^\/+/, "").split("/")
+
+  // remove leading slash, trailing slash, convert to array
+  const pathnameParts = location.pathname
+    .replace(/\/$/, "")
+    .replace(/^\/+/, "")
+    .split("/")
+
   const currSlug =
     pathnameParts.length === 1
       ? subSlugs[0]
