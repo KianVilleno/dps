@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { Flex, Box } from "theme-ui"
+import { Flex } from "theme-ui"
 import { StaticQuery, graphql } from "gatsby"
 import Slider from "react-slick"
 import useWindowSize from "../../hooks/useWindowSize"
@@ -56,20 +56,6 @@ const Instagram = () => {
         return (
           <WrapOuter>
             <Wrap>
-              <Flex>
-                <Box width={[1 / 2, 1]} px={2}>
-                  <p>
-                    Follow us on&nbsp;
-                    <a
-                      href="https://www.instagram.com/happy_haus/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <u>Instagram</u>
-                    </a>
-                  </p>
-                </Box>
-              </Flex>
               <Flex flexWrap="wrap">
                 <SliderStyled>
                   <Slider {...slideSettings}>{images}</Slider>

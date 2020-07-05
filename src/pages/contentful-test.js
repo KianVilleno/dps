@@ -16,12 +16,8 @@ const options = {
 }
 
 const ContentfulTest = ({ data }) => {
-  console.log("data", data)
-
   const contentJson =
     data.allContentfulPage.edges[0].node.rows[0].contentLeft.json
-
-  console.log(">>>", contentJson)
 
   return <div>{documentToReactComponents(contentJson, options)}</div>
 }

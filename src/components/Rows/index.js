@@ -32,16 +32,14 @@ const Rows = ({ data }) => {
       row.__typename.indexOf("Accordion") > -1 &&
       nextRowType.indexOf("Accordion") > -1
 
-    console.log(">>>", isAccordionStack)
-
-    console.log(
-      "THIS ROW",
-      row.__typename,
-      "...top margin:",
-      mt,
-      "...bottom: margin",
-      mb
-    )
+    // console.log(
+    //   "THIS ROW",
+    //   row.__typename,
+    //   "...top margin:",
+    //   mt,
+    //   "...bottom: margin",
+    //   mb
+    // )
 
     let content
 
@@ -52,7 +50,7 @@ const Rows = ({ data }) => {
             key={i}
             title={row.title}
             content={{ left: row.contentLeft, right: row.contentRight }}
-            defaultOpen={row.openByDefault}
+            defaultOpen={row.openByDefault === "Yes"}
             format={"text"}
             isStack={isAccordionStack}
           />
@@ -65,7 +63,7 @@ const Rows = ({ data }) => {
             key={i}
             title={row.title}
             content={row.images}
-            defaultOpen={row.openByDefault}
+            defaultOpen={row.openByDefault === "Yes"}
             format="gallery"
             isStack={isAccordionStack}
           />

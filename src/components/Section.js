@@ -5,7 +5,7 @@ import { maxWidth } from "../styles/settings"
 import { Box } from "theme-ui"
 import { motion, useAnimation } from "framer-motion"
 
-export const Section = ({ children, isMt, isMb, isFirst, name }) => {
+export const Section = ({ children, isMt, isMb, isFirst }) => {
   const sectionRef = useRef(null)
   const animation = useAnimation()
 
@@ -17,8 +17,8 @@ export const Section = ({ children, isMt, isMb, isFirst, name }) => {
     threshold: threshold,
   })
 
-  const paddingBottom = isMb ? [".5em", "3vw"] : [0]
-  const paddingTop = isMt ? [".5em", "3vw"] : [0]
+  const marginTop = isMt ? ["1em", "5vw"] : [0]
+  const marginBottom = isMb ? ["1em", "6vw"] : [0]
 
   const variants = {
     visible: {
@@ -33,16 +33,16 @@ export const Section = ({ children, isMt, isMb, isFirst, name }) => {
   }
 
   return (
-    <motion.div
-      initial={"hidden"}
-      animate={animation}
-      variants={variants}
-      transition={{ ease: "easeOut", duration: 0.4 }}
-    >
-      <StyledBox sx={{ paddingBottom, paddingTop }} ref={sectionRef}>
+    <StyledBox sx={{ marginBottom, marginTop }} ref={sectionRef}>
+      <motion.div
+        initial={"hidden"}
+        animate={animation}
+        variants={variants}
+        transition={{ ease: "easeOut", duration: 0.4 }}
+      >
         {children}
-      </StyledBox>
-    </motion.div>
+      </motion.div>
+    </StyledBox>
   )
 }
 
