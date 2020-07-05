@@ -8,7 +8,11 @@ const Header = ({ title, media, format }) => {
       return <Text title={title} />
 
     case "Hero":
-      return <Hero title={title} media={media} />
+      if (!media) {
+        return <Text title={title} />
+      } else {
+        return <Hero title={title} media={media} />
+      }
 
     default:
       return <Text title={title} />
