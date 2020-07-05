@@ -1,11 +1,34 @@
 import React from "react"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text } from "theme-ui"
 import { Container } from "../Section"
 import { Row, Column } from "../../components/Grid"
 import styled from "@emotion/styled"
 
-const LeftRightContent = ({ content }) => {
+const renderOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      let output
+      if (node.data) {
+        if (node.nodeType === "embedded-asset-block") {
+          if (node.data.target.fields) {
+            const { file, title } = node.data.target.fields
+            const { url } = file["en-US"]
+            output = (
+              <ImgWrap>
+                <img src={url} alt={title} />
+              </ImgWrap>
+            )
+          }
+        }
+      }
+      return output
+    },
+  },
+}
+
+const RowText = ({ content }) => {
   return (
     <Container>
       <Row>
@@ -15,14 +38,13 @@ const LeftRightContent = ({ content }) => {
               as="div"
               variant="textBase"
               sx={{
-                maxWidth: 554,
                 "& p": {
                   margin: "10px 0",
                 },
               }}
             >
               {content.left
-                ? documentToReactComponents(content.left.json, {})
+                ? documentToReactComponents(content.left.json, renderOptions)
                 : null}
             </Text>
           </TextWrap>
@@ -33,14 +55,13 @@ const LeftRightContent = ({ content }) => {
               as="div"
               variant="textBase"
               sx={{
-                maxWidth: 554,
                 "& p": {
                   margin: "10px 0",
                 },
               }}
             >
               {content.right
-                ? documentToReactComponents(content.right.json, {})
+                ? documentToReactComponents(content.right.json, renderOptions)
                 : null}
             </Text>
           </TextWrap>
@@ -50,7 +71,7 @@ const LeftRightContent = ({ content }) => {
   )
 }
 
-export default LeftRightContent
+export default RowText
 
 const ColumnOne = styled(Column)`
   @media only screen and (min-width: 992px) {
@@ -67,7 +88,6 @@ const ColumnTwo = styled(Column)`
       margin-left: auto;
     }
   }
-
   a {
     margin-top: 10px;
   }
@@ -76,5 +96,14 @@ const ColumnTwo = styled(Column)`
 const TextWrap = styled.div`
   a {
     color: inherit;
+  }
+`
+
+const ImgWrap = styled.div`
+  margin-top: 1em;
+  margin-bottom: 1em;
+  img {
+    width: 100%;
+    height: auto;
   }
 `

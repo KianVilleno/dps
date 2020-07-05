@@ -2,6 +2,7 @@ import React from "react"
 import Missing from "./Missing"
 import Accordion from "./Accordion"
 import Breakout from "./Breakout"
+import TextFeature from "./TextFeature"
 import Text from "./Text"
 import Shapes from "./Shapes"
 import Section from "../Section"
@@ -81,6 +82,10 @@ const Rows = ({ data }) => {
             content={{ left: row.contentLeft, right: row.contentRight }}
           />
         )
+        break
+
+      case "ContentfulRowTextFeature":
+        content = <TextFeature key={i} content={row} />
         break
 
       case "ContentfulRowBreakout":

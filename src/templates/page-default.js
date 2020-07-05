@@ -95,6 +95,23 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulRowTextFeature {
+          title
+          layout
+          content {
+            json
+          }
+          image {
+            id
+            title
+            description
+            fluid(maxWidth: 1000) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          linkText
+          linkUrl
+        }
       }
     }
   }

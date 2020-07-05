@@ -5,6 +5,8 @@ const Row = styled.div`
   margin: 0 auto;
   @media only screen and (min-width: 992px) {
     display: flex;
+    flex-direction: ${props =>
+      props.flexDirection ? props.flexDirection : "row"};
     justify-content: space-between;
     align-items: stretch;
   }

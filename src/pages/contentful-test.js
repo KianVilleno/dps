@@ -12,6 +12,10 @@ const options = {
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      console.log("node 1", node)
+      return <p>NODE</p>
+    },
   },
 }
 

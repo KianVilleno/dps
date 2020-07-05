@@ -102,3 +102,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 - [https://www.framer.com/api/motion/animation/](Framer Motion)
 - [https://www.react-reveal.com/examples/common/fade/](Alternative Fade example)
 - [https://bitworking.github.io/react-scrollmagic/](React scroll magic)
+
+Contentful
+
+- Matrix fields for basic values that can repeat
+- Radios + Dropdown - label, value, pairs?
