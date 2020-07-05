@@ -58,12 +58,12 @@ export const Container = styled.div`
   box-sizing: border-box;
   position: relative;
   margin: 0 auto;
-  padding: ${props =>
-    props.outset ? `0px 40px` : `0px calc(-40px + ${(1 / 12) * 100}%)`};
+  padding: 0 20px;
   width: 100%;
   max-width: ${maxWidth};
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    padding: 0 20px;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: ${props =>
+      props.outset ? `0px 40px` : `0px calc(-40px + ${(1 / 12) * 100}%)`};
   }
 `
 

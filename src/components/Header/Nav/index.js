@@ -33,7 +33,10 @@ export default HeaderHav
 const Nav = styled.div`
   display: flex;
   justify-content: center;
-  margin: 1em 0;
+  margin: 2em 0 3em 0;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    margin: 2.8em 0 3.5em 0;
+  }
 `
 
 const ItemEl = styled.div`

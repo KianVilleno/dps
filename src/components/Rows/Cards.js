@@ -46,7 +46,7 @@ const Card = ({ slug, title, description, image, imageAlt }) => {
         <Text
           as="span"
           variant="textBase"
-          sx={{ marginTop: 30, marginBottom: 30, display: "block" }}
+          sx={{ marginTop: [15, 30], marginBottom: [15, 30], display: "block" }}
           dangerouslySetInnerHTML={{
             __html: description,
           }}
@@ -86,6 +86,7 @@ const StyledCard = styled.div`
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     margin-top: 30px;
     margin-bottom: 50px;
+    width: calc(50% - 20px);
     h3 {
       min-height: 2.2em;
     }

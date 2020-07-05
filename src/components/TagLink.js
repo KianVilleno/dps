@@ -29,7 +29,7 @@ const Wrap = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
   height: 55px;
-  line-height: 55px;
+  line-height: 53px;
   display: inline-block;
   padding: 0 10px 0 10px;
   position: relative;
