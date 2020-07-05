@@ -1,54 +1,52 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text } from "theme-ui"
-import Section, { Container } from "../Section"
+import { Container } from "../Section"
 import { Row, Column } from "../../components/Grid"
 import styled from "@emotion/styled"
 
 const LeftRightContent = ({ content }) => {
   return (
-    <Section>
-      <Container>
-        <Row>
-          <ColumnOne>
-            <TextWrap>
-              <Text
-                as="div"
-                variant="textBase"
-                sx={{
-                  maxWidth: 554,
-                  "& p": {
-                    margin: "10px 0",
-                  },
-                }}
-              >
-                {content.left
-                  ? documentToReactComponents(content.left.json, {})
-                  : null}
-              </Text>
-            </TextWrap>
-          </ColumnOne>
-          <ColumnTwo>
-            <TextWrap>
-              <Text
-                as="div"
-                variant="textBase"
-                sx={{
-                  maxWidth: 554,
-                  "& p": {
-                    margin: "10px 0",
-                  },
-                }}
-              >
-                {content.right
-                  ? documentToReactComponents(content.right.json, {})
-                  : null}
-              </Text>
-            </TextWrap>
-          </ColumnTwo>
-        </Row>
-      </Container>
-    </Section>
+    <Container>
+      <Row>
+        <ColumnOne>
+          <TextWrap>
+            <Text
+              as="div"
+              variant="textBase"
+              sx={{
+                maxWidth: 554,
+                "& p": {
+                  margin: "10px 0",
+                },
+              }}
+            >
+              {content.left
+                ? documentToReactComponents(content.left.json, {})
+                : null}
+            </Text>
+          </TextWrap>
+        </ColumnOne>
+        <ColumnTwo>
+          <TextWrap>
+            <Text
+              as="div"
+              variant="textBase"
+              sx={{
+                maxWidth: 554,
+                "& p": {
+                  margin: "10px 0",
+                },
+              }}
+            >
+              {content.right
+                ? documentToReactComponents(content.right.json, {})
+                : null}
+            </Text>
+          </TextWrap>
+        </ColumnTwo>
+      </Row>
+    </Container>
   )
 }
 

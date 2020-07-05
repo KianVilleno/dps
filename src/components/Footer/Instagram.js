@@ -9,7 +9,8 @@ import "slick-carousel/slick/slick-theme.css"
 
 const Instagram = () => {
   const windowSize = useWindowSize()
-  const slidesToShow = windowSize.width > 1000 || !windowSize.width ? 4 : 2
+  const slidesToShow = windowSize.width > 768 || !windowSize.width ? 6 : 4
+  const slidesToScroll = windowSize.width > 768 || !windowSize.width ? 3 : 2
 
   const slideSettings = {
     arrows: true,
@@ -17,7 +18,7 @@ const Instagram = () => {
     infinite: true,
     speed: 500,
     slidesToShow: slidesToShow,
-    slidesToScroll: 2,
+    slidesToScroll: slidesToScroll,
   }
 
   return (
@@ -53,27 +54,29 @@ const Instagram = () => {
           )
         })
         return (
-          <Wrap>
-            <Flex>
-              <Box width={[1 / 2, 1]} px={2}>
-                <p>
-                  Follow us on&nbsp;
-                  <a
-                    href="https://www.instagram.com/happy_haus/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <u>Instagram</u>
-                  </a>
-                </p>
-              </Box>
-            </Flex>
-            <Flex flexWrap="wrap">
-              <SliderStyled>
-                <Slider {...slideSettings}>{images}</Slider>
-              </SliderStyled>
-            </Flex>
-          </Wrap>
+          <WrapOuter>
+            <Wrap>
+              <Flex>
+                <Box width={[1 / 2, 1]} px={2}>
+                  <p>
+                    Follow us on&nbsp;
+                    <a
+                      href="https://www.instagram.com/happy_haus/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <u>Instagram</u>
+                    </a>
+                  </p>
+                </Box>
+              </Flex>
+              <Flex flexWrap="wrap">
+                <SliderStyled>
+                  <Slider {...slideSettings}>{images}</Slider>
+                </SliderStyled>
+              </Flex>
+            </Wrap>
+          </WrapOuter>
         )
       }}
     />
@@ -82,12 +85,21 @@ const Instagram = () => {
 
 export default Instagram
 
+const WrapOuter = styled.div`
+  width: 100%;
+  overflow-x: hidden;
+`
+
 const Wrap = styled.div`
   margin-top: 85px;
   margin-bottom: 85px;
-  @media (max-width: 800px) {
+  margin-left: -10%;
+  margin-right: -10%;
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-top: 5vw;
     margin-bottom: 5vw;
+    margin-left: -15%;
+    margin-right: -15%;
   }
   a {
     color: "#000";
@@ -99,7 +111,7 @@ const ImageWrap = styled.div`
     max-width: 100%;
     display: block;
   }
-  @media (max-width: 800px) {
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin-bottom: 5vw;
   }
 `
@@ -161,5 +173,8 @@ const SlideImage = styled.div`
     margin: 0;
     padding: 0;
     width: 100%;
+  }
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 0 10px;
   }
 `

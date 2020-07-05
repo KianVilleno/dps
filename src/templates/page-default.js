@@ -67,6 +67,7 @@ export const query = graphql`
           openByDefault
           images {
             id
+            title
             description
             fluid(maxWidth: 1000) {
               ...GatsbyContentfulFluid

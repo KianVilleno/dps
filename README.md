@@ -95,3 +95,10 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/KyleAMathews/gatsby-starter-theme-ui)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## References
+
+- [https://www.youtube.com/watch?v=exucYUoiJLw](Animation)
+- [https://www.framer.com/api/motion/animation/](Framer Motion)
+- [https://www.react-reveal.com/examples/common/fade/](Alternative Fade example)
+- [https://bitworking.github.io/react-scrollmagic/](React scroll magic)

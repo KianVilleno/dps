@@ -73,6 +73,8 @@ const HeroVideo = ({ urls, isPlaying }) => {
 
 const Wrap = styled.header`
   height: 90vh;
+  position: relative;
+  z-index: 1;
 `
 
 const Bg = styled.div`

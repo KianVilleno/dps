@@ -1,12 +1,14 @@
 import React from "react"
-import { Heading } from "theme-ui"
+import { Heading, useThemeUI } from "theme-ui"
+import styled from "@emotion/styled"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import Section, { Container } from "../Section"
+import { Container } from "../Section"
 
 const Breakout = ({ content }) => {
+  const { theme } = useThemeUI()
   return (
-    <Section>
-      <Container>
+    <Container>
+      <BreakoutEl color={theme.colors.text}>
         <Heading
           as="h2"
           variant="text2Xl"
@@ -18,14 +20,22 @@ const Breakout = ({ content }) => {
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: 0,
-            marginBottom: [40, 100],
+            marginBottom: [20, 30],
           }}
         >
           {documentToReactComponents(content.json, {})}
         </Heading>
-      </Container>
-    </Section>
+      </BreakoutEl>
+    </Container>
   )
 }
 
 export default Breakout
+
+const BreakoutEl = styled.div`
+  h2 {
+    a {
+      color: ${props => props.color};
+    }
+  }
+`

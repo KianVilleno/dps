@@ -22,15 +22,23 @@ const AccordionGallery = ({ content }) => {
   })
 
   let imgsArr = []
+  let imgsArrNew = []
   content.forEach(image => {
     imgsArr.push(image.fluid.src)
+    imgsArrNew.push({
+      src: image.fluid.src,
+      title: image.title,
+      description: image.description,
+    })
   })
+
+  console.log("!!!", imgsArrNew)
 
   return (
     <>
       <Grid>{grid}</Grid>
       <AccordionGalleryLightbox
-        images={imgsArr}
+        images={imgsArrNew}
         index={lightboxIndex}
         open={lightboxOpen}
         setIndex={setLightboxIndex}
@@ -45,7 +53,7 @@ export default AccordionGallery
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 20px 30px 20px;
+  padding: 20px 5px 30px 5px;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     padding: 20px 30px 30px 30px;
   }

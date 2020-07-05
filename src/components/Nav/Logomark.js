@@ -23,7 +23,7 @@ const Wrap = styled.div`
   top: 22px;
   right: 20px;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    top: 32px;
-    right: 40px;
+    top: 31px;
+    right: 47px;
   }
 `

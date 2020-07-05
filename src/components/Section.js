@@ -1,13 +1,49 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled from "@emotion/styled"
+import { useIntersection } from "react-use"
 import { maxWidth } from "../styles/settings"
 import { Box } from "theme-ui"
+import { motion, useAnimation } from "framer-motion"
 
-export const Section = ({ children, isMt, isMb }) => {
-  const marginBottom = isMb ? ["1em", "6vw"] : [0]
-  const marginTop = isMt ? ["1em", "6vw"] : [0]
+export const Section = ({ children, isMt, isMb, isFirst, name }) => {
+  const sectionRef = useRef(null)
+  const animation = useAnimation()
 
-  return <StyledBox sx={{ marginBottom, marginTop }}>{children}</StyledBox>
+  const threshold = isFirst ? 0 : 0.15
+
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: threshold,
+  })
+
+  const paddingBottom = isMb ? [".5em", "3vw"] : [0]
+  const paddingTop = isMt ? [".5em", "3vw"] : [0]
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    hidden: { opacity: 0, y: 100 },
+  }
+
+  if (intersection && intersection.intersectionRatio > threshold) {
+    animation.start("visible")
+  }
+
+  return (
+    <motion.div
+      initial={"hidden"}
+      animate={animation}
+      variants={variants}
+      transition={{ ease: "easeOut", duration: 0.4 }}
+    >
+      <StyledBox sx={{ paddingBottom, paddingTop }} ref={sectionRef}>
+        {children}
+      </StyledBox>
+    </motion.div>
+  )
 }
 
 const StyledBox = styled(Box)`
@@ -16,16 +52,6 @@ const StyledBox = styled(Box)`
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: ${(props => props.pt) ? props => props.pt : "20px"};
-  padding-bottom: ${(props => props.pb) ? props => props.pb : "20px"};
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    padding-top: ${(props => props.pt) ? props => props.pt : "40px"};
-    padding-bottom: ${(props => props.pb) ? props => props.pb : "40px"};
-  }
-  @media (min-width: ${props => props.theme.breakpoints[2]}) {
-    padding-top: ${(props => props.pt) ? props => props.pt : "80px"};
-    padding-bottom: ${(props => props.pb) ? props => props.pb : "80px"};
-  }
 `
 
 export const Container = styled.div`
@@ -37,7 +63,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: ${maxWidth};
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    padding: 0 25px;
+    padding: 0 20px;
   }
 `
 

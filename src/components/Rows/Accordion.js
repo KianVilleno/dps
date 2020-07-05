@@ -95,7 +95,7 @@ export default Accordion
 const HeadEl = styled.button`
   display: block;
   position: relative;
-  padding: 40px 40px;
+  padding: 25px 25px;
   border: none;
   border-bottom: ${props =>
     props.isStack ? `none` : `1px solid ${colors.cloud}`};
@@ -108,6 +108,15 @@ const HeadEl = styled.button`
   &:focus,
   &:hover {
     outline: none;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 40px 40px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[2]}) {
+    padding: 40px 40px;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[3]}) {
+    padding: 40px 40px;
   }
 `
 

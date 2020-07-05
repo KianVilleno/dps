@@ -22,7 +22,6 @@ const Nav = () => {
       <Wordmark />
       <Logomark show={showLogoMark} />
       <Navigation open={navOpen} />
-
       <ScrollLock isActive={navOpen} />
     </NavWrapper>
   )
@@ -100,7 +99,7 @@ const NavWrapper = styled.div`
   top: 0;
   width: 100%;
   height: ${props => (props.open ? "100%" : "auto")};
-  z-index: 1;
+  z-index: 40;
 `
 
 const ItemsWrap = styled.nav`

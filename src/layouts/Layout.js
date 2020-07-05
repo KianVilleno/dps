@@ -1,5 +1,6 @@
 // Imports
 import "../styles/index.css"
+import "../styles/lightbox-overrides.css"
 /** @jsx jsx */
 import { jsx, ThemeProvider, useThemeUI } from "theme-ui"
 import styled from "@emotion/styled"

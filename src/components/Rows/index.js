@@ -18,6 +18,7 @@ const Rows = ({ data }) => {
     prevRowType = data[i - 1] ? data[i - 1].__typename : null
     nextRowType = data[i + 1] ? data[i + 1].__typename : null
 
+    // We want to remove margin Top or Bottom if Accordions stack
     mt = !(
       (i === 0 && row.__typename.indexOf("Accordion") > -1) ||
       (row.__typename.indexOf("Accordion") > -1 &&
@@ -94,7 +95,13 @@ const Rows = ({ data }) => {
     }
 
     return (
-      <Section key={i} isMt={mt} isMb={mb}>
+      <Section
+        key={i}
+        isMt={mt}
+        isMb={mb}
+        name={row.__typename}
+        isFirst={i === 0}
+      >
         {content}
       </Section>
     )
