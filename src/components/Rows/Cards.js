@@ -5,6 +5,7 @@ import { Heading, Text } from "theme-ui"
 import { Container } from "../Section"
 import Button from "../Button"
 import Img from "gatsby-image"
+import TagLink from "../TagLink"
 
 const Cards = ({ content }) => {
   return (
@@ -34,13 +35,13 @@ export default Cards
 const Card = ({ slug, title, description, image, imageAlt }) => {
   let inner = (
     <>
-      <Heading
+      <CardHeading
         as="span"
         variant="text2Xl"
         sx={{ marginBottom: [20, 40], fontWeight: "bold", display: "block" }}
       >
         {title}
-      </Heading>
+      </CardHeading>
       <Img fluid={image.fluid} />
       <Text
         as="span"
@@ -58,35 +59,10 @@ const Card = ({ slug, title, description, image, imageAlt }) => {
   } else {
     return (
       <StyledCard>
-        <Link to={`/${slug}`}>
-          <Heading
-            as="span"
-            variant="text2Xl"
-            sx={{
-              marginBottom: [20, 40],
-              fontWeight: "bold",
-              display: "block",
-            }}
-          >
-            {title}
-          </Heading>
-          <Img fluid={image.fluid} />
-          <Text
-            as="span"
-            variant="textBase"
-            sx={{
-              marginTop: [15, 30],
-              marginBottom: [15, 30],
-              display: "block",
-            }}
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-          ></Text>
-        </Link>
-        <Button href={`/${slug}`} variant="primary">
+        <Link to={`/${slug}`}>{inner}</Link>
+        <TagLink to={`/${slug}`} variant="primary">
           View
-        </Button>
+        </TagLink>
       </StyledCard>
     )
   }
@@ -104,13 +80,6 @@ const StyledCard = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
 
-  h3 {
-    min-height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   a {
     text-decoration: none;
     color: inherit;
@@ -120,14 +89,21 @@ const StyledCard = styled.div`
     margin-top: 30px;
     margin-bottom: 50px;
     width: calc(50% - 20px);
-    h3 {
-      min-height: 2.2em;
-    }
   }
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
     width: calc(50% - 20px);
     max-width: 482px;
+  }
+`
+
+const CardHeading = styled(Heading)`
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    min-height: 2.2em;
   }
 `
 
