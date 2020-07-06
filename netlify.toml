@@ -3,6 +3,6 @@
   Publish = "public"
 
 [context.preview.environment]
-  CONTENTFUL_HOST=preview.contentful.com
-  CONTENTFUL_SPACE_ID="uye5dx1tklpb"
-  CONTENTFUL_ACCESS_TOKEN=wz5ihjANpN50waYlcmA_99Q4id84HQkcb9RSWwk0ABQ
+  CONTENTFUL_HOST = "preview.contentful.com"
+  CONTENTFUL_SPACE_ID = "uye5dx1tklpb"
+  CONTENTFUL_ACCESS_TOKEN = "wz5ihjANpN50waYlcmA_99Q4id84HQkcb9RSWwk0ABQ"
