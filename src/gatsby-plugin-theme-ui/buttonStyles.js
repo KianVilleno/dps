@@ -49,6 +49,7 @@ export const buttonColors = {
     alternative: {
       text: granola,
       background: "transparent",
+      backgroundHover: white,
       borderColor: cloud,
     },
     highlight: {
@@ -59,6 +60,7 @@ export const buttonColors = {
     filled: {
       text: denim,
       background: white,
+      backgroundHover: white,
       borderColor: white,
     },
   },

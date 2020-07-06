@@ -2,7 +2,13 @@ import React from "react"
 import Text from "./Text"
 import Hero from "./Hero"
 
-const Header = ({ title, media, format }) => {
+const Header = ({
+  title,
+  media,
+  format,
+  featureVideoText,
+  featureVideoUrl,
+}) => {
   switch (format) {
     case "Text":
       return <Text title={title} />
@@ -11,7 +17,14 @@ const Header = ({ title, media, format }) => {
       if (!media) {
         return <Text title={title} />
       } else {
-        return <Hero title={title} media={media} />
+        return (
+          <Hero
+            title={title}
+            media={media}
+            featureVideoText={featureVideoText}
+            featureVideoUrl={featureVideoUrl}
+          />
+        )
       }
 
     default:

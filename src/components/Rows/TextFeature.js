@@ -1,5 +1,4 @@
 import React from "react"
-import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text } from "theme-ui"
 import Img from "gatsby-image"
@@ -88,15 +87,6 @@ const ColumnTwo = styled(Column)`
 const TextWrap = styled.div`
   a {
     color: inherit;
-  }
-`
-
-const ImgWrap = styled.div`
-  margin-top: 1em;
-  margin-bottom: 1em;
-  img {
-    width: 100%;
-    height: auto;
   }
 `
 

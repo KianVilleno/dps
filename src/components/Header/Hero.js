@@ -1,13 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useLocation } from "@reach/router"
 import styled from "@emotion/styled"
 import ReactPlayer from "react-player"
 import { Heading } from "theme-ui"
 import LogoMark from "../Svg/LogoMark"
 import { colors } from "../../styles/settings"
+import { TagButton } from "../TagLink"
+import { VideoContext } from "../../hooks/useFeatureVideo"
 
-const Hero = ({ title, media }) => {
+const Hero = ({ title, media, featureVideoText, featureVideoUrl }) => {
   const location = useLocation()
+
+  /* eslint-disable-next-line no-unused-vars */
+  const [videoUrl, setVideoUrl] = useContext(VideoContext)
 
   const images = media.filter(item =>
     item.file.contentType.match(/image\/(jpeg|jpg)/)
@@ -23,6 +28,15 @@ const Hero = ({ title, media }) => {
       }
     })
 
+  const videoLink =
+    featureVideoText !== "" && featureVideoUrl !== "" ? (
+      <VideoLink
+        text={featureVideoText}
+        url={featureVideoUrl}
+        setVideoUrl={setVideoUrl}
+      />
+    ) : null
+
   return (
     <Wrap>
       <Bg image={image.file.url}>
@@ -31,7 +45,9 @@ const Hero = ({ title, media }) => {
         ) : null}
         <Content>
           {location && location.pathname === "/" ? (
-            <LogoMark color={colors.granola} />
+            <LogoEl>
+              <LogoMark color={colors.granola} />
+            </LogoEl>
           ) : (
             <Heading
               as="h1"
@@ -46,9 +62,20 @@ const Hero = ({ title, media }) => {
               {title}
             </Heading>
           )}
+          {videoLink}
         </Content>
       </Bg>
     </Wrap>
+  )
+}
+
+const VideoLink = ({ text, url, setVideoUrl }) => {
+  return (
+    <>
+      <TagButton onClick={() => setVideoUrl(url)} variant="filled" icon="play">
+        {text}
+      </TagButton>
+    </>
   )
 }
 
@@ -94,13 +121,14 @@ const Bg = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  top: 50%;
+  top: 48%;
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
-  .logo {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
+`
+
+const LogoEl = styled.div`
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
 `

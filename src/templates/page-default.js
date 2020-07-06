@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
 import Seo from "../components/Seo"
@@ -6,19 +6,30 @@ import Rows from "../components/Rows"
 import Header from "../components/Header"
 
 const Page = ({ data }) => {
+  const [featureVideo, setFeatureVideo] = useState(null)
+
   if (!data && !data.allContentfulPage.edges[0])
     return <p>Page data not found :(</p>
   const {
     title,
     headerMedia,
     headerType,
+    featureVideoText,
+    featureVideoUrl,
     rows,
   } = data.allContentfulPage.edges[0].node
 
   return (
-    <Layout>
+    <Layout featureVideo={featureVideo}>
       <Seo title={title} />
-      <Header format={headerType} title={title} media={headerMedia} />
+      <Header
+        format={headerType}
+        title={title}
+        media={headerMedia}
+        featureVideoText={featureVideoText}
+        featureVideoUrl={featureVideoUrl}
+        setFeatureVideo={setFeatureVideo}
+      />
       <Rows data={rows} />
     </Layout>
   )
@@ -45,6 +56,8 @@ export const query = graphql`
           contentType
         }
       }
+      featureVideoText
+      featureVideoUrl
       rows {
         ... on ContentfulRowAccordionText {
           title
