@@ -16,6 +16,9 @@ const PageIndex = ({ data, location }) => {
     return <p>Page data not found :(</p>
 
   const { title, sections, slug } = data.allContentfulIndexPage.edges[0].node
+
+  if (!sections) return <p>Index Page has Sections :(</p>
+
   const { currSlug, currSection } = getCurrSlugSection(location, sections)
 
   return (

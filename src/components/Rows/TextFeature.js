@@ -3,7 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text } from "theme-ui"
 import Img from "gatsby-image"
 import { Container } from "../Section"
-import { Row, Column } from "../../components/Grid"
+// import { Column } from "../../components/Grid"
 import styled from "@emotion/styled"
 import TagLink from "../TagLink"
 
@@ -20,8 +20,9 @@ const TextFeature = ({ content }) => {
       <TextWrap>
         <Text
           as="div"
-          variant="text2Xl"
+          variant="textXl"
           sx={{
+            fontWeight: "normal",
             textAlign: "center",
             "& p": {
               margin: "0 0 .4em 0",
@@ -33,8 +34,6 @@ const TextFeature = ({ content }) => {
       </TextWrap>
     )
   }
-
-  console.log("WUT 2...")
 
   let linkComponent
   if (linkText && linkUrl) {
@@ -48,15 +47,15 @@ const TextFeature = ({ content }) => {
   }
 
   return (
-    <Container>
+    <Container outset={true}>
       <Row flexDirection={flexDirection}>
-        <ColumnOne>
+        <TextCol>
           {copyComponent}
           {linkComponent}
-        </ColumnOne>
-        <ColumnTwo>
+        </TextCol>
+        <ImageCol>
           <Img fluid={image.fluid} />
-        </ColumnTwo>
+        </ImageCol>
       </Row>
     </Container>
   )
@@ -64,24 +63,25 @@ const TextFeature = ({ content }) => {
 
 export default TextFeature
 
-const ColumnOne = styled(Column)`
-  @media only screen and (min-width: 992px) {
-    width: 50%;
+const Row = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    display: flex;
+    flex-direction: ${props =>
+      props.flexDirection ? props.flexDirection : "row"};
+    justify-content: space-between;
   }
 `
-const ColumnTwo = styled(Column)`
-  margin-top: 50px;
-  @media only screen and (min-width: 992px) {
-    margin-left: auto;
-    margin-top: 0;
-    width: 50%;
-    img {
-      margin-left: auto;
-    }
-  }
-  a {
-    margin-top: 10px;
-  }
+
+const TextCol = styled.div`
+  width: 50%;
+`
+
+const ImageCol = styled.div`
+  width: 50%;
+  padding-left: 7%;
+  padding-right: 7%;
 `
 
 const TextWrap = styled.div`

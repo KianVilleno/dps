@@ -15,7 +15,7 @@ const Cards = ({ content }) => {
           return (
             <Card
               key={index}
-              slug={link.slug}
+              slug={link ? link.slug : null}
               title={title}
               description={description.childMarkdownRemark.html}
               image={thumbnail}
@@ -32,31 +32,64 @@ const Cards = ({ content }) => {
 export default Cards
 
 const Card = ({ slug, title, description, image, imageAlt }) => {
-  return (
-    <StyledCard>
-      <Link to={`/${slug}`}>
-        <Heading
-          as="span"
-          variant="text2Xl"
-          sx={{ marginBottom: [20, 40], fontWeight: "bold", display: "block" }}
-        >
-          {title}
-        </Heading>
-        <Img fluid={image.fluid} />
-        <Text
-          as="span"
-          variant="textBase"
-          sx={{ marginTop: [15, 30], marginBottom: [15, 30], display: "block" }}
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-        ></Text>
-      </Link>
-      <Button href={`/${slug}`} variant="primary">
-        View
-      </Button>
-    </StyledCard>
+  let inner = (
+    <>
+      <Heading
+        as="span"
+        variant="text2Xl"
+        sx={{ marginBottom: [20, 40], fontWeight: "bold", display: "block" }}
+      >
+        {title}
+      </Heading>
+      <Img fluid={image.fluid} />
+      <Text
+        as="span"
+        variant="textBase"
+        sx={{ marginTop: [15, 30], marginBottom: [15, 30], display: "block" }}
+        dangerouslySetInnerHTML={{
+          __html: description,
+        }}
+      ></Text>
+    </>
   )
+
+  if (!slug) {
+    return <StyledCard>{inner}</StyledCard>
+  } else {
+    return (
+      <StyledCard>
+        <Link to={`/${slug}`}>
+          <Heading
+            as="span"
+            variant="text2Xl"
+            sx={{
+              marginBottom: [20, 40],
+              fontWeight: "bold",
+              display: "block",
+            }}
+          >
+            {title}
+          </Heading>
+          <Img fluid={image.fluid} />
+          <Text
+            as="span"
+            variant="textBase"
+            sx={{
+              marginTop: [15, 30],
+              marginBottom: [15, 30],
+              display: "block",
+            }}
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          ></Text>
+        </Link>
+        <Button href={`/${slug}`} variant="primary">
+          View
+        </Button>
+      </StyledCard>
+    )
+  }
 }
 
 const CardsEl = styled.div`

@@ -77,15 +77,16 @@ const WrapOuter = styled.div`
 `
 
 const Wrap = styled.div`
-  margin-top: 85px;
-  margin-bottom: 85px;
-  margin-left: -10%;
-  margin-right: -10%;
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    margin-top: 5vw;
-    margin-bottom: 5vw;
-    margin-left: -15%;
-    margin-right: -15%;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  margin-left: -15%;
+  margin-right: -15%;
+
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    margin-top: 1vw;
+    margin-bottom: 85px;
+    margin-left: -10%;
+    margin-right: -10%;
   }
   a {
     color: "#000";

@@ -4,6 +4,8 @@ import styled from "@emotion/styled"
 import TagLink from "../../TagLink"
 
 const HeaderHav = ({ sections, parentSlug, currSlug }) => {
+  if (sections.length < 2) return <Nav>&nbsp;</Nav>
+
   const items = sections.map((section, index) => {
     return (
       <Item
