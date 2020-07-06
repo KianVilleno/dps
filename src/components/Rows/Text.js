@@ -74,13 +74,18 @@ const RowText = ({ content }) => {
 export default RowText
 
 const ColumnOne = styled(Column)`
-  @media only screen and (min-width: 992px) {
+  width: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* @media only screen and (min-width: 992px) {
     width: 50%;
-  }
+  } */
 `
 const ColumnTwo = styled(Column)`
-  margin-top: 50px;
-  @media only screen and (min-width: 992px) {
+  width: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* @media only screen and (min-width: 992px) {
     margin-left: auto;
     margin-top: 0;
     width: 50%;
@@ -90,7 +95,7 @@ const ColumnTwo = styled(Column)`
   }
   a {
     margin-top: 10px;
-  }
+  } */
 `
 
 const TextWrap = styled.div`

@@ -25,13 +25,15 @@ const Rows = ({ data }) => {
       (row.__typename.indexOf("Accordion") > -1 &&
         prevRowType.indexOf("Accordion") > -1)
     )
-    mb = !(
-      row.__typename.indexOf("Accordion") > -1 &&
-      nextRowType.indexOf("Accordion") > -1
-    )
-    isAccordionStack =
-      row.__typename.indexOf("Accordion") > -1 &&
-      nextRowType.indexOf("Accordion") > -1
+    if (nextRowType) {
+      mb = !(
+        row.__typename.indexOf("Accordion") > -1 &&
+        nextRowType.indexOf("Accordion") > -1
+      )
+      isAccordionStack =
+        row.__typename.indexOf("Accordion") > -1 &&
+        nextRowType.indexOf("Accordion") > -1
+    }
 
     // console.log(
     //   "THIS ROW",

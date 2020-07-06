@@ -28,8 +28,18 @@ const Hero = ({ title, media, featureVideoText, featureVideoUrl }) => {
       }
     })
 
+  console.log(
+    "featureVideoText",
+    featureVideoText,
+    "featureVideoUrl",
+    featureVideoUrl
+  )
+
   const videoLink =
-    featureVideoText !== "" && featureVideoUrl !== "" ? (
+    featureVideoText &&
+    featureVideoText !== "" &&
+    featureVideoUrl &&
+    featureVideoUrl !== "" ? (
       <VideoLink
         text={featureVideoText}
         url={featureVideoUrl}
