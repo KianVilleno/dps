@@ -16,6 +16,12 @@ module.exports = {
     //   },
     // },
     {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "961755364270406",
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         // CommonMark mode (default: true)
