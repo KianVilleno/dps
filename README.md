@@ -27,3 +27,8 @@ Contentful
 
 - Matrix fields for basic values that can repeat
 - Radios + Dropdown - label, value, pairs?
+
+Manual Notes
+
+- Command + Shift + V (clear formatting paste)
+- Create pages first, then cards
