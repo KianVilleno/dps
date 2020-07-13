@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout"
 import Seo from "../components/Seo"
 import Header from "../components/Header"
 import Nav from "../components/Header/Nav"
+import Summary from "../components/Header/Summary"
 import Cards from "../components/Rows/Cards"
 import { getCurrSlugSection } from "../util/helpers"
 
@@ -15,7 +16,12 @@ const PageIndex = ({ data, location }) => {
   )
     return <p>Page data not found :(</p>
 
-  const { title, sections, slug } = data.allContentfulIndexPage.edges[0].node
+  const {
+    title,
+    sections,
+    slug,
+    summary,
+  } = data.allContentfulIndexPage.edges[0].node
 
   if (!sections) return <p>Index Page has Sections :(</p>
 
@@ -26,6 +32,7 @@ const PageIndex = ({ data, location }) => {
       <Seo title={title} />
       <Header format="Text" title={title} section={null} />
       <Nav sections={sections} parentSlug={slug} currSlug={currSlug} />
+      <Summary data={summary} />
       <Cards content={currSection.cards} />
     </Layout>
   )
@@ -40,6 +47,11 @@ export const query = graphql`
         node {
           title
           slug
+          summary {
+            childMarkdownRemark {
+              html
+            }
+          }
           sections {
             title
             slug
