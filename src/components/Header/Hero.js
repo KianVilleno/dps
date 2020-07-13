@@ -4,11 +4,20 @@ import styled from "@emotion/styled"
 import ReactPlayer from "react-player"
 import { Heading } from "theme-ui"
 import LogoMark from "../Svg/LogoMark"
+import BackLink from "./BackLink"
 import { colors } from "../../styles/settings"
 import { TagButton } from "../TagLink"
 import { VideoContext } from "../../hooks/useFeatureVideo"
 
-const Hero = ({ title, media, featureVideoText, featureVideoUrl }) => {
+const Hero = ({
+  title,
+  media,
+  featureVideoText,
+  featureVideoUrl,
+  isOverlay,
+  overlayOpacity,
+  section,
+}) => {
   const location = useLocation()
 
   /* eslint-disable-next-line no-unused-vars */
@@ -74,7 +83,15 @@ const Hero = ({ title, media, featureVideoText, featureVideoUrl }) => {
           )}
           {videoLink}
         </Content>
+        {isOverlay && isOverlay === "Yes" ? (
+          <BgOverlay
+            opacity={
+              overlayOpacity && overlayOpacity <= 100 ? overlayOpacity : 0
+            }
+          />
+        ) : null}
       </Bg>
+      <BackLink section={section} />
     </Wrap>
   )
 }
@@ -129,12 +146,23 @@ const Bg = styled.div`
   }
 `
 
+const BgOverlay = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: ${props => `rgba(17, 31, 48, ${props.opacity / 100})`};
+  z-index: 2;
+`
+
 const Content = styled.div`
   position: absolute;
   top: 48%;
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
+  z-index: 3;
 `
 
 const LogoEl = styled.div`

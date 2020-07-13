@@ -8,16 +8,20 @@ import Header from "../components/Header"
 const Page = ({ data }) => {
   const [featureVideo, setFeatureVideo] = useState(null)
 
-  if (!data && !data.allContentfulPage.edges[0])
-    return <p>Page data not found :(</p>
+  const { pageQuery } = data
+
+  if (!pageQuery && !pageQuery.edges[0]) return <p>Page data not found :(</p>
   const {
     title,
     headerMedia,
     headerType,
+    headerOverlay,
+    headerOverlayOpacity,
     featureVideoText,
     featureVideoUrl,
     rows,
-  } = data.allContentfulPage.edges[0].node
+    section,
+  } = pageQuery.edges[0].node
 
   return (
     <Layout featureVideo={featureVideo}>
@@ -29,6 +33,9 @@ const Page = ({ data }) => {
         featureVideoText={featureVideoText}
         featureVideoUrl={featureVideoUrl}
         setFeatureVideo={setFeatureVideo}
+        isOverlay={headerOverlay}
+        overlayOpacity={headerOverlayOpacity}
+        section={section}
       />
       <Rows data={rows} />
     </Layout>
@@ -39,7 +46,7 @@ export default Page
 
 export const query = graphql`
   query($slug: String!) {
-    allContentfulPage(filter: { slug: { eq: $slug } }) {
+    pageQuery: allContentfulPage(filter: { slug: { eq: $slug } }) {
       edges {
         ...PageDefaultNodeFragment
       }
@@ -48,6 +55,7 @@ export const query = graphql`
   fragment PageDefaultNodeFragment on ContentfulPageEdge {
     node {
       title
+      section
       headerType
       headerMedia {
         title
@@ -56,6 +64,8 @@ export const query = graphql`
           contentType
         }
       }
+      headerOverlay
+      headerOverlayOpacity
       featureVideoText
       featureVideoUrl
       rows {

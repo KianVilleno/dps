@@ -19,3 +19,13 @@ export const getCurrSlugSection = (location, sections) => {
     currSection,
   }
 }
+
+export const getValidSection = (sections, section) => {
+  let valid = _.find(sections, { title: section })
+
+  if (!valid) {
+    valid = null
+  }
+
+  return valid
+}

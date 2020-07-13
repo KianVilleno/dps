@@ -24,7 +24,7 @@ const PageIndex = ({ data, location }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <Header format="Text" title={title} />
+      <Header format="Text" title={title} section={null} />
       <Nav sections={sections} parentSlug={slug} currSlug={currSlug} />
       <Cards content={currSection.cards} />
     </Layout>

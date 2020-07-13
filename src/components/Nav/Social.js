@@ -6,21 +6,26 @@ import IconYoutube from "../Svg/Youtube"
 import IconPinterest from "../Svg/Pinterest"
 import { colors } from "../../styles/settings"
 
-const Social = () => {
+const Social = ({ items }) => {
+  const { socialYouTube, socialInstagram, socialFacebook } = items
+
   return (
     <Wrap>
-      <a href="https://www.pinterest.com.au/" target="_blank" rel="noreferrer">
-        <IconPinterest color={colors.salmon} />
-      </a>
-      <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-        <IconYoutube color={colors.salmon} />
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-        <IconFacebook color={colors.salmon} />
-      </a>
-      <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-        <IconInstagram color={colors.salmon} />
-      </a>
+      {socialYouTube ? (
+        <a href={items.socialYouTube} target="_blank" rel="noreferrer">
+          <IconYoutube color={colors.salmon} />
+        </a>
+      ) : null}
+      {socialFacebook ? (
+        <a href={items.socialFacebook} target="_blank" rel="noreferrer">
+          <IconFacebook color={colors.salmon} />
+        </a>
+      ) : null}
+      {socialInstagram ? (
+        <a href={items.socialInstagram} target="_blank" rel="noreferrer">
+          <IconInstagram color={colors.salmon} />
+        </a>
+      ) : null}
     </Wrap>
   )
 }

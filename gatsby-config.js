@@ -13,6 +13,32 @@ module.exports = {
     image: `https://deadpuppetsociety.com.au/static/images/share.jpg`,
     author: `@deadpuppetsociety`,
     siteUrl: `https://deadpuppetsociety.com.au`,
+    sections: [
+      {
+        title: "Production",
+        url: "/production",
+      },
+      {
+        title: "Activation",
+        url: "/activation",
+      },
+      {
+        title: "Collection",
+        url: "/collection",
+      },
+      {
+        title: "Education",
+        url: "/education",
+      },
+      {
+        title: "Company",
+        url: "/company",
+      },
+      {
+        title: "Contact",
+        url: "/contact",
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

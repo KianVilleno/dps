@@ -2,11 +2,12 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Heading } from "theme-ui"
+import BackLink from "./BackLink"
 
-const HeaderText = props => {
-  const { title } = props
+const HeaderText = ({ title, section }) => {
   return (
     <Wrap>
+      <BackLink section={section} />
       <Heading
         as="h1"
         variant="text3Xl"

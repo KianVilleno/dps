@@ -4,95 +4,99 @@ import { Text } from "theme-ui"
 import styled from "@emotion/styled"
 import { useLocation } from "@reach/router"
 import ScrollLock from "react-scrolllock"
-import Wordmark from "./Wordmark"
 import Logomark from "./Logomark"
 import Toggle from "./Toggle"
 import Social from "./Social"
+import { StaticQuery, graphql } from "gatsby"
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false)
 
   const location = useLocation()
-  const showLogoMark = location.pathname !== "/"
+  const showLogoMark = location.pathname !== "/" || navOpen
 
-  // const toggleNav = () => setNavOpen(!navOpen)
   return (
-    <NavWrapper open={navOpen}>
-      <Toggle open={navOpen} setOpen={setNavOpen} />
-      <Wordmark />
-      <Logomark show={showLogoMark} />
-      <Navigation open={navOpen} />
-      <ScrollLock isActive={navOpen} />
-    </NavWrapper>
+    <StaticQuery
+      query={pageQuery}
+      render={data => {
+        const { globalQuery, sectionQuery } = data
+
+        const { sections } = sectionQuery.siteMetadata
+
+        const {
+          socialFacebook,
+          socialYouTube,
+          socialInstagram,
+          navLabelProduction,
+          navLabelEducation,
+          navLabelActivation,
+          navLabelCollection,
+        } = globalQuery.edges[0].node
+
+        const labels = {
+          navLabelProduction,
+          navLabelEducation,
+          navLabelActivation,
+          navLabelCollection,
+        }
+
+        return (
+          <NavWrapper open={navOpen}>
+            <Toggle open={navOpen} setOpen={setNavOpen} />
+            <Logomark show={showLogoMark} />
+            <Navigation
+              open={navOpen}
+              navItems={sections}
+              navLabels={labels}
+              socialItems={{ socialInstagram, socialFacebook, socialYouTube }}
+            />
+            <ScrollLock isActive={navOpen} />
+          </NavWrapper>
+        )
+      }}
+    />
   )
 }
 
-const Navigation = props => {
-  const { open } = props
+const Navigation = ({ open, navItems, navLabels, socialItems }) => {
+  const getLabel = (section, labels) => {
+    let label
+    for (const key in labels) {
+      if (labels.hasOwnProperty(key)) {
+        const element = labels[key]
+        if (key.indexOf(section) > -1 && element) {
+          label = (
+            <Tag as="span" variant="textSm">
+              {element}
+            </Tag>
+          )
+        }
+      }
+    }
+    return label
+  }
+
   return (
     <ItemsWrap open={open}>
       <NavInner>
-        <NavLink to="/production">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Production
-          </Text>
-        </NavLink>
-        <NavLink to="/education">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Education
-          </Text>
-        </NavLink>
-        <NavLink to="/activation">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Activation
-          </Text>
-        </NavLink>
-        <NavLink to="/collection">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Collection
-          </Text>
-        </NavLink>
-        <NavLink to="/company">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Company
-          </Text>
-        </NavLink>
-        <NavLink to="/contact">
-          <Text
-            as="span"
-            variant="textNav"
-            sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
-          >
-            Contact
-          </Text>
-        </NavLink>
+        {navItems.map((item, i) => (
+          <NavLink to={item.url} key={i}>
+            <Text
+              as="span"
+              variant="textNav"
+              sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
+            >
+              {item.title}
+            </Text>
+            {getLabel(item.title, navLabels)}
+          </NavLink>
+        ))}
       </NavInner>
-      <Social />
+      <Social items={socialItems} />
     </ItemsWrap>
   )
 }
 
-// Styled Components
 const NavWrapper = styled.div`
   position: ${props => (props.open ? "fixed" : "relative")};
   left: 0;
@@ -108,7 +112,6 @@ const ItemsWrap = styled.nav`
   z-index: 9;
   position: fixed;
   width: 100%;
-  /* height: 100vh; */
   padding-top: 90px;
   background: #111f30;
   top: 0;
@@ -141,7 +144,6 @@ const NavLink = styled(Link)`
 
   span {
     color: #b39b78;
-    /* font-size: 71px; */
   }
   &:hover {
     text-decoration: none;
@@ -155,4 +157,39 @@ const NavLink = styled(Link)`
   }
 `
 
+const Tag = styled(Text)`
+  position: absolute;
+  left: calc(100% + 5px);
+  white-space: nowrap;
+`
+
 export default Nav
+
+const pageQuery = graphql`
+  query {
+    sectionQuery: site {
+      siteMetadata {
+        sections {
+          title
+          url
+        }
+      }
+    }
+    globalQuery: allContentfulGlobal(
+      limit: 1
+      filter: { title: { eq: "Global Settings" } }
+    ) {
+      edges {
+        node {
+          socialFacebook
+          socialYouTube
+          socialInstagram
+          navLabelProduction
+          navLabelEducation
+          navLabelActivation
+          navLabelCollection
+        }
+      }
+    }
+  }
+`

@@ -3,7 +3,6 @@ import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { Heading, Text } from "theme-ui"
 import { Container } from "../Section"
-import Button from "../Button"
 import Img from "gatsby-image"
 import TagLink from "../TagLink"
 

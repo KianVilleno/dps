@@ -15,7 +15,10 @@ const Footer = () => {
     <StaticQuery
       query={graphql`
         {
-          allContentfulGlobal {
+          allContentfulGlobal(
+            limit: 1
+            filter: { title: { eq: "Global Settings" } }
+          ) {
             edges {
               node {
                 newsletterHeading
