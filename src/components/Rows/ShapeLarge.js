@@ -108,7 +108,6 @@ const Content = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-
   padding: 0 20px;
   z-index: 2;
   a {
@@ -118,6 +117,9 @@ const Content = styled.div`
     align-items: center;
     height: 100%;
     text-decoration: none;
+  }
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    padding: 0 2.5vw;
   }
 `
 

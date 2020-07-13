@@ -119,7 +119,7 @@ export default {
     gtSuperText: "'GT Super Text', serif",
     gtSuperDisplay: "'GT Super Display', serif",
   },
-  fontSizes: [18, 22, 30, 35, 50, 100, 150],
+  fontSizes: [18, 21, 30, 35, 50, 100, 150],
   fontWeights: {
     regular: 400,
     bold: 700,

@@ -99,7 +99,7 @@ const TextWrap = styled.div`
 `
 
 const ImgWrap = styled.div`
-  margin-top: 1em;
+  margin-top: 0em;
   margin-bottom: 1em;
   img {
     width: 100%;

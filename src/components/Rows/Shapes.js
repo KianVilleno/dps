@@ -19,7 +19,7 @@ export const Shapes = ({ content }) => {
         <ShapeLarge {...shapeProps} />
       </Item>
     ) : (
-      <Item pb={["10vw", "5vw"]} key={`shape-${index}`}>
+      <Item pt={["0px", "5vw"]} pb={["10vw", "5vw"]} key={`shape-${index}`}>
         <ShapeMini {...shapeProps} />
       </Item>
     )
@@ -27,12 +27,19 @@ export const Shapes = ({ content }) => {
 
   return (
     <Container outset={true}>
-      <Items>{shapesContent}</Items>
+      <ShapeWrap>
+        <Items>{shapesContent}</Items>
+      </ShapeWrap>
     </Container>
   )
 }
 
 export default Shapes
+
+const ShapeWrap = styled.div`
+  margin: 0 auto;
+  max-width: 1300px;
+`
 
 const Items = styled.div`
   display: grid;

@@ -34,13 +34,13 @@ const TextBase = styled.p`
   ${textControls}
 `
 
-const TextLg = styled.h4`
-  color: ${props => props.theme.colors.text};
-  font-family: "GT Super Text";
-  font-size: 30px;
-  line-height: 1.3;
-  ${textControls}
-`
+// const TextLg = styled.h4`
+//   color: ${props => props.theme.colors.text};
+//   font-family: "GT Super Text";
+//   font-size: 30px;
+//   line-height: 1.3;
+//   ${textControls}
+// `
 
 const Text2Xl = styled.h3`
   color: ${props => props.theme.colors.text};
@@ -80,7 +80,7 @@ export {
   Paragraph,
   TextSm,
   TextBase,
-  TextLg,
+  // TextLg,
   Text2Xl,
   Text3Xl,
   Text4Xl,

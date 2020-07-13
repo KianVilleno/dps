@@ -75,13 +75,25 @@ const Row = styled.div`
 `
 
 const TextCol = styled.div`
-  width: 50%;
+  width: 100%;
+  margin-bottom: 10vw;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    width: 50%;
+    margin-bottom: 0em;
+  }
 `
 
 const ImageCol = styled.div`
-  width: 50%;
-  padding-left: 7%;
-  padding-right: 7%;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-bottom: 10vw;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    width: 50%;
+    margin-bottom: 0em;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
 `
 
 const TextWrap = styled.div`

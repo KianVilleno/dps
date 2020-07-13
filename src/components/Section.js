@@ -63,7 +63,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0 auto;
   width: 100%;
-  padding: ${props => (props.outset ? `0px 40px` : `0px 0px`)};
+  padding: ${props => (props.outset ? `0px 25px` : `0px 0px`)};
   @media (min-width: ${props => props.theme.breakpoints[3]}) {
     padding: ${props =>
       props.outset ? `0px 40px` : `0px calc(-40px + ${(1 / 12) * 100}%)`};
