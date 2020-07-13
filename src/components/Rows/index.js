@@ -8,6 +8,8 @@ import Shapes from "./Shapes"
 import Section from "../Section"
 
 const Rows = ({ data }) => {
+  if (!data) return null
+
   let prevRowType = null
   let nextRowType = null
   let isAccordionStack = false

@@ -3,12 +3,21 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { Text, useThemeUI } from "theme-ui"
 
-const TagLink = ({ to, children }) => {
+const TagLink = ({ to, children, variant }) => {
   const { theme, colorMode } = useThemeUI()
-  const buttonStyles = theme.colors.modes[colorMode].button.primary
+
+  const buttonStyles =
+    theme.colors.modes[colorMode].button[variant ? variant : "primary"]
+
+  console.log("buttonStyles", variant, buttonStyles)
+
   return (
     <LinkEl button-props={buttonStyles} to={to}>
-      <Text as="span" variant="textSm">
+      <Text
+        as="span"
+        variant="textSm"
+        sx={{ color: "inherit", whiteSpace: "nowrap" }}
+      >
         {children}
       </Text>
     </LinkEl>
@@ -112,7 +121,7 @@ const styles = settings => {
     background-image: ${afterBackground};
   }
   &:hover {
-    color: ${settings.text};
+    color: ${settings.textHover ? settings.textHover : settings.text};
     background: ${settings.backgroundHover};
     border-top-color: ${settings.backgroundHover};
   border-bottom-color: ${settings.backgroundHover};

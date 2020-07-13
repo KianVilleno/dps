@@ -32,8 +32,6 @@ const AccordionGallery = ({ content }) => {
     })
   })
 
-  console.log("!!!", imgsArrNew)
-
   return (
     <>
       <Grid>{grid}</Grid>
@@ -53,7 +51,7 @@ export default AccordionGallery
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 5px 30px 5px;
+  padding: 20px 0px 30px 0px;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     padding: 20px 30px 30px 30px;
   }
@@ -66,7 +64,7 @@ const Grid = styled.div`
 `
 
 const Item = styled.div`
-  padding: 20px;
+  padding: 16px;
   width: 50%;
   position: relative;
   &:hover {

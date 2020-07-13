@@ -51,9 +51,9 @@ const Footer = () => {
             <FooterWrap>
               <Flex sx={{ flexWrap: "wrap" }}>
                 <Box
-                  p={3}
+                  p={[2, 3]}
                   sx={{
-                    width: ["100%", `${(7.5 / 12) * 100}%`],
+                    width: ["100%", "100%", `${(7.5 / 12) * 100}%`],
                     marginLeft: [0],
                     marginRight: [0, `${(0.5 / 12) * 100}%`],
                   }}
@@ -75,9 +75,9 @@ const Footer = () => {
                   </Contact>
                 </Box>
                 <Box
-                  p={3}
+                  p={[2, 3]}
                   sx={{
-                    width: ["100%", `${(4 / 12) * 100}%`],
+                    width: ["100%", "100%", `${(4 / 12) * 100}%`],
                     marginRight: [0],
                   }}
                 >

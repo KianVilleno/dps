@@ -7,7 +7,6 @@ import Header from "../components/Header"
 
 const Page = ({ data }) => {
   const [featureVideo, setFeatureVideo] = useState(null)
-
   const { pageQuery } = data
 
   if (!pageQuery && !pageQuery.edges[0]) return <p>Page data not found :(</p>

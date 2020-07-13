@@ -3,7 +3,6 @@ import styled from "@emotion/styled"
 import IconFacebook from "../Svg/Facebook"
 import IconInstagram from "../Svg/Instagram"
 import IconYoutube from "../Svg/Youtube"
-import IconPinterest from "../Svg/Pinterest"
 import { colors } from "../../styles/settings"
 
 const Social = ({ items }) => {

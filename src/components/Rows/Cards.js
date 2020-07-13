@@ -37,7 +37,11 @@ const Card = ({ slug, title, description, image, imageAlt }) => {
       <CardHeading
         as="span"
         variant="text2Xl"
-        sx={{ marginBottom: [20, 40], fontWeight: "bold", display: "block" }}
+        sx={{
+          marginBottom: [20, 40, ".5em"],
+          fontWeight: "bold",
+          display: "block",
+        }}
       >
         {title}
       </CardHeading>
@@ -81,6 +85,7 @@ const StyledCard = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   width: 100%;
+  padding: 0 16px;
 
   a {
     text-decoration: none;
@@ -91,10 +96,12 @@ const StyledCard = styled.div`
     margin-top: 30px;
     margin-bottom: 50px;
     width: calc(50% - 20px);
+    padding: 0 20px;
   }
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
     width: calc(45% - 20px);
+    padding: 0 25px;
   }
 `
 
@@ -102,7 +109,7 @@ const CardHeading = styled(Heading)`
   min-height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     min-height: 2.2em;
   }

@@ -3,7 +3,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text, Box } from "theme-ui"
 import { Container } from "../Section"
-import { Row, Column } from "../../components/Grid"
+import { Row } from "../../components/Grid"
 import styled from "@emotion/styled"
 
 const renderOptions = {
@@ -91,31 +91,6 @@ const RowText = ({ content }) => {
 }
 
 export default RowText
-
-const ColumnOne = styled(Column)`
-  width: 50%;
-  padding-left: 20px;
-  padding-right: 20px;
-  /* @media only screen and (min-width: 992px) {
-    width: 50%;
-  } */
-`
-const ColumnTwo = styled(Column)`
-  width: 50%;
-  padding-left: 20px;
-  padding-right: 20px;
-  /* @media only screen and (min-width: 992px) {
-    margin-left: auto;
-    margin-top: 0;
-    width: 50%;
-    img {
-      margin-left: auto;
-    }
-  }
-  a {
-    margin-top: 10px;
-  } */
-`
 
 const TextWrap = styled.div`
   a {

@@ -47,10 +47,11 @@ export const buttonColors = {
       borderColor: granola,
     },
     alternative: {
-      text: granola,
+      text: white,
+      textHover: denim,
       background: "transparent",
       backgroundHover: white,
-      borderColor: cloud,
+      borderColor: granola,
     },
     highlight: {
       text: granola,

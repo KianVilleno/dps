@@ -93,7 +93,7 @@ export default Accordion
 const HeadEl = styled.button`
   display: block;
   position: relative;
-  padding: 25px 20px;
+  padding: 25px 16px;
   border: none;
   border-bottom: ${props =>
     props.isStack ? `none` : `1px solid ${colors.cloud}`};

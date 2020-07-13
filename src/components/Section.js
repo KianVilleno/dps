@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import styled from "@emotion/styled"
 import { useIntersection } from "react-use"
-import { maxWidth } from "../styles/settings"
+// import { maxWidth } from "../styles/settings"
 import { Box } from "theme-ui"
 import { motion, useAnimation } from "framer-motion"
 

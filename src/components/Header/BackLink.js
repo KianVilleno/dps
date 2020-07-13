@@ -9,7 +9,9 @@ const BackLink = ({ section }) => {
   } else {
     return (
       <Wrap>
-        <TagLink to={section.url}>Back to {section.title}</TagLink>
+        <TagLink to={section.url} variant="alternative">
+          Back to {section.title}
+        </TagLink>
       </Wrap>
     )
   }
@@ -22,7 +24,10 @@ const Wrap = styled.div`
   justify-content: center;
   z-index: 10;
   position: absolute;
-  top: 27px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    top: 27px;
+  }
 `
