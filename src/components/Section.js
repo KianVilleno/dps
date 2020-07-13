@@ -17,8 +17,12 @@ export const Section = ({ children, isMt, isMb, isFirst }) => {
     threshold: threshold,
   })
 
-  const marginTop = isMt ? ["10vw", "5vw"] : [0]
-  const marginBottom = isMb ? ["11vw", "6vw"] : [0]
+  const marginTop = isMt
+    ? isFirst
+      ? ["6vw", "4vw", "6vw", "50px"]
+      : ["4vw", "2vw", "3.5vw", "40px"]
+    : [0]
+  const marginBottom = isMb ? ["4vw", "2vw", "4vw", "40px"] : [0]
 
   const variants = {
     visible: {
@@ -58,10 +62,9 @@ export const Container = styled.div`
   box-sizing: border-box;
   position: relative;
   margin: 0 auto;
-  padding: 0 20px;
   width: 100%;
-  max-width: ${maxWidth};
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  padding: ${props => (props.outset ? `0px 40px` : `0px 0px`)};
+  @media (min-width: ${props => props.theme.breakpoints[3]}) {
     padding: ${props =>
       props.outset ? `0px 40px` : `0px calc(-40px + ${(1 / 12) * 100}%)`};
   }

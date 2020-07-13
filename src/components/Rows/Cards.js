@@ -71,6 +71,8 @@ const CardsEl = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 const StyledCard = styled.div`
@@ -78,6 +80,7 @@ const StyledCard = styled.div`
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
+  width: 100%;
 
   a {
     text-decoration: none;
@@ -91,8 +94,7 @@ const StyledCard = styled.div`
   }
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
-    width: calc(50% - 20px);
-    max-width: 482px;
+    width: calc(45% - 20px);
   }
 `
 

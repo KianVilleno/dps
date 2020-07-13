@@ -108,10 +108,7 @@ const HeadEl = styled.button`
     outline: none;
   }
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    padding: 40px 40px;
-  }
-  @media (min-width: ${props => props.theme.breakpoints[2]}) {
-    padding: 40px 40px;
+    padding: 25px 25px;
   }
   @media (min-width: ${props => props.theme.breakpoints[3]}) {
     padding: 40px 40px;

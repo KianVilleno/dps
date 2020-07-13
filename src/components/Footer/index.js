@@ -48,42 +48,46 @@ const Footer = () => {
         return (
           <FooterSection>
             <Instagram />
-            <Flex sx={{ flexWrap: "wrap" }}>
-              <Box
-                p={3}
-                sx={{
-                  width: ["100%", `${(6 / 12) * 100}%`],
-                  marginLeft: [0, `${(1 / 12) * 100}%`],
-                  marginRight: [0, `${(1 / 12) * 100}%`],
-                }}
-              >
-                <Contact>
-                  <Heading
-                    as="h4"
-                    variant="textXl"
-                    sx={{
-                      fontWeight: "bold",
-                      marginBottom: 30,
-                      paddingRight: "10%",
-                    }}
-                  >
-                    {documentToReactComponents(footerText.json, {})}
-                  </Heading>
-                  <TagLink to={footerLink} variant="primary">
-                    {footerLinkText}
-                  </TagLink>
-                </Contact>
-              </Box>
-              <Box
-                p={[3, 2]}
-                sx={{
-                  width: ["100%", `${(3 / 12) * 100}%`],
-                  marginRight: [0, `${(1 / 12) * 100}%`],
-                }}
-              >
-                <Newsletter heading={newsletterHeading} text={newsletterText} />
-              </Box>
-            </Flex>
+            <FooterWrap>
+              <Flex sx={{ flexWrap: "wrap" }}>
+                <Box
+                  p={3}
+                  sx={{
+                    width: ["100%", `${(7.5 / 12) * 100}%`],
+                    marginLeft: [0],
+                    marginRight: [0, `${(0.5 / 12) * 100}%`],
+                  }}
+                >
+                  <Contact>
+                    <Heading
+                      as="h4"
+                      variant="textXl"
+                      sx={{
+                        fontWeight: "bold",
+                        marginBottom: 30,
+                      }}
+                    >
+                      {documentToReactComponents(footerText.json, {})}
+                    </Heading>
+                    <TagLink to={footerLink} variant="primary">
+                      {footerLinkText}
+                    </TagLink>
+                  </Contact>
+                </Box>
+                <Box
+                  p={3}
+                  sx={{
+                    width: ["100%", `${(4 / 12) * 100}%`],
+                    marginRight: [0],
+                  }}
+                >
+                  <Newsletter
+                    heading={newsletterHeading}
+                    text={newsletterText}
+                  />
+                </Box>
+              </Flex>
+            </FooterWrap>
           </FooterSection>
         )
       }}
@@ -94,6 +98,11 @@ const Footer = () => {
 const FooterSection = styled.footer`
   margin-top: 1em;
   margin-bottom: 4em;
+`
+
+const FooterWrap = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 // const FooterInner = styled.div`

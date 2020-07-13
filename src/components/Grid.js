@@ -3,6 +3,9 @@ import styled from "@emotion/styled"
 const Row = styled.div`
   width: 100%;
   margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
   @media only screen and (min-width: 992px) {
     display: flex;
     flex-direction: ${props =>

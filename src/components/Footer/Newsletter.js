@@ -1,8 +1,12 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Heading, Text, Input } from "theme-ui"
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const Newsletter = ({ heading, text }) => {
+  const url =
+    "//deadpuppetsociety.us3.list-manage.com/subscribe/post?u=f83851fb65f3135040db20fdc&id=800dfb15fe"
+
   return (
     <Wrap>
       <Heading
@@ -24,17 +28,80 @@ const Newsletter = ({ heading, text }) => {
       >
         {text}
       </Text>
-      <InputWrap>
-        <Input as="input" placeholder="Email address" />
-        <Button />
-      </InputWrap>
+
+      <MailchimpSubscribe
+        url={url}
+        render={({ subscribe, status, message }) => (
+          <Form
+            status={status}
+            message={message}
+            onValidated={formData => subscribe(formData)}
+          />
+        )}
+      />
     </Wrap>
   )
 }
 
-const Button = () => {
+const Form = ({ status, message, onValidated }) => {
+  let email
+  const submit = () => {
+    console.log(">>>", email.value)
+
+    return (
+      email &&
+      email.value.indexOf("@") > -1 &&
+      onValidated({
+        EMAIL: email.value,
+      })
+    )
+  }
+
+  let statusContent
+  if (status === "sending") {
+    statusContent = (
+      <Status as="span" variant="textSm">
+        Sending...
+      </Status>
+    )
+  } else if (status === "error") {
+    statusContent = (
+      <Status
+        as="span"
+        variant="textSm"
+        dangerouslySetInnerHTML={{ __html: message }}
+      />
+    )
+  } else if (status === "success") {
+    statusContent = (
+      <Status
+        as="span"
+        variant="textSm"
+        dangerouslySetInnerHTML={{ __html: message }}
+      />
+    )
+  }
+
   return (
-    <ButtonEl>
+    <>
+      <InputWrap isSending={status === "sending"}>
+        <Input
+          as="input"
+          type="email"
+          placeholder="Email address"
+          ref={node => (email = node)}
+          sx={{ padding: "10px 0" }}
+        />
+        <Button onClick={submit} />
+      </InputWrap>
+      {statusContent}
+    </>
+  )
+}
+
+const Button = ({ onClick }) => {
+  return (
+    <ButtonEl onClick={onClick}>
       <svg
         width="51"
         height="51"
@@ -58,13 +125,14 @@ const Button = () => {
 export default Newsletter
 
 const Wrap = styled.div`
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  /* @media (min-width: ${props => props.theme.breakpoints[1]}) {
     padding-right: 20%;
-  }
+  } */
 `
 
 const InputWrap = styled.div`
   display: flex;
+  opacity: ${props => (props.isSending ? `0.5` : `1.0`)};
 `
 
 const ButtonEl = styled.button`
@@ -76,5 +144,16 @@ const ButtonEl = styled.button`
   margin-left: 20px;
   cursor: pointer;
   &:hover {
+  }
+`
+
+const Status = styled(Text)`
+  width: 100%;
+  padding-top: 20px;
+  display: block;
+  font-size: 90%;
+  line-height: 155%;
+  a {
+    color: inherit;
   }
 `

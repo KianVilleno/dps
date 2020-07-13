@@ -1,7 +1,7 @@
 import React from "react"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Text } from "theme-ui"
+import { Text, Box } from "theme-ui"
 import { Container } from "../Section"
 import { Row, Column } from "../../components/Grid"
 import styled from "@emotion/styled"
@@ -32,14 +32,24 @@ const RowText = ({ content }) => {
   return (
     <Container>
       <Row>
-        <ColumnOne>
+        <Box
+          pl={[2, 3]}
+          pr={[2, 3]}
+          pt={[2, 3]}
+          pb={[2, 3]}
+          sx={{
+            width: ["100%", "100%", "100%", `${(6 / 12) * 100}%`],
+            marginLeft: [0],
+            marginRight: [0, 0, 0, `${(1 / 12) * 100}%`],
+          }}
+        >
           <TextWrap>
             <Text
               as="div"
               variant="textBase"
               sx={{
                 "& p": {
-                  margin: "10px 0",
+                  margin: "0 0 1em 0",
                 },
               }}
             >
@@ -48,15 +58,24 @@ const RowText = ({ content }) => {
                 : null}
             </Text>
           </TextWrap>
-        </ColumnOne>
-        <ColumnTwo>
+        </Box>
+        <Box
+          pl={[2, 3]}
+          pr={[2, 3]}
+          pt={[2, 3]}
+          pb={[2, 3]}
+          sx={{
+            width: ["100%", "100%", "100%", `${(5 / 12) * 100}%`],
+            marginLeft: [0],
+          }}
+        >
           <TextWrap>
             <Text
               as="div"
               variant="textBase"
               sx={{
                 "& p": {
-                  margin: "10px 0",
+                  margin: "0 0 1em 0",
                 },
               }}
             >
@@ -65,7 +84,7 @@ const RowText = ({ content }) => {
                 : null}
             </Text>
           </TextWrap>
-        </ColumnTwo>
+        </Box>
       </Row>
     </Container>
   )
