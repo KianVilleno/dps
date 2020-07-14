@@ -36,7 +36,10 @@ const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
 
 const Head = ({ children, setIsOpen, isOpen, isStack }) => {
   return (
-    <HeadEl onClick={() => setIsOpen(!isOpen)} isStack={isStack && !isOpen}>
+    <HeadEl
+      onClick={() => setIsOpen(!isOpen)}
+      isStack={(isStack && !isOpen) || isOpen}
+    >
       <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
         {children}
       </Text>

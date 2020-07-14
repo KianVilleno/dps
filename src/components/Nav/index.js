@@ -8,6 +8,7 @@ import Logomark from "./Logomark"
 import Toggle from "./Toggle"
 import Social from "./Social"
 import { StaticQuery, graphql } from "gatsby"
+import { motion, useAnimation } from "framer-motion"
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false)
@@ -79,18 +80,36 @@ const Navigation = ({ open, navItems, navLabels, socialItems }) => {
   return (
     <ItemsWrap open={open}>
       <NavInner>
-        {navItems.map((item, i) => (
-          <NavLink to={item.url} key={i}>
-            <Text
-              as="span"
-              variant="textNav"
-              sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
+        {navItems.map((item, i) => {
+          const variants = {
+            hidden: { opacity: 0, y: 10, transition: { delay: 0 } },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { delay: i * 0.2, ease: "easeOut" },
+            },
+          }
+
+          return (
+            <motion.div
+              initial="hidden"
+              animate={open ? "visible" : "hidden"}
+              variants={variants}
+              key={i}
             >
-              {item.title}
-            </Text>
-            {getLabel(item.title, navLabels)}
-          </NavLink>
-        ))}
+              <NavLink to={item.url}>
+                <Text
+                  as="span"
+                  variant="textNav"
+                  sx={{ fontWeight: "bold", fontSize: ["6.5vh", "7.5vh"] }}
+                >
+                  {item.title}
+                </Text>
+                {getLabel(item.title, navLabels)}
+              </NavLink>
+            </motion.div>
+          )
+        })}
       </NavInner>
       <Social items={socialItems} />
     </ItemsWrap>
@@ -161,6 +180,10 @@ const Tag = styled(Text)`
   position: absolute;
   left: calc(100% + 5px);
   white-space: nowrap;
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    display: block;
+  }
 `
 
 export default Nav

@@ -49,13 +49,15 @@ const TextFeature = ({ content }) => {
   return (
     <Container outset={true}>
       <Row flexDirection={flexDirection}>
-        <TextCol>
-          {copyComponent}
-          {linkComponent}
-        </TextCol>
-        <ImageCol>
-          <Img fluid={image.fluid} />
-        </ImageCol>
+        <Cols>
+          <TextCol>
+            {copyComponent}
+            {linkComponent}
+          </TextCol>
+          <ImageCol>
+            <Img fluid={image.fluid} />
+          </ImageCol>
+        </Cols>
       </Row>
     </Container>
   )
@@ -66,6 +68,11 @@ export default TextFeature
 const Row = styled.div`
   width: 100%;
   margin: 0 auto;
+`
+
+const Cols = styled.div`
+  margin: 0 auto;
+  max-width: 1300px;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     display: flex;
     flex-direction: ${props =>
