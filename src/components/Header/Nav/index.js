@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import TagLink from "../../TagLink"
 
@@ -24,8 +23,10 @@ const Item = ({ section, parentSlug, isFirst, isActive }) => {
   const { title, slug } = section
   const href = isFirst ? `/${parentSlug}` : `/${parentSlug}/${slug}`
   return (
-    <ItemEl isActive={isActive}>
-      <TagLink to={href}>{title}</TagLink>
+    <ItemEl>
+      <TagLink to={href} variant={isActive ? "filled" : "primary"}>
+        {title}
+      </TagLink>
     </ItemEl>
   )
 }

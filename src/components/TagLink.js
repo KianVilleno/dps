@@ -9,8 +9,6 @@ const TagLink = ({ to, children, variant }) => {
   const buttonStyles =
     theme.colors.modes[colorMode].button[variant ? variant : "primary"]
 
-  console.log("buttonStyles", variant, buttonStyles)
-
   return (
     <LinkEl button-props={buttonStyles} to={to}>
       <Text
