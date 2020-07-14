@@ -26,9 +26,9 @@ const Page = ({ data }) => {
   return (
     <Layout featureVideo={featureVideo}>
       <Seo
-        title={seo.title ? seo.title : title}
-        description={seo.description ? seo.description : null}
-        image={seo.image && seo.image.fluid ? seo.image.fluid.src : null}
+        title={seo && seo.title ? seo.title : title}
+        description={seo && seo.description ? seo.description : null}
+        image={seo && seo.image && seo.image.fluid ? seo.image.fluid.src : null}
       />
       <Header
         format={headerType}

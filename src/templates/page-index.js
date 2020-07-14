@@ -31,9 +31,9 @@ const PageIndex = ({ data, location }) => {
   return (
     <Layout>
       <Seo
-        title={seo.title ? seo.title : title}
-        description={seo.description ? seo.description : null}
-        image={seo.image && seo.image.fluid ? seo.image.fluid.src : null}
+        title={seo && seo.title ? seo.title : title}
+        description={seo && seo.description ? seo.description : null}
+        image={seo && seo.image && seo.image.fluid ? seo.image.fluid.src : null}
       />
       <Header format="Text" title={title} section={null} />
       <Nav sections={sections} parentSlug={slug} currSlug={currSlug} />
