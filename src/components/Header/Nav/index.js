@@ -36,7 +36,8 @@ export default HeaderHav
 const Nav = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2em 0 3em 0;
+  flex-wrap: wrap;
+  margin: 2em 1em 3em 1em;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     margin: 2.8em 0 3.5em 0;
   }

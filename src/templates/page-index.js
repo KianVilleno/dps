@@ -6,6 +6,7 @@ import Header from "../components/Header"
 import Nav from "../components/Header/Nav"
 import Summary from "../components/Header/Summary"
 import Cards from "../components/Rows/Cards"
+import Rows from "../components/Rows"
 import { getCurrSlugSection } from "../util/helpers"
 
 const PageIndex = ({ data, location }) => {
@@ -22,7 +23,10 @@ const PageIndex = ({ data, location }) => {
     slug,
     summary,
     seo,
+    rows,
   } = data.allContentfulIndexPage.edges[0].node
+
+  console.log("rows", rows)
 
   if (!sections) return <p>Index Page has Sections :(</p>
 
@@ -39,6 +43,7 @@ const PageIndex = ({ data, location }) => {
       <Nav sections={sections} parentSlug={slug} currSlug={currSlug} />
       <Summary data={summary} />
       <Cards content={currSection.cards} />
+      <Rows data={rows} />
     </Layout>
   )
 }
@@ -76,6 +81,21 @@ export const query = graphql`
               }
               link {
                 slug
+              }
+            }
+          }
+          rows {
+            __typename
+            ... on ContentfulRowShapes {
+              shapes {
+                ... on ContentfulShapeLink {
+                  heading
+                  description
+                  theme
+                  type
+                  linkText
+                  linkUrl
+                }
               }
             }
           }

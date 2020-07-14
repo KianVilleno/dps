@@ -1,14 +1,14 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import { Heading, Text } from "theme-ui"
+import { Heading, Text, Box } from "theme-ui"
 import { Container } from "../Section"
 import Img from "gatsby-image"
 import TagLink from "../TagLink"
 
 const Cards = ({ content }) => {
   return (
-    <Container>
+    <Container outset={true}>
       <CardsEl>
         {content.map((card, index) => {
           const { title, description, thumbnail, link } = card
@@ -71,11 +71,11 @@ const Card = ({ slug, title, description, image, imageAlt }) => {
   }
 }
 
-const CardsEl = styled.div`
+const CardsEl = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 `
 
@@ -85,7 +85,7 @@ const StyledCard = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 0;
 
   a {
     text-decoration: none;
@@ -95,13 +95,17 @@ const StyledCard = styled.div`
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     margin-top: 30px;
     margin-bottom: 50px;
-    width: calc(50% - 20px);
-    padding: 0 20px;
+    width: 50%;
+    padding: 0 4%;
+    /* width: calc(50% - 20px); */
+    /* padding: 0 20px; */
   }
   @media (min-width: ${props => props.theme.breakpoints[2]}) {
     margin-top: 35px;
-    width: calc(45% - 20px);
-    padding: 0 25px;
+    /* width: calc(45% - 20px);
+    padding: 0 25px; */
+    width: 50%;
+    padding: 0 4%;
   }
 `
 
