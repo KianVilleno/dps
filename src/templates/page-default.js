@@ -20,11 +20,16 @@ const Page = ({ data }) => {
     featureVideoUrl,
     rows,
     section,
+    seo,
   } = pageQuery.edges[0].node
 
   return (
     <Layout featureVideo={featureVideo}>
-      <Seo title={title} />
+      <Seo
+        title={seo.title ? seo.title : title}
+        description={seo.description ? seo.description : null}
+        image={seo.image && seo.image.fluid ? seo.image.fluid.src : null}
+      />
       <Header
         format={headerType}
         title={title}
@@ -133,6 +138,15 @@ export const query = graphql`
           }
           linkText
           linkUrl
+        }
+      }
+      seo {
+        title
+        description
+        image {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyContentfulFluid
+          }
         }
       }
     }

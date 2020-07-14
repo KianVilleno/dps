@@ -21,6 +21,7 @@ const PageIndex = ({ data, location }) => {
     sections,
     slug,
     summary,
+    seo,
   } = data.allContentfulIndexPage.edges[0].node
 
   if (!sections) return <p>Index Page has Sections :(</p>
@@ -29,7 +30,11 @@ const PageIndex = ({ data, location }) => {
 
   return (
     <Layout>
-      <Seo title={title} />
+      <Seo
+        title={seo.title ? seo.title : title}
+        description={seo.description ? seo.description : null}
+        image={seo.image && seo.image.fluid ? seo.image.fluid.src : null}
+      />
       <Header format="Text" title={title} section={null} />
       <Nav sections={sections} parentSlug={slug} currSlug={currSlug} />
       <Summary data={summary} />
@@ -71,6 +76,15 @@ export const query = graphql`
               }
               link {
                 slug
+              }
+            }
+          }
+          seo {
+            title
+            description
+            image {
+              fluid(maxWidth: 1000) {
+                ...GatsbyContentfulFluid
               }
             }
           }
