@@ -43,5 +43,5 @@ const Nav = styled.div`
 `
 
 const ItemEl = styled.div`
-  padding: 0 0.4em;
+  padding: 0.4em 0.4em;
 `

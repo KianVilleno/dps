@@ -3,13 +3,13 @@ import TagLink from "../TagLink"
 import styled from "@emotion/styled"
 import Wordmark from "./Wordmark"
 
-const BackLink = ({ section }) => {
+const BackLink = ({ section, variant }) => {
   if (!section) {
     return <Wordmark />
   } else {
     return (
       <Wrap>
-        <TagLink to={section.url} variant="alternative">
+        <TagLink to={section.url} variant={variant ? variant : "primary"}>
           Back to {section.title}
         </TagLink>
       </Wrap>

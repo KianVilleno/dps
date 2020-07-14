@@ -91,7 +91,7 @@ const Hero = ({
           />
         ) : null}
       </Bg>
-      <BackLink section={section} />
+      <BackLink section={section} variant="alternative" />
     </Wrap>
   )
 }

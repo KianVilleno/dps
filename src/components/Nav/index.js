@@ -8,7 +8,7 @@ import Logomark from "./Logomark"
 import Toggle from "./Toggle"
 import Social from "./Social"
 import { StaticQuery, graphql } from "gatsby"
-import { motion, useAnimation } from "framer-motion"
+import { motion } from "framer-motion"
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false)
@@ -86,7 +86,7 @@ const Navigation = ({ open, navItems, navLabels, socialItems }) => {
             visible: {
               opacity: 1,
               y: 0,
-              transition: { delay: i * 0.2, ease: "easeOut" },
+              transition: { delay: i * 0.15, ease: "easeOut" },
             },
           }
 
@@ -140,6 +140,8 @@ const ItemsWrap = styled.nav`
 const NavInner = styled.div`
   height: calc(100vh - 190px);
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -179,6 +181,7 @@ const NavLink = styled(Link)`
 const Tag = styled(Text)`
   position: absolute;
   left: calc(100% + 5px);
+  top: 0px;
   white-space: nowrap;
   display: none;
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
