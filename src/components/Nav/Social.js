@@ -32,6 +32,10 @@ const Social = ({ items }) => {
 export default Social
 
 const Wrap = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;

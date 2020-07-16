@@ -132,22 +132,27 @@ const ItemsWrap = styled.nav`
   z-index: 9;
   position: fixed;
   width: 100%;
-  padding-top: 90px;
   background: #111f30;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
 `
 
 const NavInner = styled.div`
-  height: calc(100vh - 190px);
+  position: absolute;
+  left: 0;
+  top: 90px;
+  right: 0;
+  bottom: 100px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    height: calc(100vh - 170px);
+    /* height: calc(100vh - 170px); */
   }
 `
 
