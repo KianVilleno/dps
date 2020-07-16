@@ -119,9 +119,10 @@ const Navigation = ({ open, navItems, navLabels, socialItems }) => {
 const NavWrapper = styled.div`
   position: ${props => (props.open ? "fixed" : "relative")};
   left: 0;
+  right: 0;
   top: 0;
   width: 100%;
-  height: ${props => (props.open ? "100%" : "auto")};
+  bottom: ${props => (props.open ? "0px" : "none")};
   z-index: 40;
 `
 
