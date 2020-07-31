@@ -4,10 +4,18 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Text, Box } from "theme-ui"
 import { Container } from "../Section"
 import { Row } from "../../components/Grid"
+import TextVideo from "./TextVideo"
 import styled from "@emotion/styled"
 
 const renderOptions = {
   renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      if (children[0].indexOf("[htmlvideo") > -1) {
+        return <TextVideo data={children} />
+      } else {
+        return <>{children}</>
+      }
+    },
     [BLOCKS.EMBEDDED_ASSET]: node => {
       let output
       if (node.data) {
