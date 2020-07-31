@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 
 const TextVideo = ({ data }) => {
   const regex = /(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?\]?/g
-  if (data && data[0]) {
+  if (data && data[0] !== "") {
     const found = data[0].matchAll(regex)
     let videoSrcs = []
     for (const m of found) {

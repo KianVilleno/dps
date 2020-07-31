@@ -37,12 +37,12 @@ const Hero = ({
       }
     })
 
-  console.log(
-    "featureVideoText",
-    featureVideoText,
-    "featureVideoUrl",
-    featureVideoUrl
-  )
+  // console.log(
+  //   "featureVideoText",
+  //   featureVideoText,
+  //   "featureVideoUrl",
+  //   featureVideoUrl
+  // )
 
   const videoLink =
     featureVideoText &&

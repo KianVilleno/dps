@@ -10,11 +10,23 @@ import styled from "@emotion/styled"
 const renderOptions = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      if (children[0].indexOf("[htmlvideo") > -1) {
-        return <TextVideo data={children} />
-      } else {
-        return <>{children}</>
+      const str = children[0]
+      if (typeof str === "string") {
+        if (str.indexOf("[htmlvideo") > -1) {
+          return <TextVideo data={children} />
+        }
       }
+      // console.log("children", str)
+      return <>{children}</>
+      // if (children[0] !== "") {
+      //   if (children[0].indexOf("[htmlvideo") > -1) {
+      //     return <TextVideo data={children} />
+      //   } else {
+      //     return <>{children}</>
+      //   }
+      // } else {
+      //   return <>{children}</>
+      // }
     },
     [BLOCKS.EMBEDDED_ASSET]: node => {
       let output
