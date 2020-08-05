@@ -17,7 +17,7 @@ const renderOptions = {
         }
       }
       // console.log("children", str)
-      return <>{children}</>
+      return <p>{children}</p>
       // if (children[0] !== "") {
       //   if (children[0].indexOf("[htmlvideo") > -1) {
       //     return <TextVideo data={children} />
