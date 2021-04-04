@@ -8,9 +8,12 @@ import TextVideo from "./TextVideo"
 import styled from "@emotion/styled"
 
 const renderOptions = {
+  renderText: text =>
+    text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       const str = children[0]
+
       if (typeof str === "string") {
         if (str.indexOf("[htmlvideo") > -1) {
           return <TextVideo data={children} />
