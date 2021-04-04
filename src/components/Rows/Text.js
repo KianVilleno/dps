@@ -16,17 +16,7 @@ const renderOptions = {
           return <TextVideo data={children} />
         }
       }
-      // console.log("children", str)
       return <p>{children}</p>
-      // if (children[0] !== "") {
-      //   if (children[0].indexOf("[htmlvideo") > -1) {
-      //     return <TextVideo data={children} />
-      //   } else {
-      //     return <>{children}</>
-      //   }
-      // } else {
-      //   return <>{children}</>
-      // }
     },
     [BLOCKS.EMBEDDED_ASSET]: node => {
       let output
@@ -115,6 +105,28 @@ export default RowText
 const TextWrap = styled.div`
   a {
     color: inherit;
+    position: relative;
+    transition: top 0.2s ease;
+    top: 0px;
+    &:hover {
+      opacity: 0.9;
+      top: -0.05em;
+    }
+  }
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    li {
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+      p:last-child {
+        margin-bottom: 0em;
+      }
+    }
   }
 `
 

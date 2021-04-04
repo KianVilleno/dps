@@ -1,4 +1,3 @@
-// Imports
 import React from "react"
 import styled from "@emotion/styled"
 import { Heading } from "theme-ui"
@@ -23,18 +22,6 @@ const HeaderText = ({ title, section }) => {
       >
         {title}
       </Heading>
-      {/* <Text
-        as="h2"
-        variant="textLg"
-        sx={{
-          width: "100%",
-          maxWidth: 520,
-          margin: "40px auto 0 auto",
-          textAlign: "center",
-        }}
-      >
-        {subtitle}
-      </Text> */}
     </Wrap>
   )
 }

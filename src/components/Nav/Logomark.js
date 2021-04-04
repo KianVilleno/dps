@@ -2,14 +2,26 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import LogoMarkSvg from "../Svg/LogoMark"
-import { colors } from "../../styles/settings"
+import { useThemeUI } from "theme-ui"
 
-const Logomark = ({ show }) => {
+const Logomark = ({ show, hasHero }) => {
+  const context = useThemeUI()
+  const { colorMode, theme } = context
+  const { logoMark, logoMarkHero } = theme.colors.modes[colorMode]
+
+  let color = theme.colors.textOther
+  if (hasHero && logoMarkHero) {
+    color = logoMarkHero
+  } else if (!hasHero && logoMark) {
+    color = logoMark
+  }
+
   if (!show) return null
+
   return (
     <Wrap>
       <Link to="/">
-        <LogoMarkSvg size="sm" color={colors.granola} />
+        <LogoMarkSvg size="sm" color={color} />
       </Link>
     </Wrap>
   )

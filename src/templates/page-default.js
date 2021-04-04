@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useThemeUI } from "theme-ui"
 import { graphql } from "gatsby"
 import Layout from "../layouts/Layout"
 import Seo from "../components/Seo"
@@ -8,6 +9,18 @@ import Header from "../components/Header"
 const Page = ({ data }) => {
   const [featureVideo, setFeatureVideo] = useState(null)
   const { pageQuery } = data
+  const context = useThemeUI()
+  const { setColorMode } = context
+
+  useEffect(() => {
+    if (pageQuery && pageQuery.edges[0]) {
+      const page = pageQuery.edges[0].node
+      const pageTheme = page.pageTheme
+        ? page.pageTheme.toLowerCase()
+        : "default"
+      setColorMode(pageTheme)
+    }
+  }, [setColorMode, pageQuery])
 
   if (!pageQuery && !pageQuery.edges[0]) return <p>Page data not found :(</p>
   const {
@@ -24,7 +37,10 @@ const Page = ({ data }) => {
   } = pageQuery.edges[0].node
 
   return (
-    <Layout featureVideo={featureVideo}>
+    <Layout
+      featureVideo={featureVideo}
+      hasHero={headerType === "Hero" && headerMedia ? true : false}
+    >
       <Seo
         title={seo && seo.title ? seo.title : title}
         description={seo && seo.description ? seo.description : null}
@@ -59,6 +75,7 @@ export const query = graphql`
   fragment PageDefaultNodeFragment on ContentfulPageEdge {
     node {
       title
+      pageTheme
       section
       headerType
       headerMedia {

@@ -6,6 +6,13 @@ export const baseTextStyles = {
     fontWeight: "regular",
     lineHeight: "large",
   },
+  textSmFilled: {
+    color: "textTitle",
+    fontFamily: "gtAmericaMono",
+    fontSize: ["4vw", 0],
+    fontWeight: "regular",
+    lineHeight: "large",
+  },
   textBase: {
     color: "text",
     fontFamily: "gtSuperText",
@@ -28,14 +35,14 @@ export const baseTextStyles = {
     lineHeight: "medium",
   },
   text2Xl: {
-    color: "text",
+    color: "textOther",
     fontFamily: "gtSuperDisplay",
     fontSize: [1, 2, 3, 3, 4],
     fontWeight: "regular",
     lineHeight: "small",
   },
   text3Xl: {
-    color: "text",
+    color: "textTitle",
     fontFamily: "gtSuperDisplay",
     fontSize: [3, 4, 5],
     fontWeight: "bold",

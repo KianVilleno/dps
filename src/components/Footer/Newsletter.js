@@ -2,8 +2,14 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Heading, Text, Input } from "theme-ui"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
+import { useThemeUI } from "theme-ui"
 
 const Newsletter = ({ heading, text }) => {
+  const context = useThemeUI()
+  const { colorMode, theme } = context
+  const placeholderColor =
+    theme.colors.modes[colorMode].textOther || theme.colors.textOther
+
   const url =
     "//deadpuppetsociety.us3.list-manage.com/subscribe/post?u=f83851fb65f3135040db20fdc&id=800dfb15fe"
 
@@ -28,7 +34,6 @@ const Newsletter = ({ heading, text }) => {
       >
         {text}
       </Text>
-
       <MailchimpSubscribe
         url={url}
         render={({ subscribe, status, message }) => (
@@ -36,6 +41,7 @@ const Newsletter = ({ heading, text }) => {
             status={status}
             message={message}
             onValidated={formData => subscribe(formData)}
+            placeholderColor={placeholderColor}
           />
         )}
       />
@@ -43,11 +49,9 @@ const Newsletter = ({ heading, text }) => {
   )
 }
 
-const Form = ({ status, message, onValidated }) => {
+const Form = ({ status, message, onValidated, placeholderColor }) => {
   let email
   const submit = () => {
-    console.log(">>>", email.value)
-
     return (
       email &&
       email.value.indexOf("@") > -1 &&
@@ -84,13 +88,16 @@ const Form = ({ status, message, onValidated }) => {
 
   return (
     <>
-      <InputWrap isSending={status === "sending"}>
+      <InputWrap
+        isSending={status === "sending"}
+        placeholderColor={placeholderColor}
+      >
         <Input
           as="input"
           type="email"
           placeholder="Email address"
           ref={node => (email = node)}
-          sx={{ padding: "10px 0" }}
+          sx={{ padding: "10px 0", color: "textOther" }}
         />
         <Button onClick={submit} />
       </InputWrap>
@@ -133,6 +140,20 @@ const Wrap = styled.div`
 const InputWrap = styled.div`
   display: flex;
   opacity: ${props => (props.isSending ? `0.5` : `1.0`)};
+  input {
+    ::-webkit-input-placeholder {
+      color: ${({ placeholderColor }) => placeholderColor};
+    }
+    ::-moz-placeholder {
+      color: ${({ placeholderColor }) => placeholderColor};
+    }
+    :-ms-input-placeholder {
+      color: ${({ placeholderColor }) => placeholderColor};
+    }
+    :-moz-placeholder {
+      color: ${({ placeholderColor }) => placeholderColor};
+    }
+  }
 `
 
 const ButtonEl = styled.button`

@@ -9,7 +9,6 @@ import Button from "../../components/Button"
 // Components
 export const Body = props => {
   const { title, content, sideContent, accordions } = props.sectionData
-  //console.log(sideContent)
   return (
     <SECTION>
       <Container>

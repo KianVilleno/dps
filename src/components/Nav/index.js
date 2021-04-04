@@ -10,9 +10,8 @@ import Social from "./Social"
 import { StaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 
-const Nav = () => {
+const Nav = ({ hasHero }) => {
   const [navOpen, setNavOpen] = useState(false)
-
   const location = useLocation()
   const showLogoMark = location.pathname !== "/" || navOpen
 
@@ -44,7 +43,7 @@ const Nav = () => {
         return (
           <NavWrapper open={navOpen}>
             <Toggle open={navOpen} setOpen={setNavOpen} />
-            <Logomark show={showLogoMark} />
+            <Logomark show={showLogoMark} hasHero={hasHero} />
             <Navigation
               open={navOpen}
               navItems={sections}

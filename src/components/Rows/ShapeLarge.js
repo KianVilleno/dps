@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { colors } from "../../styles/settings"
 import DecagonLarge from "../Svg/DecagonLarge"
 import DodecagonLarge from "../Svg/DodecagonLarge"
-
+import { useThemeUI } from "theme-ui"
 const ShapeLarge = ({
   shape,
   heading,
@@ -14,7 +14,14 @@ const ShapeLarge = ({
   linkUrl,
   theme,
 }) => {
-  const themeColor = colors[theme.toLowerCase()] || colors["midnight"]
+  const { colorMode } = useThemeUI()
+
+  let themeColor = colors[theme.toLowerCase()] || colors["midnight"]
+  if (colorMode === "cloud") {
+    themeColor = colors["tan"]
+  } else if (colorMode === "midnight" && theme.toLowerCase() === "midnight") {
+    themeColor = colors["tan"]
+  }
 
   let ratio = 1
   let shapeComponent = null

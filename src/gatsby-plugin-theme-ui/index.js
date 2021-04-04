@@ -37,14 +37,21 @@ export default {
         },
       },
       midnight: {
-        text: granola,
+        text: white,
+        textOther: granola,
+        textTitle: white,
         background: midnight,
         button: {
           ...buttonColors.midnight,
         },
       },
       cloud: {
+        wordMark: denim,
+        logoMark: denim,
+        logoMarkHero: denim,
         text: white,
+        textOther: white,
+        textTitle: denim,
         background: cloud,
         button: {
           ...buttonColors.cloud,

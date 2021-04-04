@@ -37,13 +37,6 @@ const Hero = ({
       }
     })
 
-  // console.log(
-  //   "featureVideoText",
-  //   featureVideoText,
-  //   "featureVideoUrl",
-  //   featureVideoUrl
-  // )
-
   const videoLink =
     featureVideoText &&
     featureVideoText !== "" &&
@@ -60,7 +53,7 @@ const Hero = ({
     <Wrap>
       <Bg image={image.file.url}>
         {videos.length > 0 ? (
-          <HeroVideo urls={videos} isPlaying={true} />
+          <HeroVideo urls={videos} isPlaying={videoUrl ? false : true} />
         ) : null}
         <Content>
           {location && location.pathname === "/" ? (
@@ -76,6 +69,7 @@ const Hero = ({
                 maxWidth: 936,
                 color: "white",
                 margin: "0 auto",
+                marginBottom: ".3em",
               }}
             >
               {title}
@@ -91,7 +85,7 @@ const Hero = ({
           />
         ) : null}
       </Bg>
-      <BackLink section={section} variant="alternative" />
+      <BackLink section={section} variant="alternative" hasHero={true} />
     </Wrap>
   )
 }

@@ -4,6 +4,7 @@ import { Heading, Text, Link } from "theme-ui"
 import { colors } from "../../styles/settings"
 import DecagonMini from "../Svg/DecagonMini"
 import DodecagonMini from "../Svg/DodecagonMini"
+import { useThemeUI } from "theme-ui"
 
 const ShapeMini = ({
   shape,
@@ -13,7 +14,14 @@ const ShapeMini = ({
   linkUrl,
   theme,
 }) => {
-  const themeColor = colors[theme.toLowerCase()] || colors["midnight"]
+  const { colorMode } = useThemeUI()
+
+  let themeColor = colors[theme.toLowerCase()] || colors["midnight"]
+  if (colorMode === "cloud") {
+    themeColor = colors["tan"]
+  } else if (colorMode === "midnight" && theme.toLowerCase() === "midnight") {
+    themeColor = colors["tan"]
+  }
 
   let shapeComponent = null
   if (shape === "decagon") {

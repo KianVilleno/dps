@@ -37,15 +37,6 @@ const Rows = ({ data }) => {
         nextRowType.indexOf("Accordion") > -1
     }
 
-    // console.log(
-    //   "THIS ROW",
-    //   row.__typename,
-    //   "...top margin:",
-    //   mt,
-    //   "...bottom: margin",
-    //   mb
-    // )
-
     let content
 
     switch (row.__typename) {

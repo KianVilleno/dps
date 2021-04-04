@@ -8,9 +8,8 @@ import Footer from "../components/Footer"
 import FeatureVideo from "../components/FeatureVideo"
 import { VideoProvider } from "../hooks/useFeatureVideo"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hasHero }) => {
   const context = useThemeUI()
-  // const { colorMode, setColorMode } = context
   const { theme } = context
 
   return (
@@ -18,7 +17,7 @@ const Layout = ({ children }) => {
       <VideoProvider>
         <>
           <Page>
-            <Nav />
+            <Nav hasHero={hasHero} />
             <Main>{children}</Main>
             <Footer />
           </Page>

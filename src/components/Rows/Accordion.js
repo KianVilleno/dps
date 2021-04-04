@@ -4,9 +4,15 @@ import AccordionText from "./AccordionText"
 import AccordionGallery from "./AccordionGallery"
 import styled from "@emotion/styled"
 import { colors } from "../../styles/settings"
+import { useThemeUI } from "theme-ui"
 
 const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen)
+  const context = useThemeUI()
+  const { colorMode, theme } = context
+  const borderColor =
+    theme.colors.modes[colorMode].textTitle || theme.colors.textTitle
+
   if (!content) return null
 
   const getBody = () => {
@@ -26,7 +32,12 @@ const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
 
   return (
     <>
-      <Head isOpen={isOpen} setIsOpen={setIsOpen} isStack={isStack}>
+      <Head
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        isStack={isStack}
+        borderColor={borderColor}
+      >
         {title}
       </Head>
       {isOpen ? <Body isStack={isStack}>{bodyContent}</Body> : null}
@@ -34,11 +45,12 @@ const Accordion = ({ title, content, format, defaultOpen, isStack }) => {
   )
 }
 
-const Head = ({ children, setIsOpen, isOpen, isStack }) => {
+const Head = ({ children, setIsOpen, isOpen, isStack, borderColor }) => {
   return (
     <HeadEl
       onClick={() => setIsOpen(!isOpen)}
       isStack={(isStack && !isOpen) || isOpen}
+      borderColor={borderColor}
     >
       <Text as="span" variant="text2Xl" sx={{ fontWeight: "bold" }}>
         {children}
@@ -87,8 +99,12 @@ const HeadIcon = ({ isOpen }) => {
   )
 }
 
-const Body = ({ children, isStack }) => {
-  return <BodyEl isStack={isStack}>{children}</BodyEl>
+const Body = ({ children, isStack, borderColor }) => {
+  return (
+    <BodyEl isStack={isStack} borderColor={borderColor}>
+      {children}
+    </BodyEl>
+  )
 }
 
 export default Accordion
@@ -98,9 +114,9 @@ const HeadEl = styled.button`
   position: relative;
   padding: 25px 16px;
   border: none;
-  border-bottom: ${props =>
-    props.isStack ? `none` : `1px solid ${colors.cloud}`};
-  border-top: 1px solid ${colors.cloud};
+  border-bottom: ${({ isStack, borderColor }) =>
+    isStack ? `none` : `1px solid ${borderColor}`};
+  border-top: ${({ borderColor }) => `1px solid ${borderColor}`};
   width: 100%;
   background: transparent;
   text-align: left;
@@ -140,5 +156,5 @@ const HeadIconEl = styled.span`
 
 const BodyEl = styled.div`
   border-bottom: ${props =>
-    props.isStack ? `none` : `1px solid ${colors.cloud}`};
+    props.isStack ? `none` : `1px solid ${props.borderColor}`};
 `

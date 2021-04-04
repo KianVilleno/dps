@@ -43,7 +43,11 @@ export const TagButton = ({ onClick, children, variant, icon }) => {
         >
           <path
             d="M13.7266 8.50028L0.226562 0.706055L0.226563 16.2945L13.7266 8.50028Z"
-            fill={theme.colors.modes[colorMode].textOther}
+            fill={
+              buttonStyles.icon
+                ? buttonStyles.icon
+                : theme.colors.modes[colorMode].textOther
+            }
           />
         </svg>
       </IconEl>
@@ -53,7 +57,10 @@ export const TagButton = ({ onClick, children, variant, icon }) => {
   return (
     <ButtonEl button-props={buttonStyles} onClick={onClick}>
       {iconContent}
-      <Text as="span" variant="textSm">
+      <Text
+        as="span"
+        variant={variant === "filled" ? `textSmFilled` : `textSm`}
+      >
         {children}
       </Text>
     </ButtonEl>

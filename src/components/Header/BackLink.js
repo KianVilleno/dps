@@ -3,9 +3,9 @@ import TagLink from "../TagLink"
 import styled from "@emotion/styled"
 import Wordmark from "./Wordmark"
 
-const BackLink = ({ section, variant }) => {
+const BackLink = ({ section, variant, hasHero }) => {
   if (!section) {
-    return <Wordmark />
+    return <Wordmark hasHero={hasHero} />
   } else {
     return (
       <Wrap>

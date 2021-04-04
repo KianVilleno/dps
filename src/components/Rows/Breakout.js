@@ -36,7 +36,14 @@ export default Breakout
 const BreakoutEl = styled.div`
   h2 {
     a {
-      color: ${props => props.color};
+      color: inherit;
+      position: relative;
+      transition: top 0.2s ease;
+      top: 0px;
+      &:hover {
+        opacity: 0.9;
+        top: -0.05em;
+      }
     }
   }
 `

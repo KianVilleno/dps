@@ -10,7 +10,7 @@ Powered by:
 ## Local
 
 1. `npm install`
-2. `gatsby clean && npm run start
+2. `gatsby clean && npm run start`
 
 ## Preview
 
