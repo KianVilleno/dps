@@ -31,6 +31,7 @@ export default {
       default: {
         text: denim,
         textOther: granola,
+        textTitle: denim,
         background: tan,
         button: {
           ...buttonColors.default,
