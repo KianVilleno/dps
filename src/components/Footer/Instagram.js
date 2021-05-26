@@ -22,6 +22,12 @@ const Instagram = () => {
   }
 
   return (
+    <WrapOuter>
+      <Wrap></Wrap>
+    </WrapOuter>
+  )
+
+  return (
     <StaticQuery
       query={graphql`
         query {
