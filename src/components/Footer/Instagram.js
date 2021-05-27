@@ -22,65 +22,69 @@ const Instagram = () => {
   }
 
   return (
-    <>
-      <StaticQuery
-        query={graphql`
-          query {
-            allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 20) {
-              nodes {
-                id
-                thumbnails {
-                  src
-                  config_width
-                  config_height
-                }
-                localFile {
-                  childImageSharp {
-                    fixed(height: 500, width: 500) {
-                      srcWebp
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `}
-        render={data => {
-          console.log(data)
-          const images = data.allInstaNode.nodes.map((node, index) => {
-            return (
-              <SlideImage key={`img-${index}`}>
-                <ImageWrap>
-                  <a
-                    href={`https://instagram.com/p/${node.id}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img
-                      src={node.localFile.childImageSharp.fixed.srcWebp}
-                      alt=""
-                    />
-                  </a>
-                </ImageWrap>
-              </SlideImage>
-            )
-          })
-
-          return (
-            <WrapOuter>
-              <Wrap>
-                <Flex flexWrap="wrap">
-                  <SliderStyled>
-                    <Slider {...slideSettings}>{images}</Slider>
-                  </SliderStyled>
-                </Flex>
-              </Wrap>
-            </WrapOuter>
-          )
-        }}
-      />
-    </>
+    <WrapOuter>
+      <Wrap></Wrap>
+    </WrapOuter>
   )
+  //   <>
+  //     <StaticQuery
+  //       query={graphql`
+  //         query {
+  //           allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 20) {
+  //             nodes {
+  //               id
+  //               thumbnails {
+  //                 src
+  //                 config_width
+  //                 config_height
+  //               }
+  //               localFile {
+  //                 childImageSharp {
+  //                   fixed(height: 500, width: 500) {
+  //                     srcWebp
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       `}
+  //       render={data => {
+  //         console.log(data)
+  //         const images = data.allInstaNode.nodes.map((node, index) => {
+  //           return (
+  //             <SlideImage key={`img-${index}`}>
+  //               <ImageWrap>
+  //                 <a
+  //                   href={`https://instagram.com/p/${node.id}`}
+  //                   target="_blank"
+  //                   rel="noreferrer"
+  //                 >
+  //                   <img
+  //                     src={node.localFile.childImageSharp.fixed.srcWebp}
+  //                     alt=""
+  //                   />
+  //                 </a>
+  //               </ImageWrap>
+  //             </SlideImage>
+  //           )
+  //         })
+
+  //         return (
+  //           <WrapOuter>
+  //             <Wrap>
+  //               <Flex flexWrap="wrap">
+  //                 <SliderStyled>
+  //                   <Slider {...slideSettings}>{images}</Slider>
+  //                 </SliderStyled>
+  //               </Flex>
+  //             </Wrap>
+  //           </WrapOuter>
+  //         )
+  //       }}
+  //     />
+  //   </>
+  // )
 }
 
 export default Instagram
