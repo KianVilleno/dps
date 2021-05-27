@@ -1,12 +1,12 @@
 const dotenv = require("dotenv")
 
-dotenv.config()
+// dotenv.config()
 
-// if (process.env.NODE_ENV === "development") {
-//   dotenv.config({
-//     path: `.env.development`,
-//   })
-// }
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({
+    path: `.env.development`,
+  })
+}
 
 module.exports = {
   siteMetadata: {
@@ -84,16 +84,16 @@ module.exports = {
     `gatsby-theme-style-guide`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `12599812`,
-        access_token:
-          "GQVJWYnlhYzczOHl0ZAjNuWXRwQlJpMXVDWXUwZAXl6VFNHay0tZAXlTU1dDV0ZAQVnlvZA2tXQUZAVZAUtRV0FDZAEpSM2FvVVRxU2d0QTlaeU9oVlhjdDA4SEJYZAkZARQWhGbG4xYnktZAEIzUHBtNG80aU14YgZDZD",
-        paginate: 100,
-        maxPosts: 1000,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     username: `12599812`,
+    //     access_token:
+    //       "GQVJWYnlhYzczOHl0ZAjNuWXRwQlJpMXVDWXUwZAXl6VFNHay0tZAXlTU1dDV0ZAQVnlvZA2tXQUZAVZAUtRV0FDZAEpSM2FvVVRxU2d0QTlaeU9oVlhjdDA4SEJYZAkZARQWhGbG4xYnktZAEIzUHBtNG80aU14YgZDZD",
+    //     paginate: 100,
+    //     maxPosts: 1000,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
