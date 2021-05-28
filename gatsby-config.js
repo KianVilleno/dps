@@ -85,6 +85,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      // including a plugin from outside the plugins folder needs the path to it
+      resolve: require.resolve(`../path/to/gatsby-source-instagram`),
+    },
+    {
       resolve: `gatsby-source-instagram`,
       options: {
         username: `12599812`,
